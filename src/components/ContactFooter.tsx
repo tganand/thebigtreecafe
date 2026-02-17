@@ -19,9 +19,9 @@ const ContactSection = () => {
             <MapPin className="h-8 w-8 text-primary mx-auto mb-4" />
             <h3 className="font-display text-lg font-semibold text-foreground mb-2">Location</h3>
             <p className="font-body text-muted-foreground text-sm">
-              Near Jaisalmer Fort,<br />
-              Gopa Chowk, Jaisalmer,<br />
-              Rajasthan 345001
+              Near Jain Temples, Khejer Para,<br />
+              Manak Chowk, Dhoondha Para,<br />
+              Jaisalmer 345001, India
             </p>
           </div>
           <div className="p-8 rounded-lg bg-card border border-border">
@@ -29,7 +29,7 @@ const ContactSection = () => {
             <h3 className="font-display text-lg font-semibold text-foreground mb-2">Hours</h3>
             <p className="font-body text-muted-foreground text-sm">
               Mon – Sun<br />
-              7:00 AM – 10:00 PM<br />
+              6:00 AM – 11:00 PM<br />
               Open all days
             </p>
           </div>
@@ -37,8 +37,7 @@ const ContactSection = () => {
             <Phone className="h-8 w-8 text-primary mx-auto mb-4" />
             <h3 className="font-display text-lg font-semibold text-foreground mb-2">Contact</h3>
             <p className="font-body text-muted-foreground text-sm">
-              +91 98765 43210<br />
-              hello@bigtreecafe.in
+              <a href="tel:+919610601931" className="hover:text-primary transition-colors">+91 96106 01931</a>
             </p>
           </div>
         </div>
