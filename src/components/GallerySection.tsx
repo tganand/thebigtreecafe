@@ -1,3 +1,4 @@
+import { useRef, useState, useEffect, useCallback } from "react";
 import gallery1 from "@/assets/gallery-1.jpg";
 import gallery2 from "@/assets/gallery-2.jpg";
 import gallery3 from "@/assets/gallery-3.jpg";
@@ -13,6 +14,44 @@ const images = [
 ];
 
 const GallerySection = () => {
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const itemRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  const updateActive = useCallback(() => {
+    const container = scrollRef.current;
+    if (!container) return;
+    const centerX = container.scrollLeft + container.clientWidth / 2;
+    let closest = 0;
+    let minDist = Infinity;
+    itemRefs.current.forEach((el, i) => {
+      if (!el) return;
+      const elCenter = el.offsetLeft + el.offsetWidth / 2;
+      const dist = Math.abs(centerX - elCenter);
+      if (dist < minDist) {
+        minDist = dist;
+        closest = i;
+      }
+    });
+    setActiveIndex(closest);
+  }, []);
+
+  useEffect(() => {
+    const container = scrollRef.current;
+    if (!container) return;
+    container.addEventListener("scroll", updateActive, { passive: true });
+    updateActive();
+    return () => container.removeEventListener("scroll", updateActive);
+  }, [updateActive]);
+
+  const scrollTo = (i: number) => {
+    const el = itemRefs.current[i];
+    const container = scrollRef.current;
+    if (!el || !container) return;
+    const targetScroll = el.offsetLeft - container.clientWidth / 2 + el.offsetWidth / 2;
+    container.scrollTo({ left: targetScroll, behavior: "smooth" });
+  };
+
   return (
     <section id="gallery" className="py-24 bg-background overflow-hidden">
       <div className="container mx-auto px-6 mb-12 text-center">
@@ -26,26 +65,65 @@ const GallerySection = () => {
       </div>
 
       {/* Horizontal scrollable gallery */}
-      <div className="flex gap-5 overflow-x-auto px-6 md:px-12 pb-6 scrollbar-hide snap-x snap-mandatory">
-        {images.map((img, i) => (
-          <div
-            key={i}
-            className="flex-none w-[320px] md:w-[420px] snap-center"
-          >
-            <img
-              src={img.src}
-              alt={img.alt}
-              className="w-full h-[240px] md:h-[300px] object-cover rounded-3xl shadow-lg"
-              loading="lazy"
-            />
-          </div>
-        ))}
+      <div
+        ref={scrollRef}
+        className="flex gap-5 overflow-x-auto px-[calc(50vw-110px)] md:px-[calc(50vw-150px)] pb-6 scrollbar-hide snap-x snap-mandatory items-center"
+        style={{ scrollPaddingInline: "calc(50vw - 110px)" }}
+      >
+        {images.map((img, i) => {
+          const isActive = i === activeIndex;
+          return (
+            <div
+              key={i}
+              ref={(el) => { itemRefs.current[i] = el; }}
+              onClick={() => scrollTo(i)}
+              className="flex-none snap-center cursor-pointer"
+              style={{
+                width: isActive ? "220px" : "180px",
+                transition: "width 0.4s ease",
+              }}
+            >
+              <div
+                style={{
+                  aspectRatio: "9/16",
+                  transition: "filter 0.4s ease, transform 0.4s ease, opacity 0.4s ease",
+                  filter: isActive ? "blur(0px)" : "blur(3px)",
+                  transform: isActive ? "scale(1)" : "scale(0.88)",
+                  opacity: isActive ? 1 : 0.5,
+                }}
+                className="w-full rounded-3xl overflow-hidden shadow-2xl"
+              >
+                <img
+                  src={img.src}
+                  alt={img.alt}
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+          );
+        })}
       </div>
 
-      {/* Scroll hint */}
-      <p className="text-center font-body text-xs tracking-widest uppercase text-muted-foreground mt-6">
-        Swipe to explore →
-      </p>
+      {/* Dot indicators */}
+      <div className="flex justify-center gap-2 mt-6">
+        {images.map((_, i) => (
+          <button
+            key={i}
+            onClick={() => scrollTo(i)}
+            className="rounded-full transition-all duration-300"
+            style={{
+              width: i === activeIndex ? "24px" : "8px",
+              height: "8px",
+              backgroundColor:
+                i === activeIndex
+                  ? "hsl(var(--primary))"
+                  : "hsl(var(--muted-foreground) / 0.4)",
+            }}
+            aria-label={`Go to image ${i + 1}`}
+          />
+        ))}
+      </div>
     </section>
   );
 };
