@@ -1,5 +1,7 @@
+import { useState } from "react";
 import heroBg from "@/assets/hero-bg.jpg";
 import { TreePine } from "lucide-react";
+import BookingDialog from "@/components/BookingDialog";
 
 const Navbar = () => {
   return (
@@ -26,6 +28,8 @@ const Navbar = () => {
 };
 
 const HeroSection = () => {
+  const [bookingOpen, setBookingOpen] = useState(false);
+
   return (
     <section id="home" className="relative h-screen flex items-center justify-center overflow-hidden">
       <img
@@ -46,13 +50,23 @@ const HeroSection = () => {
         <p className="font-accent text-xl md:text-2xl text-gold-light/80 max-w-xl mx-auto mb-8">
           Authentic Rajasthani flavors under the golden desert sky
         </p>
-        <a
-          href="#menu"
-          className="inline-block px-8 py-3 bg-primary text-primary-foreground font-body text-sm tracking-widest uppercase rounded-sm hover:bg-gold-dark transition-colors"
-        >
-          Explore Menu
-        </a>
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <button
+            onClick={() => setBookingOpen(true)}
+            className="px-8 py-3 bg-primary text-primary-foreground font-body text-sm tracking-widest uppercase rounded-sm hover:bg-primary/80 transition-colors"
+          >
+            Book a Table
+          </button>
+          <a
+            href="#menu"
+            className="px-8 py-3 border border-gold-light text-gold-light font-body text-sm tracking-widest uppercase rounded-sm hover:bg-gold-light/10 transition-colors"
+          >
+            Explore Menu
+          </a>
+        </div>
       </div>
+
+      <BookingDialog open={bookingOpen} onOpenChange={setBookingOpen} />
     </section>
   );
 };
