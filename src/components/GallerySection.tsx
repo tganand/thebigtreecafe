@@ -5,7 +5,7 @@ import gallery3 from "@/assets/gallery-3.jpg";
 import gallery4 from "@/assets/gallery-4.jpg";
 import gallery5 from "@/assets/gallery-5.jpg";
 
-const images = [
+const BASE_IMAGES = [
   { src: gallery1, alt: "Authentic Rajasthani Thali" },
   { src: gallery2, alt: "Outdoor seating under the big tree at sunset" },
   { src: gallery3, alt: "Masala chai served in earthen cups" },
@@ -13,14 +13,29 @@ const images = [
   { src: gallery5, alt: "Rajasthani folk musicians performing" },
 ];
 
+// Triple the images for infinite loop illusion
+const images = [...BASE_IMAGES, ...BASE_IMAGES, ...BASE_IMAGES];
+const TOTAL = BASE_IMAGES.length;
+
+const ITEM_W_ACTIVE = 220;
+const ITEM_W_INACTIVE = 180;
+const GAP = 20;
+
 const GallerySection = () => {
   const scrollRef = useRef<HTMLDivElement>(null);
   const itemRefs = useRef<(HTMLDivElement | null)[]>([]);
-  const [activeIndex, setActiveIndex] = useState(0);
+  const [activeIndex, setActiveIndex] = useState(TOTAL); // start at middle set
+  const isJumping = useRef(false);
+
+  const getItemCenter = (i: number) => {
+    const el = itemRefs.current[i];
+    if (!el) return 0;
+    return el.offsetLeft + el.offsetWidth / 2;
+  };
 
   const updateActive = useCallback(() => {
     const container = scrollRef.current;
-    if (!container) return;
+    if (!container || isJumping.current) return;
     const centerX = container.scrollLeft + container.clientWidth / 2;
     let closest = 0;
     let minDist = Infinity;
@@ -28,19 +43,46 @@ const GallerySection = () => {
       if (!el) return;
       const elCenter = el.offsetLeft + el.offsetWidth / 2;
       const dist = Math.abs(centerX - elCenter);
-      if (dist < minDist) {
-        minDist = dist;
-        closest = i;
-      }
+      if (dist < minDist) { minDist = dist; closest = i; }
     });
     setActiveIndex(closest);
+
+    // When near end of first or third set, silently jump to middle set
+    if (closest <= 1) {
+      const targetI = closest + TOTAL;
+      isJumping.current = true;
+      const targetScroll = getItemCenter(targetI) - container.clientWidth / 2;
+      container.scrollLeft = targetScroll;
+      setActiveIndex(targetI);
+      setTimeout(() => { isJumping.current = false; }, 50);
+    } else if (closest >= images.length - 2) {
+      const targetI = closest - TOTAL;
+      isJumping.current = true;
+      const targetScroll = getItemCenter(targetI) - container.clientWidth / 2;
+      container.scrollLeft = targetScroll;
+      setActiveIndex(targetI);
+      setTimeout(() => { isJumping.current = false; }, 50);
+    }
+  }, []);
+
+  // Initialise scroll to center set on mount
+  useEffect(() => {
+    const container = scrollRef.current;
+    if (!container) return;
+    // Wait for layout
+    const raf = requestAnimationFrame(() => {
+      const el = itemRefs.current[TOTAL];
+      if (el) {
+        container.scrollLeft = el.offsetLeft - container.clientWidth / 2 + el.offsetWidth / 2;
+      }
+    });
+    return () => cancelAnimationFrame(raf);
   }, []);
 
   useEffect(() => {
     const container = scrollRef.current;
     if (!container) return;
     container.addEventListener("scroll", updateActive, { passive: true });
-    updateActive();
     return () => container.removeEventListener("scroll", updateActive);
   }, [updateActive]);
 
@@ -51,6 +93,8 @@ const GallerySection = () => {
     const targetScroll = el.offsetLeft - container.clientWidth / 2 + el.offsetWidth / 2;
     container.scrollTo({ left: targetScroll, behavior: "smooth" });
   };
+
+  const activeBase = activeIndex % TOTAL;
 
   return (
     <section id="gallery" className="py-24 bg-background overflow-hidden">
@@ -64,11 +108,11 @@ const GallerySection = () => {
         <div className="w-16 h-0.5 bg-primary mx-auto" />
       </div>
 
-      {/* Horizontal scrollable gallery */}
+      {/* Horizontal looping gallery */}
       <div
         ref={scrollRef}
-        className="flex gap-5 overflow-x-auto px-[calc(50vw-110px)] md:px-[calc(50vw-150px)] pb-6 scrollbar-hide snap-x snap-mandatory items-center"
-        style={{ scrollPaddingInline: "calc(50vw - 110px)" }}
+        className="flex overflow-x-auto scrollbar-hide snap-x snap-mandatory items-center"
+        style={{ gap: `${GAP}px`, paddingInline: "calc(50vw - 110px)" }}
       >
         {images.map((img, i) => {
           const isActive = i === activeIndex;
@@ -79,19 +123,19 @@ const GallerySection = () => {
               onClick={() => scrollTo(i)}
               className="flex-none snap-center cursor-pointer"
               style={{
-                width: isActive ? "220px" : "180px",
+                width: isActive ? `${ITEM_W_ACTIVE}px` : `${ITEM_W_INACTIVE}px`,
                 transition: "width 0.4s ease",
               }}
             >
               <div
+                className="w-full rounded-3xl overflow-hidden shadow-2xl"
                 style={{
                   aspectRatio: "9/16",
-                  transition: "filter 0.4s ease, transform 0.4s ease, opacity 0.4s ease",
                   filter: isActive ? "blur(0px)" : "blur(3px)",
                   transform: isActive ? "scale(1)" : "scale(0.88)",
                   opacity: isActive ? 1 : 0.5,
+                  transition: "filter 0.4s ease, transform 0.4s ease, opacity 0.4s ease",
                 }}
-                className="w-full rounded-3xl overflow-hidden shadow-2xl"
               >
                 <img
                   src={img.src}
@@ -105,18 +149,22 @@ const GallerySection = () => {
         })}
       </div>
 
-      {/* Dot indicators */}
+      {/* Dot indicators — only for base set */}
       <div className="flex justify-center gap-2 mt-6">
-        {images.map((_, i) => (
+        {BASE_IMAGES.map((_, i) => (
           <button
             key={i}
-            onClick={() => scrollTo(i)}
+            onClick={() => {
+              // scroll to the nearest copy in the middle set
+              const target = TOTAL + i;
+              scrollTo(target);
+            }}
             className="rounded-full transition-all duration-300"
             style={{
-              width: i === activeIndex ? "24px" : "8px",
+              width: i === activeBase ? "24px" : "8px",
               height: "8px",
               backgroundColor:
-                i === activeIndex
+                i === activeBase
                   ? "hsl(var(--primary))"
                   : "hsl(var(--muted-foreground) / 0.4)",
             }}
