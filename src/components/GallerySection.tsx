@@ -20,17 +20,62 @@ const TOTAL = BASE_IMAGES.length;
 const ITEM_W = 200;
 const GAP = 16;
 
+const AUTO_SCROLL_INTERVAL = 3000; // ms between auto-scrolls
+const USER_IDLE_DELAY = 3000; // ms after manual scroll to resume auto
+
 const GallerySection = () => {
   const scrollRef = useRef<HTMLDivElement>(null);
   const itemRefs = useRef<(HTMLDivElement | null)[]>([]);
-  const [activeIndex, setActiveIndex] = useState(TOTAL); // start at middle set
+  const [activeIndex, setActiveIndex] = useState(TOTAL);
   const isJumping = useRef(false);
+  const autoScrollTimer = useRef<ReturnType<typeof setInterval> | null>(null);
+  const userIdleTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const isUserScrolling = useRef(false);
 
   const getItemCenter = (i: number) => {
     const el = itemRefs.current[i];
     if (!el) return 0;
     return el.offsetLeft + el.offsetWidth / 2;
   };
+
+  const scrollTo = useCallback((i: number) => {
+    const el = itemRefs.current[i];
+    const container = scrollRef.current;
+    if (!el || !container) return;
+    const targetScroll = el.offsetLeft - container.clientWidth / 2 + el.offsetWidth / 2;
+    container.scrollTo({ left: targetScroll, behavior: "smooth" });
+  }, []);
+
+  const autoScrollNext = useCallback(() => {
+    if (isUserScrolling.current) return;
+    setActiveIndex((prev) => {
+      const next = prev + 1;
+      scrollTo(next);
+      return prev; // actual update happens via scroll listener
+    });
+  }, [scrollTo]);
+
+  const startAutoScroll = useCallback(() => {
+    if (autoScrollTimer.current) clearInterval(autoScrollTimer.current);
+    autoScrollTimer.current = setInterval(autoScrollNext, AUTO_SCROLL_INTERVAL);
+  }, [autoScrollNext]);
+
+  const stopAutoScroll = useCallback(() => {
+    if (autoScrollTimer.current) {
+      clearInterval(autoScrollTimer.current);
+      autoScrollTimer.current = null;
+    }
+  }, []);
+
+  const handleUserInteraction = useCallback(() => {
+    isUserScrolling.current = true;
+    stopAutoScroll();
+    if (userIdleTimer.current) clearTimeout(userIdleTimer.current);
+    userIdleTimer.current = setTimeout(() => {
+      isUserScrolling.current = false;
+      startAutoScroll();
+    }, USER_IDLE_DELAY);
+  }, [stopAutoScroll, startAutoScroll]);
 
   const updateActive = useCallback(() => {
     const container = scrollRef.current;
@@ -46,7 +91,6 @@ const GallerySection = () => {
     });
     setActiveIndex(closest);
 
-    // When near end of first or third set, silently jump to middle set
     if (closest <= 1) {
       const targetI = closest + TOTAL;
       isJumping.current = true;
@@ -64,20 +108,25 @@ const GallerySection = () => {
     }
   }, []);
 
-  // Initialise scroll to center set on mount
+  // Init scroll position
   useEffect(() => {
     const container = scrollRef.current;
     if (!container) return;
-    // Wait for layout
     const raf = requestAnimationFrame(() => {
       const el = itemRefs.current[TOTAL];
       if (el) {
         container.scrollLeft = el.offsetLeft - container.clientWidth / 2 + el.offsetWidth / 2;
       }
+      startAutoScroll();
     });
-    return () => cancelAnimationFrame(raf);
-  }, []);
+    return () => {
+      cancelAnimationFrame(raf);
+      stopAutoScroll();
+      if (userIdleTimer.current) clearTimeout(userIdleTimer.current);
+    };
+  }, [startAutoScroll, stopAutoScroll]);
 
+  // Scroll listener
   useEffect(() => {
     const container = scrollRef.current;
     if (!container) return;
@@ -85,13 +134,22 @@ const GallerySection = () => {
     return () => container.removeEventListener("scroll", updateActive);
   }, [updateActive]);
 
-  const scrollTo = (i: number) => {
-    const el = itemRefs.current[i];
+  // Detect manual interaction
+  useEffect(() => {
     const container = scrollRef.current;
-    if (!el || !container) return;
-    const targetScroll = el.offsetLeft - container.clientWidth / 2 + el.offsetWidth / 2;
-    container.scrollTo({ left: targetScroll, behavior: "smooth" });
-  };
+    if (!container) return;
+    const onTouch = () => handleUserInteraction();
+    const onWheel = () => handleUserInteraction();
+    const onPointerDown = () => handleUserInteraction();
+    container.addEventListener("touchstart", onTouch, { passive: true });
+    container.addEventListener("wheel", onWheel, { passive: true });
+    container.addEventListener("pointerdown", onPointerDown, { passive: true });
+    return () => {
+      container.removeEventListener("touchstart", onTouch);
+      container.removeEventListener("wheel", onWheel);
+      container.removeEventListener("pointerdown", onPointerDown);
+    };
+  }, [handleUserInteraction]);
 
   const activeBase = activeIndex % TOTAL;
 
