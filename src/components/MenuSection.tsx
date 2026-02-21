@@ -318,7 +318,12 @@ const CategoryCard = ({ section }: { section: MenuCategory }) => {
   );
 };
 
+const INITIAL_CATEGORIES = 3;
+
 const MenuSection = () => {
+  const [showAll, setShowAll] = useState(false);
+  const visibleCategories = showAll ? menuData : menuData.slice(0, INITIAL_CATEGORIES);
+
   return (
     <section id="menu" className="py-24 bg-background">
       <div className="container mx-auto px-6">
@@ -346,10 +351,21 @@ const MenuSection = () => {
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {menuData.map((section) => (
+          {visibleCategories.map((section) => (
             <CategoryCard key={section.category} section={section} />
           ))}
         </div>
+
+        {!showAll && (
+          <div className="text-center mt-10">
+            <button
+              onClick={() => setShowAll(true)}
+              className="px-8 py-3 bg-primary text-primary-foreground font-accent text-base font-semibold rounded-full hover:bg-primary/90 transition-colors shadow-md"
+            >
+              Show Full Menu
+            </button>
+          </div>
+        )}
       </div>
     </section>
   );

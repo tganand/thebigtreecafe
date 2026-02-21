@@ -17,9 +17,8 @@ const BASE_IMAGES = [
 const images = [...BASE_IMAGES, ...BASE_IMAGES, ...BASE_IMAGES];
 const TOTAL = BASE_IMAGES.length;
 
-const ITEM_W_ACTIVE = 220;
-const ITEM_W_INACTIVE = 180;
-const GAP = 20;
+const ITEM_W = 200;
+const GAP = 16;
 
 const GallerySection = () => {
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -112,7 +111,7 @@ const GallerySection = () => {
       <div
         ref={scrollRef}
         className="flex overflow-x-auto scrollbar-hide snap-x snap-mandatory items-center"
-        style={{ gap: `${GAP}px`, paddingInline: "calc(50vw - 110px)" }}
+        style={{ gap: `${GAP}px`, paddingInline: "calc(50vw - 100px)" }}
       >
         {images.map((img, i) => {
           const isActive = i === activeIndex;
@@ -122,10 +121,7 @@ const GallerySection = () => {
               ref={(el) => { itemRefs.current[i] = el; }}
               onClick={() => scrollTo(i)}
               className="flex-none snap-center cursor-pointer"
-              style={{
-                width: isActive ? `${ITEM_W_ACTIVE}px` : `${ITEM_W_INACTIVE}px`,
-                transition: "width 0.4s ease",
-              }}
+              style={{ width: `${ITEM_W}px` }}
             >
               <div
                 className="w-full rounded-3xl overflow-hidden shadow-2xl"
@@ -134,7 +130,7 @@ const GallerySection = () => {
                   filter: isActive ? "blur(0px)" : "blur(3px)",
                   transform: isActive ? "scale(1)" : "scale(0.88)",
                   opacity: isActive ? 1 : 0.5,
-                  transition: "filter 0.4s ease, transform 0.4s ease, opacity 0.4s ease",
+                  transition: "filter 0.3s ease, transform 0.3s ease, opacity 0.3s ease",
                 }}
               >
                 <img
