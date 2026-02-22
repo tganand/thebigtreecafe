@@ -6,11 +6,11 @@ import gallery4 from "@/assets/gallery-4.jpg";
 import gallery5 from "@/assets/gallery-5.jpg";
 
 const BASE_IMAGES = [
-  { src: gallery1, alt: "Authentic Rajasthani Thali" },
-  { src: gallery2, alt: "Outdoor seating under the big tree at sunset" },
-  { src: gallery3, alt: "Masala chai served in earthen cups" },
-  { src: gallery4, alt: "Jaisalmer fort view from the cafe terrace" },
-  { src: gallery5, alt: "Rajasthani folk musicians performing" },
+  { src: gallery1, alt: "Pasta with Jaisalmer fort view" },
+  { src: gallery2, alt: "Rooftop seating at sunset with city lights" },
+  { src: gallery3, alt: "Guests enjoying sunset at the terrace" },
+  { src: gallery4, alt: "Chai with a view of Jaisalmer" },
+  { src: gallery5, alt: "Rooftop dining area with fort view" },
 ];
 
 // Triple the images for infinite loop illusion
