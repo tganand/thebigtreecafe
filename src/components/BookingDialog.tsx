@@ -50,7 +50,7 @@ const TIME_SLOTS = [
   "9:00 PM", "10:00 PM",
 ];
 
-const WHATSAPP_NUMBER = "919610601931";
+const WHATSAPP_NUMBER = "917038712305";
 
 interface BookingDialogProps {
   open: boolean;
@@ -69,13 +69,14 @@ const BookingDialog = ({ open, onOpenChange }: BookingDialogProps) => {
 
   const buildWhatsAppMessage = (data: BookingFormValues) => {
     return encodeURIComponent(
-      `Hello! I'd like to reserve a table at The Big Tree Cafe.\n\n` +
-      `👤 Name: ${data.name}\n` +
-      `📱 Phone: ${data.phone}\n` +
-      `📅 Date: ${data.date}\n` +
-      `⏰ Time: ${data.time}\n` +
-      `👥 Guests: ${data.guests}\n\n` +
-      `Please confirm my reservation. Thank you!`
+      `Hello,\n\n` +
+      `I would like to book a table.\n\n` +
+      `Name: ${data.name}\n` +
+      `Phone: ${data.phone}\n` +
+      `Date: ${data.date}\n` +
+      `Time: ${data.time}\n` +
+      `Guests: ${data.guests}\n\n` +
+      `Please confirm availability.`
     );
   };
 
