@@ -143,7 +143,20 @@ const BookingDialog = ({ open, onOpenChange }: BookingDialogProps) => {
                     <Phone className="h-3.5 w-3.5 text-primary" /> Phone Number
                   </FormLabel>
                   <FormControl>
-                    <Input placeholder="+91 XXXXX XXXXX" {...field} />
+                    <Input
+                      placeholder="+91 XXXXX XXXXX"
+                      {...field}
+                      onChange={(e) => {
+                        let val = e.target.value;
+                        if (val.length > 0 && !val.startsWith("+")) {
+                          val = "+" + val;
+                        }
+                        field.onChange(val);
+                      }}
+                      onFocus={() => {
+                        if (!field.value) field.onChange("+");
+                      }}
+                    />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
