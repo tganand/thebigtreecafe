@@ -104,168 +104,179 @@ const BookingDialog = ({ open, onOpenChange }: BookingDialogProps) => {
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="sm:max-w-md bg-card border-border">
-        <DialogHeader>
-          <DialogTitle className="font-display text-2xl text-foreground">
-            Reserve a Table
-          </DialogTitle>
-          <DialogDescription className="font-body text-muted-foreground">
-            Fill in the details below or book directly via WhatsApp.
-          </DialogDescription>
-        </DialogHeader>
+      <DialogContent className="sm:max-w-md bg-card border-border p-0 overflow-hidden">
+        {/* Decorative header */}
+        <div className="bg-primary/10 px-6 pt-6 pb-4 border-b border-primary/20">
+          <div className="flex items-center justify-center gap-2 mb-2">
+            <div className="h-px w-8 bg-primary/40" />
+            <CalendarDays className="h-5 w-5 text-primary" />
+            <div className="h-px w-8 bg-primary/40" />
+          </div>
+          <DialogHeader>
+            <DialogTitle className="font-display text-2xl text-foreground text-center">
+              Reserve a Table
+            </DialogTitle>
+            <DialogDescription className="font-body text-muted-foreground text-center text-sm">
+              Fill in your details and we'll confirm via WhatsApp
+            </DialogDescription>
+          </DialogHeader>
+        </div>
 
-        <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmitForm)} className="space-y-4">
-            {/* Name */}
-            <FormField
-              control={form.control}
-              name="name"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel className="font-body text-foreground flex items-center gap-2">
-                    <User className="h-3.5 w-3.5 text-primary" /> Full Name
-                  </FormLabel>
-                  <FormControl>
-                    <Input placeholder="Your name" {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-
-            {/* Phone */}
-            <FormField
-              control={form.control}
-              name="phone"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel className="font-body text-foreground flex items-center gap-2">
-                    <Phone className="h-3.5 w-3.5 text-primary" /> Phone Number
-                  </FormLabel>
-                  <FormControl>
-                    <Input
-                      placeholder="+91 XXXXX XXXXX"
-                      {...field}
-                      onChange={(e) => {
-                        let val = e.target.value;
-                        if (val.length > 0 && !val.startsWith("+")) {
-                          val = "+" + val;
-                        }
-                        field.onChange(val);
-                      }}
-                      onFocus={() => {
-                        if (!field.value) field.onChange("+");
-                      }}
-                    />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-
-            {/* Date & Guests row */}
-            <div className="grid grid-cols-2 gap-3">
+        <div className="px-6 pb-6 pt-4">
+          <Form {...form}>
+            <form onSubmit={form.handleSubmit(onSubmitForm)} className="space-y-4">
+              {/* Name */}
               <FormField
                 control={form.control}
-                name="date"
+                name="name"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="font-body text-foreground flex items-center gap-2">
-                      <CalendarDays className="h-3.5 w-3.5 text-primary" /> Date
+                    <FormLabel className="font-body text-xs uppercase tracking-wider text-muted-foreground flex items-center gap-1.5">
+                      <User className="h-3 w-3 text-primary" /> Full Name
                     </FormLabel>
                     <FormControl>
-                      <Input type="date" min={today} {...field} />
+                      <Input placeholder="Your name" className="h-11 font-body" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
                 )}
               />
 
+              {/* Phone */}
               <FormField
                 control={form.control}
-                name="guests"
+                name="phone"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="font-body text-foreground flex items-center gap-2">
-                      <Users className="h-3.5 w-3.5 text-primary" /> Guests
+                    <FormLabel className="font-body text-xs uppercase tracking-wider text-muted-foreground flex items-center gap-1.5">
+                      <Phone className="h-3 w-3 text-primary" /> Phone Number
+                    </FormLabel>
+                    <FormControl>
+                      <Input
+                        placeholder="+91 XXXXX XXXXX"
+                        className="h-11 font-body"
+                        {...field}
+                        onChange={(e) => {
+                          let val = e.target.value;
+                          if (val.length > 0 && !val.startsWith("+")) {
+                            val = "+" + val;
+                          }
+                          field.onChange(val);
+                        }}
+                        onFocus={() => {
+                          if (!field.value) field.onChange("+");
+                        }}
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+
+              {/* Date & Guests row - equal sizing */}
+              <div className="grid grid-cols-2 gap-3">
+                <FormField
+                  control={form.control}
+                  name="date"
+                  render={({ field }) => (
+                    <FormItem className="min-w-0">
+                      <FormLabel className="font-body text-xs uppercase tracking-wider text-muted-foreground flex items-center gap-1.5">
+                        <CalendarDays className="h-3 w-3 text-primary" /> Date
+                      </FormLabel>
+                      <FormControl>
+                        <Input type="date" min={today} className="h-11 font-body text-sm" {...field} />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+
+                <FormField
+                  control={form.control}
+                  name="guests"
+                  render={({ field }) => (
+                    <FormItem className="min-w-0">
+                      <FormLabel className="font-body text-xs uppercase tracking-wider text-muted-foreground flex items-center gap-1.5">
+                        <Users className="h-3 w-3 text-primary" /> Guests
+                      </FormLabel>
+                      <Select onValueChange={field.onChange} value={field.value}>
+                        <FormControl>
+                          <SelectTrigger className="h-11 font-body">
+                            <SelectValue placeholder="How many?" />
+                          </SelectTrigger>
+                        </FormControl>
+                        <SelectContent>
+                          {[1, 2, 3, 4, 5, 6, 7, 8].map((n) => (
+                            <SelectItem key={n} value={String(n)}>
+                              {n} {n === 1 ? "Guest" : "Guests"}
+                            </SelectItem>
+                          ))}
+                          <SelectItem value="9+">9+ Guests</SelectItem>
+                        </SelectContent>
+                      </Select>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+              </div>
+
+              {/* Time */}
+              <FormField
+                control={form.control}
+                name="time"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel className="font-body text-xs uppercase tracking-wider text-muted-foreground flex items-center gap-1.5">
+                      <Clock className="h-3 w-3 text-primary" /> Preferred Time
                     </FormLabel>
                     <Select onValueChange={field.onChange} value={field.value}>
                       <FormControl>
-                        <SelectTrigger>
-                          <SelectValue placeholder="How many?" />
+                        <SelectTrigger className="h-11 font-body">
+                          <SelectValue placeholder="Select time slot" />
                         </SelectTrigger>
                       </FormControl>
                       <SelectContent>
-                        {[1, 2, 3, 4, 5, 6, 7, 8].map((n) => (
-                          <SelectItem key={n} value={String(n)}>
-                            {n} {n === 1 ? "Guest" : "Guests"}
+                        {TIME_SLOTS.map((slot) => (
+                          <SelectItem key={slot} value={slot}>
+                            {slot}
                           </SelectItem>
                         ))}
-                        <SelectItem value="9+">9+ Guests</SelectItem>
                       </SelectContent>
                     </Select>
                     <FormMessage />
                   </FormItem>
                 )}
               />
-            </div>
 
-            {/* Time */}
-            <FormField
-              control={form.control}
-              name="time"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel className="font-body text-foreground flex items-center gap-2">
-                    <Clock className="h-3.5 w-3.5 text-primary" /> Preferred Time
-                  </FormLabel>
-                  <Select onValueChange={field.onChange} value={field.value}>
-                    <FormControl>
-                      <SelectTrigger>
-                        <SelectValue placeholder="Select time slot" />
-                      </SelectTrigger>
-                    </FormControl>
-                    <SelectContent>
-                      {TIME_SLOTS.map((slot) => (
-                        <SelectItem key={slot} value={slot}>
-                          {slot}
-                        </SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
+              {/* Submit */}
+              <Button
+                type="submit"
+                disabled={submitted}
+                className="w-full h-12 bg-primary text-primary-foreground hover:bg-primary/90 font-body tracking-widest uppercase text-sm rounded-lg shadow-md hover:shadow-lg transition-all duration-200"
+              >
+                <MessageCircle className="h-4 w-4 mr-2" />
+                {submitted ? "Sending…" : "Book via WhatsApp"}
+              </Button>
+            </form>
+          </Form>
 
-            {/* Submit via WhatsApp */}
-            <Button
-              type="submit"
-              disabled={submitted}
-              className="w-full bg-primary text-primary-foreground hover:bg-primary/90 font-body tracking-widest uppercase text-sm"
-            >
-              <MessageCircle className="h-4 w-4 mr-2" />
-              {submitted ? "Sending…" : "Book via WhatsApp"}
-            </Button>
-          </form>
-        </Form>
+          {/* Divider */}
+          <div className="flex items-center gap-3 my-4">
+            <div className="flex-1 h-px bg-border" />
+            <span className="font-body text-[10px] text-muted-foreground uppercase tracking-[0.2em]">or</span>
+            <div className="flex-1 h-px bg-border" />
+          </div>
 
-        {/* Divider */}
-        <div className="flex items-center gap-3 my-1">
-          <div className="flex-1 h-px bg-border" />
-          <span className="font-body text-xs text-muted-foreground uppercase tracking-widest">or</span>
-          <div className="flex-1 h-px bg-border" />
+          {/* Quick WhatsApp button */}
+          <Button
+            variant="outline"
+            className="w-full h-11 border-primary/30 text-primary hover:bg-primary/5 hover:border-primary font-body tracking-widest uppercase text-xs rounded-lg transition-all duration-200"
+            onClick={handleWhatsAppDirect}
+          >
+            <MessageCircle className="h-4 w-4 mr-2" />
+            Chat on WhatsApp
+          </Button>
         </div>
-
-        {/* Quick WhatsApp button */}
-        <Button
-          variant="outline"
-          className="w-full border-primary text-primary hover:bg-primary/10 font-body tracking-widest uppercase text-sm"
-          onClick={handleWhatsAppDirect}
-        >
-          <MessageCircle className="h-4 w-4 mr-2" />
-          Chat on WhatsApp
-        </Button>
       </DialogContent>
     </Dialog>
   );
