@@ -6,42 +6,42 @@
 
 @layer base {
   :root {
-    --background: 38 33% 96%;
-    --foreground: 25 30% 12%;
+    --background: 30 25% 95%;
+    --foreground: 20 35% 12%;
 
-    --card: 38 40% 94%;
-    --card-foreground: 25 30% 12%;
+    --card: 30 30% 92%;
+    --card-foreground: 20 35% 12%;
 
-    --popover: 38 33% 96%;
-    --popover-foreground: 25 30% 12%;
+    --popover: 30 25% 95%;
+    --popover-foreground: 20 35% 12%;
 
-    --primary: 36 72% 48%;
-    --primary-foreground: 38 33% 96%;
+    --primary: 25 85% 50%;
+    --primary-foreground: 30 25% 97%;
 
-    --secondary: 25 25% 85%;
-    --secondary-foreground: 25 30% 12%;
+    --secondary: 20 30% 82%;
+    --secondary-foreground: 20 35% 12%;
 
-    --muted: 35 20% 90%;
-    --muted-foreground: 25 15% 45%;
+    --muted: 28 20% 88%;
+    --muted-foreground: 20 15% 42%;
 
-    --accent: 15 60% 38%;
-    --accent-foreground: 38 33% 96%;
+    --accent: 0 65% 42%;
+    --accent-foreground: 30 25% 97%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 35 25% 82%;
-    --input: 35 25% 82%;
-    --ring: 36 72% 48%;
+    --border: 28 22% 80%;
+    --input: 28 22% 80%;
+    --ring: 25 85% 50%;
 
     --radius: 0.5rem;
 
-    --gold-light: 42 80% 70%;
-    --gold: 36 72% 48%;
-    --gold-dark: 30 65% 30%;
-    --sand: 38 40% 92%;
-    --terracotta: 15 60% 38%;
-    --desert-brown: 25 30% 22%;
+    --gold-light: 38 75% 65%;
+    --gold: 30 80% 50%;
+    --gold-dark: 22 70% 32%;
+    --sand: 30 30% 90%;
+    --terracotta: 0 60% 42%;
+    --desert-brown: 20 35% 18%;
 
     --font-display: 'Playfair Display', serif;
     --font-accent: 'Cormorant Garamond', serif;
@@ -58,25 +58,25 @@
   }
 
   .dark {
-    --background: 25 30% 8%;
-    --foreground: 38 33% 92%;
-    --card: 25 28% 12%;
-    --card-foreground: 38 33% 92%;
-    --popover: 25 30% 8%;
-    --popover-foreground: 38 33% 92%;
-    --primary: 36 72% 48%;
-    --primary-foreground: 25 30% 8%;
-    --secondary: 25 20% 18%;
-    --secondary-foreground: 38 33% 92%;
-    --muted: 25 15% 18%;
-    --muted-foreground: 35 15% 60%;
-    --accent: 15 50% 45%;
-    --accent-foreground: 38 33% 92%;
+    --background: 20 35% 7%;
+    --foreground: 30 30% 90%;
+    --card: 20 30% 11%;
+    --card-foreground: 30 30% 90%;
+    --popover: 20 35% 7%;
+    --popover-foreground: 30 30% 90%;
+    --primary: 25 85% 50%;
+    --primary-foreground: 20 35% 7%;
+    --secondary: 20 22% 16%;
+    --secondary-foreground: 30 30% 90%;
+    --muted: 20 18% 16%;
+    --muted-foreground: 28 15% 55%;
+    --accent: 0 55% 48%;
+    --accent-foreground: 30 30% 90%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
-    --border: 25 15% 20%;
-    --input: 25 15% 20%;
-    --ring: 36 72% 48%;
+    --border: 20 18% 18%;
+    --input: 20 18% 18%;
+    --ring: 25 85% 50%;
   }
 }
 
@@ -112,7 +112,7 @@
     background-clip: text;
   }
   .bg-hero-overlay {
-    background: linear-gradient(180deg, hsla(25, 30%, 8%, 0.3) 0%, hsla(25, 30%, 8%, 0.7) 100%);
+    background: linear-gradient(180deg, hsla(20, 35%, 7%, 0.2) 0%, hsla(20, 35%, 7%, 0.65) 100%);
   }
   .bg-sand-gradient {
     background: linear-gradient(180deg, hsl(var(--sand)) 0%, hsl(var(--background)) 100%);
