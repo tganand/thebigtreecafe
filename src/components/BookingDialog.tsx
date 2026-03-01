@@ -50,7 +50,7 @@ const TIME_SLOTS = [
   "9:00 PM", "10:00 PM",
 ];
 
-const WHATSAPP_NUMBER = "917038712305";
+const WHATSAPP_NUMBER = "916377598501";
 
 interface BookingDialogProps {
   open: boolean;
