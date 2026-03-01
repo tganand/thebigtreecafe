@@ -1,34 +1,49 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { ChevronDown } from "lucide-react";
 import type { MenuCategory } from "@/data/menuData";
+import food1 from "@/assets/food-1.jpg";
+import food2 from "@/assets/food-2.jpg";
+import food3 from "@/assets/food-3.jpg";
 
 const SUPABASE_URL = "https://carzmfqjhbgcewguaepy.supabase.co";
 
 const CategoryCard = ({ section }: { section: MenuCategory }) => {
   const [expanded, setExpanded] = useState(false);
   const [imgLoaded, setImgLoaded] = useState(false);
-  const [imgError, setImgError] = useState(false);
+  const [cloudAttemptIndex, setCloudAttemptIndex] = useState(0);
   const hasMore = section.items.length > section.initialShow;
   const visibleItems = expanded ? section.items : section.items.slice(0, section.initialShow);
 
-  const imageUrl = `${SUPABASE_URL}/storage/v1/object/public/menu-images/${section.imageKey}.png`;
+  const cloudImageCandidates = useMemo(
+    () => [
+      `${SUPABASE_URL}/storage/v1/object/public/menu-images/${section.imageKey}.png`,
+      `${SUPABASE_URL}/storage/v1/object/public/menu-images/${section.imageKey}.jpg`,
+      `${SUPABASE_URL}/storage/v1/object/public/menu-images/${section.imageKey}.webp`,
+    ],
+    [section.imageKey]
+  );
+
+  const fallbackImages = [food1, food2, food3] as const;
+  const fallbackImage = fallbackImages[section.imageKey.length % fallbackImages.length];
+  const imageUrl = cloudImageCandidates[cloudAttemptIndex] ?? fallbackImage;
 
   return (
     <div className="bg-card rounded-2xl overflow-hidden shadow-lg border border-primary/10 transition-all duration-300 hover:shadow-xl hover:border-primary/20">
       {/* Category Header Image */}
       <div className="relative h-44 overflow-hidden bg-gradient-to-br from-primary/20 to-accent/10">
-        {!imgError && (
-          <img
-            src={imageUrl}
-            alt={section.category}
-            className={`w-full h-full object-cover transition-all duration-700 ${
-              imgLoaded ? "opacity-100 scale-100" : "opacity-0 scale-105"
-            }`}
-            loading="lazy"
-            onLoad={() => setImgLoaded(true)}
-            onError={() => setImgError(true)}
-          />
-        )}
+        <img
+          src={imageUrl}
+          alt={section.category}
+          className={`w-full h-full object-cover transition-all duration-700 ${
+            imgLoaded ? "opacity-100 scale-100" : "opacity-0 scale-105"
+          }`}
+          loading="lazy"
+          onLoad={() => setImgLoaded(true)}
+          onError={() => {
+            setImgLoaded(false);
+            setCloudAttemptIndex((prev) => prev + 1);
+          }}
+        />
         {/* Gradient overlay */}
         <div className="absolute inset-0 bg-gradient-to-t from-card via-card/30 to-transparent" />
         {/* Category title on image */}
