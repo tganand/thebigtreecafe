@@ -9,7 +9,6 @@ const SUPABASE_URL = "https://carzmfqjhbgcewguaepy.supabase.co";
 
 const CategoryCard = ({ section }: { section: MenuCategory }) => {
   const [expanded, setExpanded] = useState(false);
-  const [imgLoaded, setImgLoaded] = useState(false);
   const [cloudAttemptIndex, setCloudAttemptIndex] = useState(0);
   const hasMore = section.items.length > section.initialShow;
   const visibleItems = expanded ? section.items : section.items.slice(0, section.initialShow);
@@ -34,14 +33,12 @@ const CategoryCard = ({ section }: { section: MenuCategory }) => {
         <img
           src={imageUrl}
           alt={section.category}
-          className={`w-full h-full object-cover transition-all duration-700 ${
-            imgLoaded ? "opacity-100 scale-100" : "opacity-0 scale-105"
-          }`}
+          className="w-full h-full object-cover"
           loading="lazy"
-          onLoad={() => setImgLoaded(true)}
           onError={() => {
-            setImgLoaded(false);
-            setCloudAttemptIndex((prev) => prev + 1);
+            if (cloudAttemptIndex < cloudImageCandidates.length) {
+              setCloudAttemptIndex((prev) => prev + 1);
+            }
           }}
         />
         {/* Gradient overlay */}
