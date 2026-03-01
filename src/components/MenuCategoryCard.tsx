@@ -2,7 +2,7 @@ import { useState } from "react";
 import { ChevronDown } from "lucide-react";
 import type { MenuCategory } from "@/data/menuData";
 
-const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL;
+const SUPABASE_URL = "https://carzmfqjhbgcewguaepy.supabase.co";
 
 const CategoryCard = ({ section }: { section: MenuCategory }) => {
   const [expanded, setExpanded] = useState(false);
