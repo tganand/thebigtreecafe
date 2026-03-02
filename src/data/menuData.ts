@@ -4,11 +4,14 @@ export interface MenuItem {
   desc?: string;
 }
 
+export type MenuTag = "veg" | "egg" | "drinks" | "quick-bites";
+
 export interface MenuCategory {
   category: string;
   emoji: string;
   imageKey: string;
   initialShow: number;
+  tags: MenuTag[];
   items: MenuItem[];
 }
 
@@ -18,6 +21,7 @@ export const menuData: MenuCategory[] = [
     emoji: "🍟",
     imageKey: "snacks",
     initialShow: 4,
+    tags: ["veg", "quick-bites"],
     items: [
       { name: "Veg Pakora", price: "₹200" },
       { name: "Onion Pakora", price: "₹250" },
@@ -34,6 +38,7 @@ export const menuData: MenuCategory[] = [
     emoji: "🍳",
     imageKey: "breakfast",
     initialShow: 5,
+    tags: ["veg", "egg", "quick-bites"],
     items: [
       { name: "Cookies with Tea", price: "₹200" },
       { name: "Paneer Prantha", price: "₹250" },
@@ -55,6 +60,7 @@ export const menuData: MenuCategory[] = [
     emoji: "🥚",
     imageKey: "omelette",
     initialShow: 4,
+    tags: ["egg"],
     items: [
       { name: "Plain Omelete", price: "₹200" },
       { name: "Tomato Omelete", price: "₹250" },
@@ -75,6 +81,7 @@ export const menuData: MenuCategory[] = [
     emoji: "🥘",
     imageKey: "indian-flavours",
     initialShow: 5,
+    tags: ["veg"],
     items: [
       { name: "Palak Paneer", price: "₹300" },
       { name: "Matar Paneer", price: "₹350" },
@@ -100,6 +107,7 @@ export const menuData: MenuCategory[] = [
     emoji: "🫓",
     imageKey: "chapati",
     initialShow: 4,
+    tags: ["veg"],
     items: [
       { name: "Plain Roti", price: "₹20" },
       { name: "Butter Roti", price: "₹30" },
@@ -115,6 +123,7 @@ export const menuData: MenuCategory[] = [
     emoji: "🥛",
     imageKey: "curd",
     initialShow: 4,
+    tags: ["veg"],
     items: [
       { name: "Plain Curd", price: "₹150" },
       { name: "Veg. Raita", price: "₹250" },
@@ -127,6 +136,7 @@ export const menuData: MenuCategory[] = [
     emoji: "🍮",
     imageKey: "desert",
     initialShow: 4,
+    tags: ["veg"],
     items: [
       { name: "Ghotua Traditional Sweet (2 pcs.)", price: "₹200" },
       { name: "Gulab Jamun (2 pcs.)", price: "₹200" },
@@ -139,6 +149,7 @@ export const menuData: MenuCategory[] = [
     emoji: "☕",
     imageKey: "hot-drinks",
     initialShow: 4,
+    tags: ["veg", "drinks"],
     items: [
       { name: "Cup Black Tea", price: "₹50" },
       { name: "Masala Tea", price: "₹50" },
@@ -161,6 +172,7 @@ export const menuData: MenuCategory[] = [
     emoji: "🥤",
     imageKey: "cold-beverages",
     initialShow: 5,
+    tags: ["veg", "drinks"],
     items: [
       { name: "Jaisalmer Spl. Lassi Spl.", price: "₹300" },
       { name: "Jaisalmer Spl. Ice Cream", price: "₹250" },
@@ -188,6 +200,7 @@ export const menuData: MenuCategory[] = [
     emoji: "🍜",
     imageKey: "fast-foods",
     initialShow: 4,
+    tags: ["veg", "quick-bites"],
     items: [
       { name: "Veg. Chowmein", price: "₹200" },
       { name: "Paneer Chowmein", price: "₹250" },
@@ -207,6 +220,7 @@ export const menuData: MenuCategory[] = [
     emoji: "🍕",
     imageKey: "pizza",
     initialShow: 4,
+    tags: ["veg", "quick-bites"],
     items: [
       { name: "TBT SP Pizza", price: "₹399" },
       { name: "Veg. Pizza", price: "₹350" },
@@ -222,6 +236,7 @@ export const menuData: MenuCategory[] = [
     emoji: "🍲",
     imageKey: "soup",
     initialShow: 4,
+    tags: ["veg"],
     items: [
       { name: "Tomato Soup", price: "₹150" },
       { name: "Veg. Soup", price: "₹200" },
@@ -234,6 +249,7 @@ export const menuData: MenuCategory[] = [
     emoji: "🥞",
     imageKey: "pancake",
     initialShow: 4,
+    tags: ["veg", "quick-bites"],
     items: [
       { name: "Plain Pancake", price: "₹150" },
       { name: "Banana Pancake", price: "₹200" },
@@ -249,6 +265,7 @@ export const menuData: MenuCategory[] = [
     emoji: "🥗",
     imageKey: "salad",
     initialShow: 4,
+    tags: ["veg"],
     items: [
       { name: "Roasted Papad", price: "₹50" },
       { name: "Fried Papad", price: "₹150" },
@@ -265,6 +282,7 @@ export const menuData: MenuCategory[] = [
     emoji: "🍚",
     imageKey: "rice",
     initialShow: 4,
+    tags: ["veg", "egg"],
     items: [
       { name: "Plain Rice", price: "₹150" },
       { name: "Jeera Rice", price: "₹200" },
@@ -283,6 +301,7 @@ export const menuData: MenuCategory[] = [
     emoji: "🍽️",
     imageKey: "thali",
     initialShow: 3,
+    tags: ["veg"],
     items: [
       { name: "Rajasthani Spl. Thali", price: "₹650", desc: "3 Veg, Dal, Rice, Chapati, Papad, Sweet" },
       { name: "Marwadi Spl. Thali", price: "₹850", desc: "4 Veg, Dal, Rice, Chapati, Salad, Sweet, Papad" },
