@@ -29,54 +29,49 @@ const CafeVibesSection = () => {
           }
         });
       },
-      { threshold: 0.15, rootMargin: "0px 0px -40px 0px" }
+      { threshold: 0.15 }
     );
-
     itemRefs.current.forEach((el) => {
       if (el) observer.observe(el);
     });
-
     return () => observer.disconnect();
   }, []);
 
   return (
     <section className="py-24 bg-muted/30 overflow-hidden">
       <div className="container mx-auto px-6">
-        {/* Header */}
         <div className="text-center mb-14">
-          <p className="font-accent text-lg tracking-[0.25em] uppercase text-primary mb-4">
-            Our Space
-          </p>
-          <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground mb-4">
-            Feel the Vibe
-          </h2>
+          <p className="font-accent text-lg tracking-[0.25em] uppercase text-primary mb-4">Our Space</p>
+          <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground mb-4">Feel the Vibe</h2>
           <p className="max-w-xl mx-auto text-muted-foreground font-body text-sm md:text-base">
             Colorful cushions, golden sunsets, panoramic views of Jaisalmer — this is where memories are made.
           </p>
           <div className="w-16 h-0.5 bg-primary mx-auto mt-5" />
         </div>
 
-        {/* Bento-style grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4 max-w-5xl mx-auto">
+        {/* Tight masonry-style grid using explicit grid template */}
+        <div
+          className="mx-auto max-w-4xl grid gap-2 md:gap-3"
+          style={{
+            gridTemplateColumns: "repeat(3, 1fr)",
+            gridTemplateRows: "auto",
+          }}
+        >
           {cafeImages.map((img, i) => {
             const isVisible = visibleItems.has(i);
-            // Alternate tall/wide cards for visual interest
-            const isLarge = i === 0 || i === 3;
             return (
               <div
                 key={i}
                 ref={(el) => { itemRefs.current[i] = el; }}
                 data-index={i}
-                className={`relative group overflow-hidden rounded-2xl md:rounded-3xl cursor-pointer
-                  ${isLarge ? "row-span-2" : ""}
-                `}
+                className="relative group overflow-hidden rounded-xl md:rounded-2xl"
                 style={{
                   opacity: isVisible ? 1 : 0,
-                  transform: isVisible ? "translateY(0) scale(1)" : "translateY(30px) scale(0.95)",
-                  transition: `opacity 0.6s ease ${i * 0.1}s, transform 0.6s ease ${i * 0.1}s`,
+                  transform: isVisible ? "translateY(0) scale(1)" : "translateY(20px) scale(0.97)",
+                  transition: `opacity 0.5s ease ${i * 0.08}s, transform 0.5s ease ${i * 0.08}s`,
                 }}
               >
-                <div className={`w-full ${isLarge ? "aspect-[3/4]" : "aspect-square"} overflow-hidden rounded-2xl md:rounded-3xl`}>
+                <div className="w-full aspect-[4/3] overflow-hidden">
                   <img
                     src={img.src}
                     alt={img.alt}
@@ -84,9 +79,8 @@ const CafeVibesSection = () => {
                     loading="lazy"
                   />
                 </div>
-                {/* Hover overlay */}
-                <div className="absolute inset-0 rounded-2xl md:rounded-3xl bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-4 md:p-6">
-                  <p className="text-white font-display text-lg md:text-xl font-semibold translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400 flex items-end p-3 md:p-4">
+                  <p className="text-white font-display text-sm md:text-base font-semibold translate-y-2 group-hover:translate-y-0 transition-transform duration-400">
                     {img.caption}
                   </p>
                 </div>
