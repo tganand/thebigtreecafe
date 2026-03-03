@@ -50,7 +50,7 @@ const CafeVibesSection = () => {
         </div>
 
         {/* Balanced grid: tight spacing, no awkward gaps on mobile */}
-        <div className="mx-auto grid max-w-5xl grid-cols-2 gap-2 sm:gap-3 md:grid-cols-3 md:gap-4">
+        <div className="mx-auto grid max-w-5xl grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 md:gap-6 justify-items-center">
           {cafeImages.map((img, i) => {
             const isVisible = visibleItems.has(i);
             return (
@@ -58,7 +58,7 @@ const CafeVibesSection = () => {
                 key={i}
                 ref={(el) => { itemRefs.current[i] = el; }}
                 data-index={i}
-                className="relative group overflow-hidden rounded-2xl md:rounded-3xl h-44 sm:h-52 md:h-56"
+                className="relative group overflow-hidden rounded-2xl md:rounded-3xl w-full max-w-sm aspect-[4/3]"
                 style={{
                   opacity: isVisible ? 1 : 0,
                   transform: isVisible ? "translateY(0)" : "translateY(16px)",
