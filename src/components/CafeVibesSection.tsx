@@ -8,11 +8,11 @@ import cafe6 from "@/assets/cafe-6.png";
 
 const cafeImages = [
   { src: cafe1, alt: "Guest enjoying thali with a view", caption: "Rooftop Dining" },
-  { src: cafe2, alt: "Panoramic rooftop seating area", caption: "Panoramic Views" },
-  { src: cafe3, alt: "Sunset from the cafe terrace", caption: "Golden Sunsets" },
-  { src: cafe4, alt: "Guest in traditional attire at the cafe", caption: "Cultural Vibes" },
-  { src: cafe5, alt: "Jaisalmer fort golden hour view", caption: "Fort Views" },
   { src: cafe6, alt: "Colorful cushions with city panorama", caption: "Chill Corners" },
+  { src: cafe2, alt: "Panoramic rooftop seating area", caption: "Panoramic Views" },
+  { src: cafe5, alt: "Jaisalmer fort golden hour view", caption: "Fort Views" },
+  { src: cafe4, alt: "Guest in traditional attire at the cafe", caption: "Cultural Vibes" },
+  { src: cafe3, alt: "Sunset from the cafe terrace", caption: "Golden Sunsets" },
 ];
 
 const CafeVibesSection = () => {
@@ -49,14 +49,8 @@ const CafeVibesSection = () => {
           <div className="w-16 h-0.5 bg-primary mx-auto mt-5" />
         </div>
 
-        {/* Tight masonry-style grid using explicit grid template */}
-        <div
-          className="mx-auto max-w-4xl grid gap-2 md:gap-3"
-          style={{
-            gridTemplateColumns: "repeat(3, 1fr)",
-            gridTemplateRows: "auto",
-          }}
-        >
+        {/* Balanced grid: tight spacing, no awkward gaps on mobile */}
+        <div className="mx-auto grid max-w-5xl grid-cols-2 gap-2 sm:gap-3 md:grid-cols-3 md:gap-4">
           {cafeImages.map((img, i) => {
             const isVisible = visibleItems.has(i);
             return (
@@ -64,23 +58,22 @@ const CafeVibesSection = () => {
                 key={i}
                 ref={(el) => { itemRefs.current[i] = el; }}
                 data-index={i}
-                className="relative group overflow-hidden rounded-xl md:rounded-2xl"
+                className="relative group overflow-hidden rounded-2xl md:rounded-3xl h-44 sm:h-52 md:h-56"
                 style={{
                   opacity: isVisible ? 1 : 0,
-                  transform: isVisible ? "translateY(0) scale(1)" : "translateY(20px) scale(0.97)",
-                  transition: `opacity 0.5s ease ${i * 0.08}s, transform 0.5s ease ${i * 0.08}s`,
+                  transform: isVisible ? "translateY(0)" : "translateY(16px)",
+                  transition: `opacity 0.45s ease ${i * 0.07}s, transform 0.45s ease ${i * 0.07}s`,
                 }}
               >
-                <div className="w-full aspect-[4/3] overflow-hidden">
-                  <img
-                    src={img.src}
-                    alt={img.alt}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                    loading="lazy"
-                  />
-                </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400 flex items-end p-3 md:p-4">
-                  <p className="text-white font-display text-sm md:text-base font-semibold translate-y-2 group-hover:translate-y-0 transition-transform duration-400">
+                <img
+                  src={img.src}
+                  alt={img.alt}
+                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  loading="lazy"
+                />
+
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300 flex items-end p-3 md:p-4">
+                  <p className="text-white font-display text-xs sm:text-sm md:text-base font-semibold">
                     {img.caption}
                   </p>
                 </div>
