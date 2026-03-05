@@ -1,5 +1,5 @@
 import { useState } from "react";
-import heroBg from "@/assets/hero-bg.jpg";
+const heroBg = "/hero-bg.jpg";
 import { TreePine } from "lucide-react";
 import BookingDialog from "@/components/BookingDialog";
 
