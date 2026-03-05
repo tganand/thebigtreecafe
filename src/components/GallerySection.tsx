@@ -80,32 +80,35 @@ const GallerySection = () => {
   const updateActive = useCallback(() => {
     const container = scrollRef.current;
     if (!container || isJumping.current) return;
-    const centerX = container.scrollLeft + container.clientWidth / 2;
-    let closest = 0;
-    let minDist = Infinity;
-    itemRefs.current.forEach((el, i) => {
-      if (!el) return;
-      const elCenter = el.offsetLeft + el.offsetWidth / 2;
-      const dist = Math.abs(centerX - elCenter);
-      if (dist < minDist) { minDist = dist; closest = i; }
-    });
-    setActiveIndex(closest);
+    requestAnimationFrame(() => {
+      if (!container || isJumping.current) return;
+      const centerX = container.scrollLeft + container.clientWidth / 2;
+      let closest = 0;
+      let minDist = Infinity;
+      itemRefs.current.forEach((el, i) => {
+        if (!el) return;
+        const elCenter = el.offsetLeft + el.offsetWidth / 2;
+        const dist = Math.abs(centerX - elCenter);
+        if (dist < minDist) { minDist = dist; closest = i; }
+      });
+      setActiveIndex(closest);
 
-    if (closest <= 1) {
-      const targetI = closest + TOTAL;
-      isJumping.current = true;
-      const targetScroll = getItemCenter(targetI) - container.clientWidth / 2;
-      container.scrollLeft = targetScroll;
-      setActiveIndex(targetI);
-      setTimeout(() => { isJumping.current = false; }, 50);
-    } else if (closest >= images.length - 2) {
-      const targetI = closest - TOTAL;
-      isJumping.current = true;
-      const targetScroll = getItemCenter(targetI) - container.clientWidth / 2;
-      container.scrollLeft = targetScroll;
-      setActiveIndex(targetI);
-      setTimeout(() => { isJumping.current = false; }, 50);
-    }
+      if (closest <= 1) {
+        const targetI = closest + TOTAL;
+        isJumping.current = true;
+        const targetScroll = getItemCenter(targetI) - container.clientWidth / 2;
+        container.scrollLeft = targetScroll;
+        setActiveIndex(targetI);
+        setTimeout(() => { isJumping.current = false; }, 50);
+      } else if (closest >= images.length - 2) {
+        const targetI = closest - TOTAL;
+        isJumping.current = true;
+        const targetScroll = getItemCenter(targetI) - container.clientWidth / 2;
+        container.scrollLeft = targetScroll;
+        setActiveIndex(targetI);
+        setTimeout(() => { isJumping.current = false; }, 50);
+      }
+    });
   }, []);
 
   // Init scroll position
