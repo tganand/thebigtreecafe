@@ -1,4 +1,5 @@
 import { useRef, useState, useEffect, useCallback } from "react";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 import gallery1 from "@/assets/gallery-1.jpg";
 import gallery2 from "@/assets/gallery-2.jpg";
 import gallery3 from "@/assets/gallery-3.jpg";
@@ -156,16 +157,20 @@ const GallerySection = () => {
 
   const activeBase = activeIndex % TOTAL;
 
+  const heading = useScrollReveal("blur-in", 0);
+  const title = useScrollReveal("fade-up", 0.1);
+  const divider = useScrollReveal("zoom-in", 0.2);
+
   return (
     <section id="gallery" className="py-24 bg-background overflow-hidden">
       <div className="container mx-auto px-6 mb-12 text-center">
-        <p className="font-accent text-lg tracking-[0.25em] uppercase text-primary mb-4">
+        <p ref={heading.ref} style={heading.style} className="font-accent text-lg tracking-[0.25em] uppercase text-primary mb-4">
           Moments
         </p>
-        <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground mb-4">
+        <h2 ref={title.ref as React.RefObject<HTMLHeadingElement>} style={title.style} className="font-display text-4xl md:text-5xl font-bold text-foreground mb-4">
           Life at The Big Tree
         </h2>
-        <div className="w-16 h-0.5 bg-primary mx-auto" />
+        <div ref={divider.ref} style={divider.style} className="w-16 h-0.5 bg-primary mx-auto" />
       </div>
 
       {/* Horizontal looping gallery */}

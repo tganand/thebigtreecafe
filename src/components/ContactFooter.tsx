@@ -1,21 +1,27 @@
 import { MapPin, Phone, Clock, TreePine } from "lucide-react";
+import { useScrollReveal, useStaggerReveal } from "@/hooks/useScrollReveal";
 
 const ContactSection = () => {
+  const heading = useScrollReveal("blur-in", 0);
+  const title = useScrollReveal("fade-up", 0.1);
+  const divider = useScrollReveal("zoom-in", 0.2);
+  const { containerRef, getItemStyle } = useStaggerReveal(3, "slide-up", 0.1, 0.15);
+
   return (
     <section id="contact" className="py-24 bg-sand-gradient">
       <div className="container mx-auto px-6 max-w-4xl">
         <div className="text-center mb-16">
-          <p className="font-accent text-lg tracking-[0.25em] uppercase text-primary mb-4">
+          <p ref={heading.ref} style={heading.style} className="font-accent text-lg tracking-[0.25em] uppercase text-primary mb-4">
             Visit Us
           </p>
-          <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground mb-4">
+          <h2 ref={title.ref as React.RefObject<HTMLHeadingElement>} style={title.style} className="font-display text-4xl md:text-5xl font-bold text-foreground mb-4">
             Find Your Way
           </h2>
-          <div className="w-16 h-0.5 bg-primary mx-auto" />
+          <div ref={divider.ref} style={divider.style} className="w-16 h-0.5 bg-primary mx-auto" />
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8 text-center">
-          <div className="p-8 rounded-lg bg-card border border-border">
+        <div ref={containerRef} className="grid md:grid-cols-3 gap-8 text-center">
+          <div style={getItemStyle(0)} className="p-8 rounded-lg bg-card border border-border">
             <MapPin className="h-8 w-8 text-primary mx-auto mb-4" />
             <h3 className="font-display text-lg font-semibold text-foreground mb-2">Location</h3>
             <p className="font-body text-muted-foreground text-sm">
@@ -24,7 +30,7 @@ const ContactSection = () => {
               Jaisalmer 345001, India
             </p>
           </div>
-          <div className="p-8 rounded-lg bg-card border border-border">
+          <div style={getItemStyle(1)} className="p-8 rounded-lg bg-card border border-border">
             <Clock className="h-8 w-8 text-primary mx-auto mb-4" />
             <h3 className="font-display text-lg font-semibold text-foreground mb-2">Hours</h3>
             <p className="font-body text-muted-foreground text-sm">
@@ -33,7 +39,7 @@ const ContactSection = () => {
               Open all days
             </p>
           </div>
-          <div className="p-8 rounded-lg bg-card border border-border">
+          <div style={getItemStyle(2)} className="p-8 rounded-lg bg-card border border-border">
             <Phone className="h-8 w-8 text-primary mx-auto mb-4" />
             <h3 className="font-display text-lg font-semibold text-foreground mb-2">Contact</h3>
             <p className="font-body text-muted-foreground text-sm">
@@ -47,9 +53,11 @@ const ContactSection = () => {
 };
 
 const Footer = () => {
+  const footer = useScrollReveal("fade-up", 0);
+
   return (
     <footer className="py-10 bg-desert-brown text-gold-light/70">
-      <div className="container mx-auto px-6 text-center">
+      <div ref={footer.ref} style={footer.style} className="container mx-auto px-6 text-center">
         <div className="flex items-center justify-center gap-2 mb-4">
           <TreePine className="h-5 w-5 text-gold" />
           <span className="font-display text-lg font-bold text-gold">The Big Tree Cafe</span>

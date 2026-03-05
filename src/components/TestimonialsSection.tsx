@@ -1,4 +1,5 @@
 import { Quote } from "lucide-react";
+import { useScrollReveal, useStaggerReveal } from "@/hooks/useScrollReveal";
 
 const testimonials = [
   {
@@ -38,23 +39,29 @@ const Stars = ({ count }: { count: number }) => (
 );
 
 const TestimonialsSection = () => {
+  const heading = useScrollReveal("blur-in", 0);
+  const title = useScrollReveal("fade-up", 0.1);
+  const divider = useScrollReveal("zoom-in", 0.2);
+  const { containerRef, getItemStyle } = useStaggerReveal(testimonials.length, "fade-up", 0.1, 0.15);
+
   return (
     <section id="reviews" className="py-24 bg-background">
       <div className="container mx-auto px-6 max-w-6xl">
         <div className="text-center mb-16">
-          <p className="font-accent text-lg tracking-[0.25em] uppercase text-primary mb-4">
+          <p ref={heading.ref} style={heading.style} className="font-accent text-lg tracking-[0.25em] uppercase text-primary mb-4">
             Guest Reviews
           </p>
-          <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground mb-4">
+          <h2 ref={title.ref as React.RefObject<HTMLHeadingElement>} style={title.style} className="font-display text-4xl md:text-5xl font-bold text-foreground mb-4">
             What People Say
           </h2>
-          <div className="w-16 h-0.5 bg-primary mx-auto" />
+          <div ref={divider.ref} style={divider.style} className="w-16 h-0.5 bg-primary mx-auto" />
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {testimonials.map((t) => (
+        <div ref={containerRef} className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {testimonials.map((t, i) => (
             <div
               key={t.name}
+              style={getItemStyle(i)}
               className="p-6 rounded-2xl bg-card border border-border flex flex-col"
             >
               <Quote className="h-6 w-6 text-primary/40 mb-3" />
