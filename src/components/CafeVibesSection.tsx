@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import cafe1 from "@/assets/cafe-1.png";
+import cafe1 from "@/assets/cafe-1.jpg";
 import cafe2 from "@/assets/cafe-2.png";
 import cafe3 from "@/assets/cafe-3.png";
 import cafe4 from "@/assets/cafe-4.png";
