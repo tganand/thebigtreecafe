@@ -37,6 +37,8 @@ const HeroSection = () => {
         alt="The Big Tree Cafe ambiance in Jaisalmer"
         className="absolute inset-0 w-full h-full object-cover"
         loading="eager"
+        fetchPriority="high"
+        decoding="async"
       />
       <div className="absolute inset-0 bg-hero-overlay" />
       <div className="relative z-10 text-center px-6 animate-fade-in-up">
