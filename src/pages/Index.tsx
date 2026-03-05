@@ -31,8 +31,8 @@ const Index = () => {
         <Suspense fallback={null}>
           <ExperienceSection />
           <GallerySection />
-          <CafeVibesSection />
           <MenuSection />
+          <CafeVibesSection />
           <SpecialSection />
           <TestimonialsSection />
           <ContactFooterModule />
