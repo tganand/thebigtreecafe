@@ -1,13 +1,25 @@
+import { lazy, Suspense } from "react";
 import { Navbar, HeroSection } from "@/components/HeroSection";
 import AboutSection from "@/components/AboutSection";
-import MenuSection from "@/components/MenuSection";
-import GallerySection from "@/components/GallerySection";
-import ExperienceSection from "@/components/ExperienceSection";
-import TestimonialsSection from "@/components/TestimonialsSection";
-import SpecialSection from "@/components/SpecialSection";
 
-import CafeVibesSection from "@/components/CafeVibesSection";
-import { ContactSection, Footer } from "@/components/ContactFooter";
+const MenuSection = lazy(() => import("@/components/MenuSection"));
+const GallerySection = lazy(() => import("@/components/GallerySection"));
+const ExperienceSection = lazy(() => import("@/components/ExperienceSection"));
+const TestimonialsSection = lazy(() => import("@/components/TestimonialsSection"));
+const SpecialSection = lazy(() => import("@/components/SpecialSection"));
+const CafeVibesSection = lazy(() => import("@/components/CafeVibesSection"));
+const ContactFooterModule = lazy(() =>
+  import("@/components/ContactFooter").then((m) => ({
+    default: () => (
+      <>
+        <m.ContactSection />
+      </>
+    ),
+  }))
+);
+const Footer = lazy(() =>
+  import("@/components/ContactFooter").then((m) => ({ default: m.Footer }))
+);
 
 const Index = () => {
   return (
@@ -16,19 +28,21 @@ const Index = () => {
       <main>
         <HeroSection />
         <AboutSection />
-        <ExperienceSection />
-        <GallerySection />
-        <CafeVibesSection />
-        <MenuSection />
-        <SpecialSection />
-        
-        <TestimonialsSection />
-        <ContactSection />
+        <Suspense fallback={null}>
+          <ExperienceSection />
+          <GallerySection />
+          <CafeVibesSection />
+          <MenuSection />
+          <SpecialSection />
+          <TestimonialsSection />
+          <ContactFooterModule />
+        </Suspense>
       </main>
-      <Footer />
+      <Suspense fallback={null}>
+        <Footer />
+      </Suspense>
     </div>
   );
 };
 
 export default Index;
-
