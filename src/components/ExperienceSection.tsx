@@ -1,4 +1,5 @@
 import { Star, Music2, Sunset, UtensilsCrossed } from "lucide-react";
+import { useScrollReveal, useStaggerReveal } from "@/hooks/useScrollReveal";
 
 const features = [
   {
@@ -28,23 +29,29 @@ const features = [
 ];
 
 const ExperienceSection = () => {
+  const heading = useScrollReveal("blur-in", 0);
+  const title = useScrollReveal("fade-up", 0.1);
+  const divider = useScrollReveal("zoom-in", 0.2);
+  const { containerRef, getItemStyle } = useStaggerReveal(features.length, "flip-up", 0.1, 0.12);
+
   return (
     <section id="experience" className="py-24 bg-sand-gradient">
       <div className="container mx-auto px-6 max-w-5xl">
         <div className="text-center mb-16">
-          <p className="font-accent text-lg tracking-[0.25em] uppercase text-primary mb-4">
+          <p ref={heading.ref} style={heading.style} className="font-accent text-lg tracking-[0.25em] uppercase text-primary mb-4">
             Why Visit Us
           </p>
-          <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground mb-4">
+          <h2 ref={title.ref as React.RefObject<HTMLHeadingElement>} style={title.style} className="font-display text-4xl md:text-5xl font-bold text-foreground mb-4">
             The Experience
           </h2>
-          <div className="w-16 h-0.5 bg-primary mx-auto" />
+          <div ref={divider.ref} style={divider.style} className="w-16 h-0.5 bg-primary mx-auto" />
         </div>
 
-        <div className="grid sm:grid-cols-2 gap-8">
-          {features.map(({ icon: Icon, title, description }) => (
+        <div ref={containerRef} className="grid sm:grid-cols-2 gap-8">
+          {features.map(({ icon: Icon, title, description }, i) => (
             <div
               key={title}
+              style={getItemStyle(i)}
               className="flex gap-5 p-6 rounded-2xl bg-card border border-border hover:border-primary/40 transition-colors"
             >
               <div className="flex-none w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">

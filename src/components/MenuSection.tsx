@@ -1,6 +1,7 @@
 import { useState, useMemo } from "react";
 import { menuData, type MenuTag } from "@/data/menuData";
 import CategoryCard from "@/components/MenuCategoryCard";
+import { useScrollReveal, useStaggerReveal } from "@/hooks/useScrollReveal";
 
 type FilterKey = "all" | MenuTag;
 
@@ -20,22 +21,28 @@ const MenuSection = () => {
     return menuData.filter((cat) => cat.tags.includes(activeFilter));
   }, [activeFilter]);
 
+  const heading = useScrollReveal("blur-in", 0);
+  const title = useScrollReveal("fade-up", 0.1);
+  const subtitle = useScrollReveal("fade-up", 0.2);
+  const filters = useScrollReveal("fade-up", 0.25);
+  const { containerRef, getItemStyle } = useStaggerReveal(filteredCategories.length, "spring-up", 0.05, 0.08);
+
   return (
     <section id="menu" className="relative overflow-hidden bg-background py-24">
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-primary/10 via-transparent to-transparent" />
 
       <div className="container relative mx-auto px-6">
         <div className="mx-auto mb-14 max-w-3xl text-center">
-          <p className="mb-4 font-accent text-lg uppercase tracking-[0.25em] text-primary">Our Menu</p>
-          <h2 className="font-display text-4xl font-bold text-foreground md:text-5xl">Flavors of Rajasthan</h2>
-          <p className="mx-auto mt-4 max-w-2xl font-body text-sm text-muted-foreground md:text-base">
+          <p ref={heading.ref} style={heading.style} className="mb-4 font-accent text-lg uppercase tracking-[0.25em] text-primary">Our Menu</p>
+          <h2 ref={title.ref as React.RefObject<HTMLHeadingElement>} style={title.style} className="font-display text-4xl font-bold text-foreground md:text-5xl">Flavors of Rajasthan</h2>
+          <p ref={subtitle.ref as React.RefObject<HTMLParagraphElement>} style={subtitle.style} className="mx-auto mt-4 max-w-2xl font-body text-sm text-muted-foreground md:text-base">
             Freshly crafted dishes, drinks, and signature thalis — tap a filter to explore.
           </p>
           <div className="mx-auto mt-5 h-0.5 w-20 bg-primary" />
         </div>
 
         {/* Filter Tabs */}
-        <div className="mb-10 flex flex-wrap items-center justify-center gap-2.5">
+        <div ref={filters.ref} style={filters.style} className="mb-10 flex flex-wrap items-center justify-center gap-2.5">
           {FILTERS.map((f) => (
             <button
               key={f.key}
@@ -58,9 +65,11 @@ const MenuSection = () => {
           Showing {filteredCategories.length} categor{filteredCategories.length === 1 ? "y" : "ies"}
         </p>
 
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {filteredCategories.map((section) => (
-            <CategoryCard key={section.category} section={section} />
+        <div ref={containerRef} className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {filteredCategories.map((section, i) => (
+            <div key={section.category} style={getItemStyle(i)}>
+              <CategoryCard section={section} />
+            </div>
           ))}
         </div>
       </div>
