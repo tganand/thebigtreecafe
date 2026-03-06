@@ -1,5 +1,6 @@
 import { MapPin, Phone, Clock, TreePine } from "lucide-react";
 import { useScrollReveal, useStaggerReveal } from "@/hooks/useScrollReveal";
+import { LocationMap } from "@/components/LocationMap";
 
 const ContactSection = () => {
   const heading = useScrollReveal("blur-in", 0);
@@ -54,17 +55,31 @@ const ContactSection = () => {
 
 const Footer = () => {
   const footer = useScrollReveal("fade-up", 0);
+  const mapReveal = useScrollReveal("slide-up", 0.2);
 
   return (
     <footer className="py-10 bg-desert-brown text-gold-light/70">
-      <div ref={footer.ref} style={footer.style} className="container mx-auto px-6 text-center">
-        <div className="flex items-center justify-center gap-2 mb-4">
-          <TreePine className="h-5 w-5 text-gold" />
-          <span className="font-display text-lg font-bold text-gold">The Big Tree Cafe</span>
+      <div ref={footer.ref} style={footer.style} className="container mx-auto px-6">
+        <div className="flex flex-col md:flex-row items-center md:items-start justify-between gap-8">
+          {/* Left: Map */}
+          <div ref={mapReveal.ref as React.RefObject<HTMLDivElement>} style={mapReveal.style} className="mb-4 md:mb-0">
+            <LocationMap />
+          </div>
+
+          {/* Center: Branding */}
+          <div className="text-center flex-1">
+            <div className="flex items-center justify-center gap-2 mb-4">
+              <TreePine className="h-5 w-5 text-gold" />
+              <span className="font-display text-lg font-bold text-gold">The Big Tree Cafe</span>
+            </div>
+            <p className="font-body text-xs tracking-widest uppercase">
+              Jaisalmer, Rajasthan &middot; Est. 2020
+            </p>
+          </div>
+
+          {/* Right: spacer for balance */}
+          <div className="hidden md:block" style={{ width: 260 }} />
         </div>
-        <p className="font-body text-xs tracking-widest uppercase">
-          Jaisalmer, Rajasthan &middot; Est. 2020
-        </p>
       </div>
     </footer>
   );
