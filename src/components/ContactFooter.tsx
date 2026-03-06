@@ -56,29 +56,80 @@ const ContactSection = () => {
 const Footer = () => {
   const footer = useScrollReveal("fade-up", 0);
   const mapReveal = useScrollReveal("slide-up", 0.2);
+  const rightReveal = useScrollReveal("slide-up", 0.3);
 
   return (
-    <footer className="py-10 bg-desert-brown text-gold-light/70">
+    <footer className="py-12 bg-desert-brown text-gold-light/70">
       <div ref={footer.ref} style={footer.style} className="container mx-auto px-6">
-        <div className="flex flex-col md:flex-row items-center md:items-start justify-between gap-8">
+        <div className="flex flex-col md:flex-row items-start justify-between gap-10">
           {/* Left: Map */}
-          <div ref={mapReveal.ref as React.RefObject<HTMLDivElement>} style={mapReveal.style} className="mb-4 md:mb-0">
+          <div ref={mapReveal.ref as React.RefObject<HTMLDivElement>} style={mapReveal.style} className="flex-shrink-0">
             <LocationMap />
           </div>
 
           {/* Center: Branding */}
-          <div className="text-center flex-1">
-            <div className="flex items-center justify-center gap-2 mb-4">
-              <TreePine className="h-5 w-5 text-gold" />
-              <span className="font-display text-lg font-bold text-gold">The Big Tree Cafe</span>
+          <div className="text-center flex-1 pt-4">
+            <div className="flex items-center justify-center gap-2 mb-3">
+              <TreePine className="h-6 w-6 text-gold" />
+              <span className="font-display text-xl font-bold text-gold">The Big Tree Cafe</span>
             </div>
-            <p className="font-body text-xs tracking-widest uppercase">
+            <p className="font-body text-xs tracking-widest uppercase mb-6">
               Jaisalmer, Rajasthan &middot; Est. 2020
+            </p>
+            <p className="font-body text-xs text-gold-light/50 max-w-xs mx-auto leading-relaxed">
+              A rooftop café nestled in the golden fort city, serving fresh flavours with a view of ancient Jain temples.
             </p>
           </div>
 
-          {/* Right: spacer for balance */}
-          <div className="hidden md:block" style={{ width: 260 }} />
+          {/* Right: Quick Info */}
+          <div ref={rightReveal.ref as React.RefObject<HTMLDivElement>} style={rightReveal.style} className="flex-shrink-0 w-full md:w-auto">
+            <div className="space-y-5">
+              <div>
+                <h4 className="font-display text-sm font-semibold text-gold mb-2">Opening Hours</h4>
+                <div className="flex items-start gap-2">
+                  <Clock className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                  <div className="font-body text-xs leading-relaxed">
+                    <p>Mon – Sun</p>
+                    <p>6:00 AM – 11:00 PM</p>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <h4 className="font-display text-sm font-semibold text-gold mb-2">Get in Touch</h4>
+                <div className="space-y-2">
+                  <div className="flex items-center gap-2">
+                    <Phone className="h-4 w-4 text-primary flex-shrink-0" />
+                    <a href="tel:+919610601931" className="font-body text-xs hover:text-primary transition-colors">
+                      +91 96106 01931
+                    </a>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Phone className="h-4 w-4 text-primary flex-shrink-0" />
+                    <a href="https://wa.me/916377598501" target="_blank" rel="noopener noreferrer" className="font-body text-xs hover:text-primary transition-colors">
+                      +91 63775 98501 (WhatsApp)
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <h4 className="font-display text-sm font-semibold text-gold mb-2">Address</h4>
+                <div className="flex items-start gap-2">
+                  <MapPin className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                  <p className="font-body text-xs leading-relaxed">
+                    Near Jain Temples, Khejer Para,<br />
+                    Manak Chowk, Jaisalmer 345001
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Bottom bar */}
+        <div className="mt-10 pt-6 border-t border-gold/10 text-center">
+          <p className="font-body text-[10px] tracking-widest uppercase text-gold-light/40">
+            &copy; {new Date().getFullYear()} The Big Tree Cafe. All rights reserved.
+          </p>
         </div>
       </div>
     </footer>
