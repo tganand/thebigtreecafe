@@ -1,77 +1,56 @@
 import React from "react";
 import { motion } from "motion/react";
+import { Star } from "lucide-react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
-import priyaImg from "@/assets/avatars/priya.jpg";
-import jamesImg from "@/assets/avatars/james.jpg";
-import ananyaImg from "@/assets/avatars/ananya.jpg";
-import marcoImg from "@/assets/avatars/marco.jpg";
-import rajeshImg from "@/assets/avatars/rajesh.jpg";
-import sophieImg from "@/assets/avatars/sophie.jpg";
-import meeraImg from "@/assets/avatars/meera.jpg";
-import tomImg from "@/assets/avatars/tom.jpg";
-import arjunImg from "@/assets/avatars/arjun.jpg";
-
 const testimonials = [
-  {
-    name: "Priya Sharma",
-    role: "Mumbai, India",
-    text: "The best meal I had in Jaisalmer! The Rajasthani thali was incredible and the view of the fort at sunset was absolutely magical. Will definitely be back.",
-    image: priyaImg,
-  },
-  {
-    name: "James Mitchell",
-    role: "London, UK",
-    text: "Hidden gem! We stumbled upon The Big Tree Cafe and it turned out to be the highlight of our Rajasthan trip. Authentic food, warm people, and an atmosphere like no other.",
-    image: jamesImg,
-  },
-  {
-    name: "Ananya Gupta",
-    role: "Delhi, India",
-    text: "The masala chai here is the best I've ever had, and I've traveled all over India. The folk music in the evening made the experience truly unforgettable.",
-    image: ananyaImg,
-  },
-  {
-    name: "Marco Rossi",
-    role: "Milan, Italy",
-    text: "Sitting under that ancient tree with fairy lights and a hot meal – this is what travel memories are made of. A must-visit in Jaisalmer!",
-    image: marcoImg,
-  },
-  {
-    name: "Rajesh Kumar",
-    role: "Jaipur, India",
-    text: "Every time I visit Jaisalmer, The Big Tree Cafe is my first stop. The dal baati churma is just like home cooking. Love the rooftop vibes!",
-    image: rajeshImg,
-  },
-  {
-    name: "Sophie Laurent",
-    role: "Paris, France",
-    text: "A magical place where time stands still. The ambiance under the tree at night with candles and music is something you won't find anywhere else in Rajasthan.",
-    image: sophieImg,
-  },
-  {
-    name: "Meera Patel",
-    role: "Ahmedabad, India",
-    text: "Came here for breakfast and stayed till dinner! The pancakes are fluffy, the coffee is strong, and the staff treats you like family. Absolutely loved it.",
-    image: meeraImg,
-  },
-  {
-    name: "Tom Walker",
-    role: "Sydney, Australia",
-    text: "Best sunset views paired with incredible food. The laal maas was spicy perfection. This cafe alone is worth the trip to Jaisalmer.",
-    image: tomImg,
-  },
-  {
-    name: "Arjun Reddy",
-    role: "Hyderabad, India",
-    text: "The vibe here is unmatched – live music, fairy lights, and the most genuine Rajasthani hospitality. The thali is a must-try for every foodie!",
-    image: arjunImg,
-  },
+  { name: "Burner", stars: 5, text: "This chow mein was an absolute delight. The noodles were stir-fried to perfection with a lovely smoky aroma, and each bite was packed with flavor. The vegetables were crisp and fresh, and the seasoning was excellent." },
+  { name: "Julie Baxter", stars: 5, text: "Great little rooftop café. Gorgeous sunset views, friendly service, and delicious, freshly prepared thali. Only drawback is the multitude of people that come just for the sunset and take a million selfies." },
+  { name: "Rebecca K", stars: 5, text: "Really tasty food and friendly service. You can sit in the shade with AC and enjoy an amazing view of the desert. We came here multiple times during our stay in Fort Jaisalmer. Highly recommend!" },
+  { name: "Deyana Stoeva", stars: 5, text: "We visited this place twice during our stay – for lunch and dinner – and can absolutely recommend it. The view from the fort is gorgeous, and the heartwarming welcome from the owner adds to the entire experience." },
+  { name: "Andrea Bednarik", stars: 4, text: "Really good food. Had the thali for 650 INR and it was really worth the money (but it takes time, be prepared). It's huge, delicious and heavy. The service was great." },
+  { name: "Giacomo Giorgianni", stars: 5, text: "Great place for lunch but especially for dinner. The food is really good and the owner is a very friendly and chatty person. We came back twice during our short stay in Jaisalmer." },
+  { name: "Bhim Makana", stars: 5, text: "The reputation is well established. The terrace at the top of the fort is very pleasant no matter the time of day. The drinks including Jaisalmer special lassi are delicious. Breakfast was also great." },
+  { name: "Игорь Пархоменко", stars: 5, text: "A very pleasant place where you can enjoy a stunning sunrise with a cup of masala chai or end the day with traditional local Indian food while taking in a beautiful view of the city." },
+  { name: "Ashish Gupta", stars: 5, text: "The environment is really peaceful and the sunset view was really great from here. Food was also good and I enjoyed it while watching the sunset." },
+  { name: "John Stiver", stars: 5, text: "Incredible Rajasthani thali and very friendly service with a sunset view." },
+  { name: "Bhavana J", stars: 5, text: "Great place with good views. Food is really good. Worth the price. Would totally recommend." },
+  { name: "Vismay SM", stars: 5, text: "This restaurant is an absolute gem, especially for the view. Watching the sky change colors while enjoying the food was easily the highlight of the visit." },
+  { name: "Wendysue Burton", stars: 5, text: "This café serves the most delicious and authentic dishes. Dilip's recommendations were a treat." },
+  { name: "Arshia Gupta", stars: 4, text: "The atmosphere was amazing, the view impeccable, and the owner friendly. The drinks were average, but it's a great place to sit and enjoy the vibe." },
+  { name: "Ujjwal Choudhary", stars: 5, text: "Big Tree Café is an absolute gem. The ambiance is vibrant and relaxing. The experience was exceptional thanks to the warm hospitality." },
 ];
 
-const firstColumn = testimonials.slice(0, 3);
-const secondColumn = testimonials.slice(3, 6);
-const thirdColumn = testimonials.slice(6, 9);
+const firstColumn = testimonials.slice(0, 5);
+const secondColumn = testimonials.slice(5, 10);
+const thirdColumn = testimonials.slice(10, 15);
+
+const avatarColors = [
+  "bg-primary/20 text-primary",
+  "bg-accent/20 text-accent",
+  "bg-gold/20 text-gold-dark",
+  "bg-terracotta/20 text-terracotta",
+  "bg-secondary text-secondary-foreground",
+];
+
+const getInitials = (name: string) => {
+  const parts = name.split(" ").filter(Boolean);
+  if (parts.length === 1) return parts[0][0].toUpperCase();
+  return (parts[0][0] + parts[parts.length - 1][0]).toUpperCase();
+};
+
+const getAvatarColor = (name: string) => avatarColors[name.length % avatarColors.length];
+
+const StarRating = ({ count }: { count: number }) => (
+  <div className="flex gap-0.5 mb-3">
+    {Array.from({ length: 5 }).map((_, i) => (
+      <Star
+        key={i}
+        className={`h-3.5 w-3.5 ${i < count ? "fill-primary text-primary" : "text-border"}`}
+      />
+    ))}
+  </div>
+);
 
 const TestimonialsColumn = ({
   className,
@@ -81,54 +60,44 @@ const TestimonialsColumn = ({
   className?: string;
   testimonials: typeof testimonials;
   duration?: number;
-}) => {
-  return (
-    <div className={className}>
-      <motion.div
-        animate={{ translateY: "-50%" }}
-        transition={{
-          duration,
-          repeat: Infinity,
-          ease: "linear",
-          repeatType: "loop",
-        }}
-        className="flex flex-col gap-6 pb-6"
-      >
-        {[...new Array(2)].map((_, index) => (
-          <React.Fragment key={index}>
-            {items.map(({ text, image, name, role }, i) => (
-              <div
-                className="p-8 rounded-3xl border border-border bg-card shadow-lg shadow-primary/10 max-w-xs w-full"
-                key={i}
-              >
-                <p className="font-body text-sm text-muted-foreground leading-relaxed">
-                  "{text}"
-                </p>
-                <div className="flex items-center gap-3 mt-5">
-                  <img
-                    width={40}
-                    height={40}
-                    src={image}
-                    alt={name}
-                    className="h-10 w-10 rounded-full object-cover"
-                  />
-                  <div className="flex flex-col">
-                    <div className="font-display text-sm font-semibold text-foreground tracking-tight leading-5">
-                      {name}
-                    </div>
-                    <div className="font-body text-xs text-muted-foreground leading-5">
-                      {role}
-                    </div>
+}) => (
+  <div className={className}>
+    <motion.div
+      animate={{ translateY: "-50%" }}
+      transition={{ duration, repeat: Infinity, ease: "linear", repeatType: "loop" }}
+      className="flex flex-col gap-6 pb-6"
+    >
+      {[...new Array(2)].map((_, index) => (
+        <React.Fragment key={index}>
+          {items.map(({ text, name, stars }, i) => (
+            <div
+              className="p-8 rounded-3xl border border-border bg-card shadow-lg shadow-primary/10 max-w-xs w-full"
+              key={i}
+            >
+              <StarRating count={stars} />
+              <p className="font-body text-sm text-muted-foreground leading-relaxed">
+                "{text}"
+              </p>
+              <div className="flex items-center gap-3 mt-5">
+                <div className={`h-10 w-10 rounded-full flex items-center justify-center font-display text-sm font-bold ${getAvatarColor(name)}`}>
+                  {getInitials(name)}
+                </div>
+                <div className="flex flex-col">
+                  <div className="font-display text-sm font-semibold text-foreground tracking-tight leading-5">
+                    {name}
+                  </div>
+                  <div className="font-body text-xs text-muted-foreground leading-5">
+                    Google Review
                   </div>
                 </div>
               </div>
-            ))}
-          </React.Fragment>
-        ))}
-      </motion.div>
-    </div>
-  );
-};
+            </div>
+          ))}
+        </React.Fragment>
+      ))}
+    </motion.div>
+  </div>
+);
 
 const TestimonialsSection = () => {
   const heading = useScrollReveal("blur-in", 0);
@@ -139,39 +108,18 @@ const TestimonialsSection = () => {
     <section id="reviews" className="py-24 bg-background">
       <div className="container mx-auto px-6 max-w-6xl">
         <div className="text-center mb-16">
-          <p
-            ref={heading.ref}
-            style={heading.style}
-            className="font-accent text-lg tracking-[0.25em] uppercase text-primary mb-4"
-          >
+          <p ref={heading.ref} style={heading.style} className="font-accent text-lg tracking-[0.25em] uppercase text-primary mb-4">
             Guest Reviews
           </p>
-          <h2
-            ref={title.ref as React.RefObject<HTMLHeadingElement>}
-            style={title.style}
-            className="font-display text-4xl md:text-5xl font-bold text-foreground mb-4"
-          >
+          <h2 ref={title.ref as React.RefObject<HTMLHeadingElement>} style={title.style} className="font-display text-4xl md:text-5xl font-bold text-foreground mb-4">
             What People Say
           </h2>
-          <div
-            ref={divider.ref}
-            style={divider.style}
-            className="w-16 h-0.5 bg-primary mx-auto"
-          />
+          <div ref={divider.ref} style={divider.style} className="w-16 h-0.5 bg-primary mx-auto" />
         </div>
-
         <div className="flex justify-center gap-6 [mask-image:linear-gradient(to_bottom,transparent,black_15%,black_85%,transparent)] max-h-[700px] overflow-hidden">
           <TestimonialsColumn testimonials={firstColumn} duration={15} />
-          <TestimonialsColumn
-            testimonials={secondColumn}
-            className="hidden md:block"
-            duration={19}
-          />
-          <TestimonialsColumn
-            testimonials={thirdColumn}
-            className="hidden lg:block"
-            duration={17}
-          />
+          <TestimonialsColumn testimonials={secondColumn} className="hidden md:block" duration={19} />
+          <TestimonialsColumn testimonials={thirdColumn} className="hidden lg:block" duration={17} />
         </div>
       </div>
     </section>
