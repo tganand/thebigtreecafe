@@ -1,29 +1,48 @@
 import { useState } from "react";
 const heroBg = "/hero-bg.jpg";
-import { TreePine } from "lucide-react";
+import { TreePine, Menu, X } from "lucide-react";
 import BookingDialog from "@/components/BookingDialog";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const Navbar = () => {
+  const [mobileOpen, setMobileOpen] = useState(false);
+
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-desert-brown/90 backdrop-blur-sm border-b border-gold/20">
       <div className="container mx-auto px-6 py-4 flex items-center justify-between">
-        <div className="flex items-center gap-2">
+        <a href="/" className="flex items-center gap-2">
           <TreePine className="h-6 w-6 text-gold" />
-          <span className="font-display text-xl font-bold text-gold">The Big Tree Cafe</span>
-        </div>
+          <span className="font-display text-lg md:text-xl font-bold text-gold leading-tight">The Big Tree Cafe & Restaurant</span>
+        </a>
         <div className="hidden md:flex items-center gap-8">
-          {["Home", "About", "Menu", "Contact"].map((item) => (
+          {["Home", "About", "Menu", "Reviews", "Contact"].map((item) => (
             <a
               key={item}
-              href={`#${item.toLowerCase()}`}
+              href={`/#${item.toLowerCase()}`}
               className="font-body text-sm tracking-widest uppercase text-gold-light/80 hover:text-gold transition-colors"
             >
               {item}
             </a>
           ))}
         </div>
+        <button className="md:hidden text-gold" onClick={() => setMobileOpen(!mobileOpen)}>
+          {mobileOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+        </button>
       </div>
+      {mobileOpen && (
+        <div className="md:hidden bg-desert-brown/95 backdrop-blur-sm border-t border-gold/10 px-6 py-4 space-y-3">
+          {["Home", "About", "Menu", "Reviews", "Contact"].map((item) => (
+            <a
+              key={item}
+              href={`/#${item.toLowerCase()}`}
+              onClick={() => setMobileOpen(false)}
+              className="block font-body text-sm tracking-widest uppercase text-gold-light/80 hover:text-gold transition-colors"
+            >
+              {item}
+            </a>
+          ))}
+        </div>
+      )}
     </nav>
   );
 };
@@ -40,7 +59,7 @@ const HeroSection = () => {
     <section id="home" className="relative h-screen flex items-center justify-center overflow-hidden">
       <img
         src={heroBg}
-        alt="The Big Tree Cafe ambiance in Jaisalmer"
+        alt="The Big Tree Cafe & Restaurant ambiance in Jaisalmer"
         className="absolute inset-0 w-full h-full object-cover"
         loading="eager"
         fetchPriority="high"
@@ -55,7 +74,7 @@ const HeroSection = () => {
           Jaisalmer
         </p>
         <h1 ref={heading.ref as React.RefObject<HTMLHeadingElement>} style={heading.style} className="font-display text-5xl md:text-7xl lg:text-8xl font-bold text-gold-light mb-6 leading-tight">
-          The Big Tree<br />Cafe
+          The Big Tree<br />Cafe & Restaurant
         </h1>
         <p ref={desc.ref as React.RefObject<HTMLParagraphElement>} style={desc.style} className="font-accent text-xl md:text-2xl text-gold-light/80 max-w-xl mx-auto mb-8">
           Authentic Rajasthani flavors under the golden desert sky

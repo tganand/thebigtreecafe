@@ -8,15 +8,7 @@ const ExperienceSection = lazy(() => import("@/components/ExperienceSection"));
 const TestimonialsSection = lazy(() => import("@/components/TestimonialsSection"));
 const SpecialSection = lazy(() => import("@/components/SpecialSection"));
 const CafeVibesSection = lazy(() => import("@/components/CafeVibesSection"));
-const ContactFooterModule = lazy(() =>
-  import("@/components/ContactFooter").then((m) => ({
-    default: () => (
-      <>
-        <m.ContactSection />
-      </>
-    ),
-  }))
-);
+const ServicesSection = lazy(() => import("@/components/ServicesSection"));
 const Footer = lazy(() =>
   import("@/components/ContactFooter").then((m) => ({ default: m.Footer }))
 );
@@ -35,7 +27,7 @@ const Index = () => {
           <CafeVibesSection />
           <SpecialSection />
           <TestimonialsSection />
-          <ContactFooterModule />
+          <ServicesSection />
         </Suspense>
       </main>
       <Suspense fallback={null}>

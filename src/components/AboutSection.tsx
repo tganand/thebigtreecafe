@@ -5,6 +5,7 @@ const AboutSection = () => {
   const divider = useScrollReveal("zoom-in", 0.15);
   const para1 = useScrollReveal("fade-up", 0.25);
   const para2 = useScrollReveal("fade-up", 0.4);
+  const para3 = useScrollReveal("fade-up", 0.55);
 
   return (
     <section id="about" className="py-24 bg-sand-gradient">
@@ -33,18 +34,36 @@ const AboutSection = () => {
           style={para2.style}
           className="font-body text-lg text-muted-foreground leading-relaxed mb-6"
         >
-          Nestled in the heart of Jaisalmer, The Big Tree Cafe sits beneath a
-          centuries-old tree that has witnessed the ebb and flow of desert life.
-          Our cafe is a haven where travelers and locals come together to share
-          stories over steaming cups of masala chai and hearty Rajasthani meals.
+          Nestled in the heart of Jaisalmer's majestic Golden Fort, The Big Tree Cafe & Restaurant
+          sits beneath a centuries-old tree that has witnessed the ebb and flow of desert life.
+          Our café is a haven where travelers and locals come together to share stories over
+          steaming cups of masala chai, hearty Rajasthani thalis, and dishes that carry the
+          soul of this ancient land.
+        </p>
+        <p
+          ref={para3.ref as React.RefObject<HTMLParagraphElement>}
+          style={para3.style}
+          className="font-body text-lg text-muted-foreground leading-relaxed mb-6"
+        >
+          We take immense pride in serving authentic Rajasthani traditional food — from rich
+          dal baati churma and fiery laal maas to delicate kachori and hand-rolled chapatis.
+          Every dish is crafted by our experienced chefs using time-honoured recipes passed
+          down through generations, prepared in a spotlessly clean and hygienic kitchen with
+          the freshest local ingredients.
         </p>
         <p
           className="font-body text-lg text-muted-foreground leading-relaxed"
-          style={{ opacity: para2.isVisible ? 1 : 0, transform: para2.isVisible ? "translate3d(0,0,0)" : "translate3d(0,40px,0)", transition: "opacity 0.8s cubic-bezier(0.16,1,0.3,1) 0.55s, transform 0.8s cubic-bezier(0.16,1,0.3,1) 0.55s" }}
+          style={{
+            opacity: para3.isVisible ? 1 : 0,
+            transform: para3.isVisible ? "translate3d(0,0,0)" : "translate3d(0,40px,0)",
+            transition: "opacity 0.8s cubic-bezier(0.16,1,0.3,1) 0.55s, transform 0.8s cubic-bezier(0.16,1,0.3,1) 0.55s",
+          }}
         >
-          Every dish is crafted with love, using traditional recipes passed down
-          through generations, celebrating the rich culinary heritage of
-          Rajasthan's Golden City.
+          Beyond food, we offer a real Rajasthani experience — breathtaking sunset views from
+          our rooftop terrace, live folk music evenings, and the warmest desert hospitality that
+          makes every guest feel like family. Whether you're here for a quick chai at sunrise or
+          a royal dinner under the stars, The Big Tree promises an unforgettable taste of Rajasthan's
+          Golden City.
         </p>
       </div>
     </section>
