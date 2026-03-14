@@ -7,6 +7,11 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 const Index = lazy(() => import("./pages/Index"));
 const DesertSafari = lazy(() => import("./pages/DesertSafari"));
+const DesertCamp = lazy(() => import("./pages/DesertCamp"));
+const Adventure = lazy(() => import("./pages/Adventure"));
+const Sightseeing = lazy(() => import("./pages/Sightseeing"));
+const ExoticTours = lazy(() => import("./pages/ExoticTours"));
+const SpecialEvents = lazy(() => import("./pages/SpecialEvents"));
 const HotelRooms = lazy(() => import("./pages/HotelRooms"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 const GenerateImages = lazy(() => import("./pages/GenerateImages"));
@@ -23,6 +28,11 @@ const App = () => (
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/desert-safari" element={<DesertSafari />} />
+            <Route path="/desert-camp" element={<DesertCamp />} />
+            <Route path="/adventure" element={<Adventure />} />
+            <Route path="/sightseeing" element={<Sightseeing />} />
+            <Route path="/exotic-tours" element={<ExoticTours />} />
+            <Route path="/special-events" element={<SpecialEvents />} />
             <Route path="/hotel-rooms" element={<HotelRooms />} />
             <Route path="/admin/generate-images" element={<GenerateImages />} />
             <Route path="*" element={<NotFound />} />

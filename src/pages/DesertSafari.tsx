@@ -1,13 +1,5 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { TreePine, ArrowLeft, CalendarDays, User, Phone, Minus, Plus, Clock } from "lucide-react";
-import { Dialog, DialogContent } from "@/components/ui/dialog";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { toast } from "@/hooks/use-toast";
-import { sendTelegramMessage } from "@/lib/telegram";
-import PaymentDialog from "@/components/PaymentDialog";
-
+import { TreePine } from "lucide-react";
+import ServicePageLayout, { ServiceActivity } from "@/components/ServicePageLayout";
 import camelSafariImg from "@/assets/activities/camel-safari.jpg";
 import jeepSafariImg from "@/assets/activities/jeep-safari.jpg";
 import desertCampImg from "@/assets/activities/desert-camp.jpg";
@@ -16,232 +8,221 @@ import adventureImg from "@/assets/activities/adventure.jpg";
 import exoticToursImg from "@/assets/activities/exotic-tours.jpg";
 import specialEventsImg from "@/assets/activities/special-events.jpg";
 
-const activities = [
+const imgs = [camelSafariImg, jeepSafariImg, desertCampImg, sightseeingImg, adventureImg, exoticToursImg, specialEventsImg];
+
+const activities: ServiceActivity[] = [
   {
-    id: "camel-safari",
-    title: "Camel Safari",
-    description: "Ride through the golden Thar dunes on a traditional camel safari. Experience the timeless charm of desert travel with expert guides.",
-    price: 800,
-    duration: "2-3 hours",
-    includes: ["Expert guide", "Water & snacks", "Sunset views", "Photo stops"],
-    image: camelSafariImg,
+    id: "sunrise-camel",
+    title: "Half-Day Sunrise Camel Safari",
+    description: "Enjoy a magical sunrise over the Thar dunes with breakfast served in the desert. Perfect for photography lovers.",
+    price: 2350,
+    priceLabel: "/person",
+    duration: "5:00 AM – 11:00 AM",
+    details: ["Sunrise in desert", "Breakfast included", "Expert guide", "Photo stops"],
+    image: imgs[0],
   },
   {
-    id: "jeep-safari",
-    title: "Jeep Safari",
-    description: "Thrilling 4x4 ride across sand dunes and desert trails. Perfect for adventure seekers wanting to cover more ground.",
-    price: 1500,
-    duration: "3-4 hours",
-    includes: ["4x4 vehicle", "Professional driver", "Refreshments", "Village stops"],
-    image: jeepSafariImg,
+    id: "sunset-camel",
+    title: "Half-Day Sunset Camel Safari",
+    description: "Camel ride through sand dunes with a stunning sunset and wood-fire dinner cooked by local guides.",
+    price: 2450,
+    priceLabel: "/person",
+    duration: "1:30 PM – 9:30 PM",
+    details: ["Sunset views", "Wood-fire dinner", "Camel ride", "Sand dunes"],
+    image: imgs[1],
   },
   {
-    id: "desert-camp",
-    title: "Desert Camp",
-    description: "Overnight glamping under a million stars. Enjoy bonfire, folk music, and authentic Rajasthani dinner in the heart of the Thar.",
-    price: 2500,
-    duration: "Overnight",
-    includes: ["Tent accommodation", "Dinner & breakfast", "Bonfire", "Folk music & dance"],
-    image: desertCampImg,
+    id: "one-day-camel",
+    title: "One Day Camel Safari",
+    description: "Full day desert experience with breakfast, lunch and dinner freshly cooked in the desert. Sunset on the dunes.",
+    price: 2750,
+    priceLabel: "/person",
+    duration: "6:30 AM – 9:30 PM",
+    minPeople: 2,
+    details: ["Full day ride", "All meals included", "Sunset on dunes", "Tree shade rest"],
+    image: imgs[0],
   },
   {
-    id: "sightseeing",
-    title: "Sightseeing Tour",
-    description: "Explore Jaisalmer's magnificent fort, havelis, temples, and hidden gems with a knowledgeable local guide.",
-    price: 1000,
-    duration: "4-5 hours",
-    includes: ["Local guide", "Fort & Haveli visits", "Temple tour", "Transport"],
-    image: sightseeingImg,
+    id: "overnight-4a",
+    title: "Overnight Camel Safari – 4A",
+    description: "Non-touristic off-track desert route. Explore desert landscapes, huts, temples, flora & fauna. Sleep under the stars.",
+    price: 3650,
+    priceLabel: "/person",
+    duration: "6:30 AM – 11:00 AM next day",
+    details: ["Off-track route", "Sleep under stars", "Warm bedding", "Desert exploration"],
+    image: imgs[2],
   },
   {
-    id: "adventure",
-    title: "Adventure & Dune Bashing",
-    description: "High-adrenaline quad biking and dune bashing across the Thar desert. An unforgettable thrill ride on golden sands.",
-    price: 1200,
-    duration: "2 hours",
-    includes: ["Quad bike / ATV", "Safety gear", "Instructor", "Refreshments"],
-    image: adventureImg,
+    id: "overnight-4b",
+    title: "Overnight Camel Safari – 4B",
+    description: "Experience nomadic desert life. Ride across scrublands, fields, rocky areas and dunes. Spot local wildlife.",
+    price: 4150,
+    priceLabel: "/person",
+    duration: "6:30 AM – 5:30 PM next day",
+    details: ["Nomadic experience", "Wildlife spotting", "Sleep under stars", "Varied terrain"],
+    image: imgs[3],
   },
   {
-    id: "exotic-tours",
-    title: "Exotic Cultural Tours",
-    description: "Immerse yourself in Rajasthan's vibrant culture — folk dance performances, village visits, traditional craft workshops, and more.",
-    price: 3000,
-    duration: "Full day",
-    includes: ["Cultural performances", "Village visit", "Traditional lunch", "Craft workshop"],
-    image: exoticToursImg,
+    id: "overnight-4c",
+    title: "Overnight Camel Safari – 4C",
+    description: "Raw desert experience on non-touristic routes through farms, rocky areas and dunes. Sleep under the stars.",
+    price: 2950,
+    priceLabel: "/person",
+    duration: "1:30 PM – 11:00 AM next day",
+    details: ["Non-touristic route", "Farms & dunes", "Flora & fauna", "Star sleeping"],
+    image: imgs[4],
   },
   {
-    id: "special-events",
-    title: "Special Events",
-    description: "Private desert celebrations — weddings, anniversaries, or exclusive parties under the starlit Rajasthani sky with full arrangements.",
-    price: 5000,
-    duration: "Custom",
-    includes: ["Custom decoration", "Catering", "Entertainment", "Photography"],
-    image: specialEventsImg,
+    id: "overnight-4d",
+    title: "Overnight Camel Safari – 4D",
+    description: "Off-beat desert safari through dunes and scrublands. Pass mud houses and temples. Overnight under stars.",
+    price: 3650,
+    priceLabel: "/person",
+    duration: "1:30 PM – 5:30 PM next day",
+    details: ["Off-beat route", "Mud houses & temples", "Scrublands", "Star sleeping"],
+    image: imgs[5],
+  },
+  {
+    id: "camping",
+    title: "Camping in the Desert",
+    description: "Camel ride across farms, dunes and rocky landscapes. Camp in a desert tent with warm bedding among sand dunes.",
+    price: 3450,
+    priceLabel: "/person",
+    duration: "1:30 PM – 11:00 AM next day",
+    details: ["Desert tent", "Warm bedding", "Camel ride", "Rocky landscapes"],
+    image: imgs[2],
+  },
+  {
+    id: "real-desert",
+    title: "Real Desert Safari",
+    description: "2 nights / 3 days experience. First night under the stars, second in luxury camp. Cultural dance & music.",
+    price: 7950,
+    priceLabel: "/person",
+    duration: "2 Nights / 3 Days",
+    details: ["2 nights", "Luxury camp", "Cultural program", "Sunrise & sunset"],
+    image: imgs[6],
+  },
+  {
+    id: "live-entertainment",
+    title: "Camel Safari with Live Entertainment",
+    description: "Camel ride to dunes with sunset, Rajasthani folk dance and music, and interaction with local gypsy community.",
+    price: 3650,
+    priceLabel: "/person",
+    duration: "1:30 PM – 9:30 PM",
+    details: ["Folk dance & music", "Sunset experience", "Gypsy community", "Camel ride"],
+    image: imgs[5],
+  },
+  {
+    id: "dance-music-overnight",
+    title: "Camel Safari with Dance & Music",
+    description: "Camel ride with sunset view, live Rajasthani dance & music performance, and overnight stay under star-lit sky.",
+    price: 4450,
+    priceLabel: "/person",
+    duration: "1:30 PM – 11:00 AM next day",
+    details: ["Live performance", "Sunset view", "Overnight stay", "Star-lit sky"],
+    image: imgs[6],
+  },
+  {
+    id: "cultural-program",
+    title: "Camel Safari with Cultural Program",
+    description: "Camel ride in dunes with traditional Rajasthani folk dance & music, welcome ceremony and dinner.",
+    price: 3450,
+    priceLabel: "/person",
+    duration: "3:00 PM – 10:30 PM",
+    details: ["Cultural show", "Traditional welcome", "Desert dinner", "Camp seating"],
+    image: imgs[3],
+  },
+  {
+    id: "non-touristic",
+    title: "Non-Touristic Desert Safari",
+    description: "2 Nights / 3 Days through scrublands, farms and dunes. Camp under starry sky with traditional open-fire meals.",
+    price: 2450,
+    priceLabel: "/person/night",
+    nights: 2,
+    duration: "2 Nights / 3 Days",
+    details: ["Off-track route", "Open-fire meals", "Starry camping", "2 nights"],
+    image: imgs[4],
+  },
+  {
+    id: "into-thar",
+    title: "Into The Thar Desert Safari",
+    description: "3 Nights / 4 Days deep desert exploration. Camel rides across dunes and rocky landscapes with traditional meals.",
+    price: 2350,
+    priceLabel: "/person/night",
+    nights: 3,
+    duration: "3 Nights / 4 Days",
+    details: ["Deep exploration", "Rocky landscapes", "Traditional meals", "3 nights"],
+    image: imgs[0],
+  },
+  {
+    id: "thar-desert",
+    title: "Thar Desert Safari",
+    description: "4 Nights / 5 Days long camel expedition. Camp each night under the stars with sunset and sunrise views.",
+    price: 2250,
+    priceLabel: "/person/night",
+    nights: 4,
+    duration: "4 Nights / 5 Days",
+    details: ["Long expedition", "Sunrise & sunset", "Star camping", "4 nights"],
+    image: imgs[1],
+  },
+  {
+    id: "nomad-experience",
+    title: "The Nomad Experience",
+    description: "5 Nights / 6 Days immersive desert experience. Camel rides across dunes and rocky terrain with traditional meals.",
+    price: 2150,
+    priceLabel: "/person/night",
+    nights: 5,
+    duration: "5 Nights / 6 Days",
+    details: ["Immersive experience", "Desert camping", "Traditional meals", "5 nights"],
+    image: imgs[2],
+  },
+  {
+    id: "exploring-thar",
+    title: "Exploring the Thar",
+    description: "6 Nights / 7 Days deep exploration of Thar landscapes. Camping under starry sky with open-fire meals.",
+    price: 2050,
+    priceLabel: "/person/night",
+    nights: 6,
+    duration: "6 Nights / 7 Days",
+    details: ["Deep exploration", "Starry camping", "Open-fire meals", "6 nights"],
+    image: imgs[3],
+  },
+  {
+    id: "thar-compass",
+    title: "Thar by the Compass",
+    description: "7 Nights / 8 Days extensive desert journey across multiple terrains. Camp under the stars each night.",
+    price: 1950,
+    priceLabel: "/person/night",
+    nights: 7,
+    duration: "7 Nights / 8 Days",
+    details: ["Extensive journey", "Multiple terrains", "Star camping", "7 nights"],
+    image: imgs[4],
+  },
+  {
+    id: "multi-day",
+    title: "Multi-Day Camel Safari",
+    description: "Fully customizable safari from 3 days to 22 days. Jeep support and drinking water included. Flexible schedule.",
+    price: 2150,
+    priceLabel: "/person/night",
+    nights: 2,
+    minPeople: 2,
+    duration: "Min 3 Days / 2 Nights",
+    details: ["Fully customizable", "Jeep support", "Up to 22 days", "Flexible timing"],
+    image: imgs[6],
   },
 ];
 
-const DesertSafari = () => {
-  const navigate = useNavigate();
-  const [bookingActivity, setBookingActivity] = useState<typeof activities[0] | null>(null);
-  const [guests, setGuests] = useState(1);
-  const [formData, setFormData] = useState({ name: "", phone: "+91 ", date: "" });
-  const [submitting, setSubmitting] = useState(false);
-  const [paymentOpen, setPaymentOpen] = useState(false);
-  const [paymentAmount, setPaymentAmount] = useState(0);
-
-  const today = new Date().toISOString().split("T")[0];
-  const totalAmount = bookingActivity ? bookingActivity.price * guests : 0;
-
-  const handleBook = async () => {
-    if (!bookingActivity || !formData.name || !formData.phone || !formData.date) {
-      toast({ title: "Please fill all fields", variant: "destructive" });
-      return;
-    }
-    setSubmitting(true);
-    try {
-      const message =
-        `🏜️ <b>New Desert Safari Booking</b>\n\n` +
-        `<b>Activity:</b> ${bookingActivity.title}\n` +
-        `<b>Name:</b> ${formData.name}\n` +
-        `<b>Phone:</b> ${formData.phone}\n` +
-        `<b>Date:</b> ${formData.date}\n` +
-        `<b>Guests:</b> ${guests}\n` +
-        `<b>Price per person:</b> ₹${bookingActivity.price.toLocaleString("en-IN")}\n` +
-        `<b>Total Amount:</b> ₹${totalAmount.toLocaleString("en-IN")}\n\n` +
-        `Please confirm and process payment.`;
-
-      await sendTelegramMessage(message);
-    } catch { /* continue to payment */ }
-
-    setPaymentAmount(totalAmount);
-    setBookingActivity(null);
-    setPaymentOpen(true);
-    setSubmitting(false);
-    toast({ title: "Booking sent!", description: "Opening payment options..." });
-  };
-
-  const resetForm = () => {
-    setFormData({ name: "", phone: "+91 ", date: "" });
-    setGuests(1);
-  };
-
-  return (
-    <div className="min-h-screen bg-background">
-      {/* Header */}
-      <nav className="sticky top-0 z-50 bg-desert-brown/90 backdrop-blur-sm border-b border-gold/20">
-        <div className="container mx-auto px-6 py-4 flex items-center gap-4">
-          <button onClick={() => navigate("/")} className="text-gold hover:text-gold-light transition-colors">
-            <ArrowLeft className="h-5 w-5" />
-          </button>
-          <div className="flex items-center gap-2">
-            <TreePine className="h-5 w-5 text-gold" />
-            <span className="font-display text-lg font-bold text-gold">Desert Safari</span>
-          </div>
-        </div>
-      </nav>
-
-      {/* Hero */}
-      <div className="relative h-[40vh] min-h-[280px] overflow-hidden">
-        <img src={camelSafariImg} alt="Desert Safari" className="absolute inset-0 w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
-        <div className="absolute bottom-0 left-0 right-0 p-6 md:p-10">
-          <p className="font-accent text-sm tracking-[0.2em] uppercase text-gold-light/80 mb-2">Explore the Thar Desert</p>
-          <h1 className="font-display text-3xl md:text-5xl font-bold text-white mb-2">Desert Safari Adventures</h1>
-          <p className="font-body text-white/70 max-w-lg">Choose from our curated desert experiences and create memories that last a lifetime.</p>
-        </div>
-      </div>
-
-      {/* Activity Grid */}
-      <div className="container mx-auto px-6 py-12 max-w-6xl">
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {activities.map((activity) => (
-            <div key={activity.id} className="group rounded-3xl overflow-hidden border border-border bg-card shadow-md hover:shadow-xl transition-shadow">
-              <div className="relative aspect-[4/3] overflow-hidden">
-                <img src={activity.image} alt={activity.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                <div className="absolute bottom-3 left-3 right-3">
-                  <h3 className="font-display text-lg font-bold text-white">{activity.title}</h3>
-                  <div className="flex items-center gap-2 text-white/80 text-xs font-body mt-1">
-                    <Clock className="h-3 w-3" /> {activity.duration}
-                  </div>
-                </div>
-              </div>
-              <div className="p-5">
-                <p className="font-body text-sm text-muted-foreground mb-3 line-clamp-2">{activity.description}</p>
-                <div className="flex flex-wrap gap-1.5 mb-4">
-                  {activity.includes.map((item) => (
-                    <span key={item} className="px-2 py-0.5 bg-primary/10 text-primary text-[10px] font-body rounded-full">{item}</span>
-                  ))}
-                </div>
-                <div className="flex items-center justify-between">
-                  <div>
-                    <span className="font-display text-xl font-bold text-foreground">₹{activity.price.toLocaleString("en-IN")}</span>
-                    <span className="font-body text-xs text-muted-foreground">/person</span>
-                  </div>
-                  <Button onClick={() => { setBookingActivity(activity); resetForm(); }} size="sm" className="rounded-xl font-body text-xs">
-                    Book Now
-                  </Button>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* Booking Dialog */}
-      <Dialog open={!!bookingActivity} onOpenChange={(v) => !v && setBookingActivity(null)}>
-        <DialogContent className="sm:max-w-[420px] border-none bg-transparent p-0 shadow-none [&>button]:hidden">
-          <div className="rounded-3xl overflow-hidden shadow-2xl bg-card border border-border">
-            <div className="relative px-6 pt-7 pb-4 text-center bg-primary/5 border-b border-border">
-              <button onClick={() => setBookingActivity(null)} className="absolute top-3 right-3 h-8 w-8 rounded-full flex items-center justify-center bg-foreground/5 hover:bg-foreground/10 transition-colors text-muted-foreground">✕</button>
-              <h3 className="font-display text-xl font-bold text-foreground">{bookingActivity?.title}</h3>
-              <p className="font-body text-sm text-muted-foreground mt-1">₹{bookingActivity?.price.toLocaleString("en-IN")}/person · {bookingActivity?.duration}</p>
-            </div>
-            <div className="px-6 pb-6 pt-5 space-y-4">
-              <div>
-                <label className="font-body text-xs font-medium text-muted-foreground/80 flex items-center gap-1.5 mb-1.5"><User className="h-3.5 w-3.5 text-primary/60" /> Full Name</label>
-                <Input placeholder="Your name" className="h-11 rounded-xl border-border" value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} />
-              </div>
-              <div>
-                <label className="font-body text-xs font-medium text-muted-foreground/80 flex items-center gap-1.5 mb-1.5"><Phone className="h-3.5 w-3.5 text-primary/60" /> Phone Number</label>
-                <Input placeholder="+91 XXXXX XXXXX" className="h-11 rounded-xl border-border" value={formData.phone}
-                  onChange={(e) => {
-                    let val = e.target.value;
-                    if (!val.startsWith("+91")) val = "+91 " + val.replace(/^\+91\s*/, "");
-                    setFormData({ ...formData, phone: val });
-                  }}
-                />
-              </div>
-              <div>
-                <label className="font-body text-xs font-medium text-muted-foreground/80 flex items-center gap-1.5 mb-1.5"><CalendarDays className="h-3.5 w-3.5 text-primary/60" /> Date</label>
-                <Input type="date" min={today} className="h-11 rounded-xl border-border" value={formData.date} onChange={(e) => setFormData({ ...formData, date: e.target.value })} />
-              </div>
-              <div>
-                <p className="font-body text-xs font-medium text-muted-foreground/80 mb-2">Number of Guests</p>
-                <div className="flex items-center justify-between bg-background/60 rounded-xl border border-border px-4 py-2.5">
-                  <button type="button" onClick={() => setGuests(Math.max(1, guests - 1))} className="h-8 w-8 rounded-full bg-primary/10 text-primary flex items-center justify-center hover:bg-primary/20"><Minus className="h-4 w-4" /></button>
-                  <span className="font-display text-lg font-bold text-foreground">{guests} {guests === 1 ? "Guest" : "Guests"}</span>
-                  <button type="button" onClick={() => setGuests(Math.min(20, guests + 1))} className="h-8 w-8 rounded-full bg-primary/10 text-primary flex items-center justify-center hover:bg-primary/20"><Plus className="h-4 w-4" /></button>
-                </div>
-              </div>
-              <div className="bg-primary/5 rounded-xl p-4 text-center border border-primary/10">
-                <p className="font-body text-xs text-muted-foreground">Total Amount</p>
-                <p className="font-display text-2xl font-bold text-primary">₹{totalAmount.toLocaleString("en-IN")}</p>
-                <p className="font-body text-[10px] text-muted-foreground/60">₹{bookingActivity?.price.toLocaleString("en-IN")}/person × {guests} guest{guests > 1 ? "s" : ""}</p>
-              </div>
-              <Button onClick={handleBook} disabled={submitting} className="w-full h-12 rounded-xl font-body tracking-wide text-sm">
-                {submitting ? "Sending..." : "Book Now"}
-              </Button>
-            </div>
-          </div>
-        </DialogContent>
-      </Dialog>
-
-      <PaymentDialog open={paymentOpen} onOpenChange={(v) => { setPaymentOpen(v); if (!v) resetForm(); }} amount={paymentAmount} bookingType="Desert Safari Booking" />
-    </div>
-  );
-};
+const DesertSafari = () => (
+  <ServicePageLayout
+    icon={<TreePine className="h-5 w-5 text-gold" />}
+    navTitle="Desert Safari"
+    heroImage={camelSafariImg}
+    heroSubtitle="Explore the Thar Desert"
+    heroTitle="Desert Safari Adventures"
+    heroDescription="Choose from our curated desert experiences — from half-day camel rides to multi-day expeditions across the Thar."
+    activities={activities}
+    bookingType="Desert Safari"
+  />
+);
 
 export default DesertSafari;
