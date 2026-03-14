@@ -3,20 +3,65 @@ import { ArrowRight } from "lucide-react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import desertSafariImg from "@/assets/services/desert-safari.jpg";
 import hotelRoomImg from "@/assets/services/hotel-room.jpg";
+import desertCampImg from "@/assets/activities/desert-camp.jpg";
+import adventureImg from "@/assets/activities/adventure.jpg";
+import sightseeingImg from "@/assets/activities/sightseeing.jpg";
+import exoticToursImg from "@/assets/activities/exotic-tours.jpg";
+import specialEventsImg from "@/assets/activities/special-events.jpg";
 
 const services = [
   {
     title: "Desert Safari",
     subtitle: "Explore the Thar Desert",
-    description: "Experience the magic of Rajasthan's golden dunes with our curated desert adventures — camel rides, jeep safaris, and camping under the stars.",
+    description: "Camel safaris, overnight camping, and multi-day expeditions across the golden dunes of Rajasthan.",
     image: desertSafariImg,
     link: "/desert-safari",
+    buttonText: "Explore Safaris",
+  },
+  {
+    title: "Desert Camp",
+    subtitle: "Camp Under the Stars",
+    description: "From budget Swiss tents to ultra-luxury camps — experience the magic of sleeping in the Thar Desert.",
+    image: desertCampImg,
+    link: "/desert-camp",
+    buttonText: "View Camps",
+  },
+  {
+    title: "Adventure",
+    subtitle: "Thrill & Adrenaline",
+    description: "Quad biking, jeep safaris, parasailing, paramotoring, and more — get your adrenaline pumping.",
+    image: adventureImg,
+    link: "/adventure",
     buttonText: "Explore Activities",
+  },
+  {
+    title: "Sightseeing",
+    subtitle: "Discover Jaisalmer",
+    description: "Walking tours, tuk-tuk rides, bike trips, and multi-day cultural packages to explore the Golden City.",
+    image: sightseeingImg,
+    link: "/sightseeing",
+    buttonText: "View Tours",
+  },
+  {
+    title: "Exotic Tours",
+    subtitle: "Unique Experiences",
+    description: "Breakfast with peacocks, haunted trails, culinary tours, and eco-farm stays — the extraordinary side of Jaisalmer.",
+    image: exoticToursImg,
+    link: "/exotic-tours",
+    buttonText: "Explore Tours",
+  },
+  {
+    title: "Special Events",
+    subtitle: "Celebrate in the Desert",
+    description: "Honeymoons, festivals, New Year celebrations, and private desert parties under the starlit sky.",
+    image: specialEventsImg,
+    link: "/special-events",
+    buttonText: "View Events",
   },
   {
     title: "Heritage Rooms",
     subtitle: "Stay in the Golden Fort",
-    description: "Rest in beautifully appointed rooms with traditional Rajasthani décor, stunning fort views, and warm desert hospitality.",
+    description: "Rest in beautifully appointed rooms with traditional Rajasthani décor, fort views, and warm hospitality.",
     image: hotelRoomImg,
     link: "/hotel-rooms",
     buttonText: "View Rooms",
@@ -31,7 +76,7 @@ const ServicesSection = () => {
 
   return (
     <section className="py-24 bg-sand-gradient">
-      <div className="container mx-auto px-6 max-w-5xl">
+      <div className="container mx-auto px-6 max-w-6xl">
         <div className="text-center mb-16">
           <p ref={heading.ref} style={heading.style} className="font-accent text-lg tracking-[0.25em] uppercase text-primary mb-4">
             Our Services
@@ -42,7 +87,7 @@ const ServicesSection = () => {
           <div ref={divider.ref} style={divider.style} className="w-16 h-0.5 bg-primary mx-auto" />
         </div>
 
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {services.map((service) => (
             <button
               key={service.title}
@@ -55,14 +100,14 @@ const ServicesSection = () => {
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
-              <div className="relative h-full flex flex-col justify-end p-6 md:p-8">
-                <p className="font-accent text-sm tracking-[0.2em] uppercase text-gold-light/80 mb-1">
+              <div className="relative h-full flex flex-col justify-end p-5 md:p-6">
+                <p className="font-accent text-xs tracking-[0.2em] uppercase text-gold-light/80 mb-1">
                   {service.subtitle}
                 </p>
-                <h3 className="font-display text-2xl md:text-3xl font-bold text-white mb-2">
+                <h3 className="font-display text-xl md:text-2xl font-bold text-white mb-1.5">
                   {service.title}
                 </h3>
-                <p className="font-body text-sm text-white/70 mb-4 max-w-sm">
+                <p className="font-body text-xs text-white/70 mb-3 max-w-sm line-clamp-2">
                   {service.description}
                 </p>
                 <span className="inline-flex items-center gap-2 font-body text-sm font-semibold text-gold group-hover:text-gold-light transition-colors">
