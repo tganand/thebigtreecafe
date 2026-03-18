@@ -1,13 +1,13 @@
 import { Compass } from "lucide-react";
 import ServicePageLayout, { ServiceActivity } from "@/components/ServicePageLayout";
 import exoticToursImg from "@/assets/activities/exotic-tours.jpg";
-import camelSafariImg from "@/assets/activities/camel-safari.jpg";
+import desertSunriseImg from "@/assets/activities/desert-sunrise.jpg";
 import sightseeingImg from "@/assets/activities/sightseeing.jpg";
-import desertCampImg from "@/assets/activities/desert-camp.jpg";
-import specialEventsImg from "@/assets/activities/special-events.jpg";
+import jaisalmerFortImg from "@/assets/activities/jaisalmer-fort.jpg";
+import desertNightCampImg from "@/assets/activities/desert-night-camp.jpg";
+import gadisarLakeImg from "@/assets/activities/gadisar-lake.jpg";
+import camelSafariImg from "@/assets/activities/camel-safari.jpg";
 import adventureImg from "@/assets/activities/adventure.jpg";
-
-const imgs = [exoticToursImg, camelSafariImg, sightseeingImg, desertCampImg, specialEventsImg, adventureImg];
 
 const activities: ServiceActivity[] = [
   {
@@ -26,7 +26,7 @@ const activities: ServiceActivity[] = [
       "Minimum 2 people required",
       "Start: ~5:00 AM | End: ~10:00 AM (same day)",
     ],
-    image: imgs[0],
+    image: desertSunriseImg,
   },
   {
     id: "culinary-tour",
@@ -44,7 +44,7 @@ const activities: ServiceActivity[] = [
       "Minimum 2 people required",
       "Start: ~8:00 AM | End: ~8:00 PM (same day)",
     ],
-    image: imgs[1],
+    image: sightseeingImg,
   },
   {
     id: "haunted-trail",
@@ -62,7 +62,7 @@ const activities: ServiceActivity[] = [
       "Minimum 2 people required",
       "Start: ~11:30 PM | End: ~3:00 AM (same night)",
     ],
-    image: imgs[2],
+    image: desertNightCampImg,
   },
   {
     id: "temple-trail",
@@ -80,7 +80,7 @@ const activities: ServiceActivity[] = [
       "Minimum 2 people required",
       "Start: ~6:30 AM | End: ~8:30 PM (same day)",
     ],
-    image: imgs[3],
+    image: jaisalmerFortImg,
   },
   {
     id: "village-tour",
@@ -98,7 +98,7 @@ const activities: ServiceActivity[] = [
       "Minimum 2 people required",
       "Start: ~8:00 AM | End: ~10:00 AM (next day)",
     ],
-    image: imgs[4],
+    image: camelSafariImg,
   },
   {
     id: "desert-national-park",
@@ -116,7 +116,7 @@ const activities: ServiceActivity[] = [
       "Minimum 2 people required",
       "Start: ~8:00 AM | End: ~11:00 AM (next day)",
     ],
-    image: imgs[5],
+    image: adventureImg,
   },
   {
     id: "akal-fossil-park",
@@ -133,7 +133,7 @@ const activities: ServiceActivity[] = [
       "Minimum 2 people required",
       "Start: ~9:30 AM | End: ~1:00 PM (same day)",
     ],
-    image: imgs[0],
+    image: exoticToursImg,
   },
   {
     id: "eco-farm-stay",
@@ -151,7 +151,7 @@ const activities: ServiceActivity[] = [
       "Minimum 2 people required",
       "Arrival recommended: ~4:00 PM | Checkout: ~11:00 AM next day",
     ],
-    image: imgs[3],
+    image: gadisarLakeImg,
   },
 ];
 

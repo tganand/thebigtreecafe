@@ -1,14 +1,15 @@
 import { PartyPopper } from "lucide-react";
 import ServicePageLayout, { ServiceActivity } from "@/components/ServicePageLayout";
 import specialEventsImg from "@/assets/activities/special-events.jpg";
-import camelSafariImg from "@/assets/activities/camel-safari.jpg";
+import dinnerDunesImg from "@/assets/activities/dinner-dunes.jpg";
+import camelSunsetImg from "@/assets/activities/camel-sunset.jpg";
+import desertNightCampImg from "@/assets/activities/desert-night-camp.jpg";
+import luxuryCampImg from "@/assets/activities/luxury-camp.jpg";
+import gadisarLakeImg from "@/assets/activities/gadisar-lake.jpg";
+import culturalDanceImg from "@/assets/activities/cultural-dance.jpg";
+import holiFestivalImg from "@/assets/activities/holi-festival.jpg";
+import newYearDesertImg from "@/assets/activities/new-year-desert.jpg";
 import desertCampImg from "@/assets/activities/desert-camp.jpg";
-import exoticToursImg from "@/assets/activities/exotic-tours.jpg";
-import sightseeingImg from "@/assets/activities/sightseeing.jpg";
-import adventureImg from "@/assets/activities/adventure.jpg";
-import jeepSafariImg from "@/assets/activities/jeep-safari.jpg";
-
-const imgs = [specialEventsImg, camelSafariImg, desertCampImg, exoticToursImg, sightseeingImg, adventureImg, jeepSafariImg];
 
 const activities: ServiceActivity[] = [
   {
@@ -28,7 +29,7 @@ const activities: ServiceActivity[] = [
       "Minimum 2 people required",
       "Start: ~4:00 PM | End: ~10:00 PM (same day)",
     ],
-    image: imgs[0],
+    image: dinnerDunesImg,
   },
   {
     id: "picnic-oasis",
@@ -48,7 +49,7 @@ const activities: ServiceActivity[] = [
       "Minimum 2 people required",
       "Start: ~3:00 PM | End: ~8:00 PM (same day)",
     ],
-    image: imgs[1],
+    image: gadisarLakeImg,
   },
   {
     id: "honeymoon-dunes",
@@ -68,7 +69,7 @@ const activities: ServiceActivity[] = [
       "Overnight stay in a private desert tent",
       "Start: ~4:00 PM | End: ~10:00 AM (next day)",
     ],
-    image: imgs[2],
+    image: dinnerDunesImg,
   },
   {
     id: "honeymoon-jaisalmer",
@@ -87,7 +88,7 @@ const activities: ServiceActivity[] = [
       "Cultural dance and music program",
       "Start: ~10:00 AM | End: ~10:00 AM (third day)",
     ],
-    image: imgs[3],
+    image: luxuryCampImg,
   },
   {
     id: "pre-wedding",
@@ -105,7 +106,7 @@ const activities: ServiceActivity[] = [
       "Scenic desert locations for stunning photos",
       "Start: ~1:00 PM | End: ~8:00 PM (next day)",
     ],
-    image: imgs[4],
+    image: camelSunsetImg,
   },
   {
     id: "desert-festival",
@@ -124,7 +125,7 @@ const activities: ServiceActivity[] = [
       "Minimum 2 people required",
       "Start: ~10:00 AM | End: ~11:00 AM (4th day)",
     ],
-    image: imgs[5],
+    image: culturalDanceImg,
   },
   {
     id: "diwali-desert",
@@ -142,7 +143,7 @@ const activities: ServiceActivity[] = [
       "Camel ride next day",
       "Start: ~4:00 PM | End: ~10:00 AM (next day)",
     ],
-    image: imgs[6],
+    image: newYearDesertImg,
   },
   {
     id: "christmas-dunes",
@@ -160,7 +161,7 @@ const activities: ServiceActivity[] = [
       "Overnight stay under the stars",
       "Start: ~1:30 PM | End: ~11:00 AM (next day)",
     ],
-    image: imgs[0],
+    image: desertNightCampImg,
   },
   {
     id: "new-year-dunes",
@@ -177,7 +178,7 @@ const activities: ServiceActivity[] = [
       "Overnight stay under the stars",
       "Start: ~1:30 PM | End: ~11:00 AM (next day)",
     ],
-    image: imgs[1],
+    image: newYearDesertImg,
   },
   {
     id: "new-year-jaisalmer",
@@ -194,7 +195,7 @@ const activities: ServiceActivity[] = [
       "Cultural dance and music program",
       "Start: ~3:00 PM | End: ~11:00 AM (third day)",
     ],
-    image: imgs[2],
+    image: luxuryCampImg,
   },
   {
     id: "new-year-sam",
@@ -211,7 +212,7 @@ const activities: ServiceActivity[] = [
       "Camel ride and jeep safari",
       "Arrival: ~4:00 PM | End: ~1:00 AM (same night)",
     ],
-    image: imgs[3],
+    image: desertCampImg,
   },
   {
     id: "new-year-budget",
@@ -229,7 +230,7 @@ const activities: ServiceActivity[] = [
       "Overnight stay on the dunes",
       "Start: ~1:30 PM | End: ~11:00 AM (next day)",
     ],
-    image: imgs[4],
+    image: camelSunsetImg,
   },
   {
     id: "holi-jaisalmer",
@@ -247,7 +248,7 @@ const activities: ServiceActivity[] = [
       "Camel ride in the desert",
       "Start: ~8:30 AM | End: ~11:30 AM (next day)",
     ],
-    image: imgs[5],
+    image: holiFestivalImg,
   },
   {
     id: "luxury-night-dunes",
@@ -264,7 +265,7 @@ const activities: ServiceActivity[] = [
       "Sleep on a luxury four-poster bed in the desert",
       "Start: ~3:00 PM | End: ~11:00 AM (next day)",
     ],
-    image: imgs[6],
+    image: specialEventsImg,
   },
 ];
 

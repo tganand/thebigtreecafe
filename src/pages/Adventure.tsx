@@ -1,9 +1,10 @@
 import { Bike } from "lucide-react";
 import ServicePageLayout, { ServiceActivity } from "@/components/ServicePageLayout";
-import adventureImg from "@/assets/activities/adventure.jpg";
+import quadBikingImg from "@/assets/activities/quad-biking.jpg";
 import jeepSafariImg from "@/assets/activities/jeep-safari.jpg";
-import camelSafariImg from "@/assets/activities/camel-safari.jpg";
-import sightseeingImg from "@/assets/activities/sightseeing.jpg";
+import parasailingImg from "@/assets/activities/parasailing.jpg";
+import gadisarLakeImg from "@/assets/activities/gadisar-lake.jpg";
+import adventureImg from "@/assets/activities/adventure.jpg";
 
 const activities: ServiceActivity[] = [
   {
@@ -21,7 +22,7 @@ const activities: ServiceActivity[] = [
       "Duration: ~10 minutes",
       "Available time: 8:00 AM – 6:00 PM",
     ],
-    image: adventureImg,
+    image: quadBikingImg,
   },
   {
     id: "jeep-safari",
@@ -53,7 +54,7 @@ const activities: ServiceActivity[] = [
       "Includes camel ride, welcome drink, and bottled water",
       "Duration: ~30 minutes total ride",
     ],
-    image: jeepSafariImg,
+    image: adventureImg,
   },
   {
     id: "parasailing",
@@ -69,7 +70,7 @@ const activities: ServiceActivity[] = [
       "Duration: ~4–5 minutes",
       "Available time: 7:00 AM – 7:00 PM",
     ],
-    image: camelSafariImg,
+    image: parasailingImg,
   },
   {
     id: "paramotoring",
@@ -85,7 +86,7 @@ const activities: ServiceActivity[] = [
       "Duration: ~10–15 minutes",
       "Available time: 7:00 AM – 7:00 PM",
     ],
-    image: adventureImg,
+    image: parasailingImg,
   },
   {
     id: "boating",
@@ -102,7 +103,7 @@ const activities: ServiceActivity[] = [
       "Duration: ~30 minutes",
       "Available time: 7:00 AM – 6:00 PM",
     ],
-    image: sightseeingImg,
+    image: gadisarLakeImg,
   },
 ];
 
@@ -110,7 +111,7 @@ const Adventure = () => (
   <ServicePageLayout
     icon={<Bike className="h-5 w-5 text-gold" />}
     navTitle="Adventure"
-    heroImage={adventureImg}
+    heroImage={quadBikingImg}
     heroSubtitle="Thrill & Adrenaline"
     heroTitle="Adventure Activities"
     heroDescription="Get your adrenaline pumping with quad biking, jeep safaris, parasailing, and more in the Thar Desert."

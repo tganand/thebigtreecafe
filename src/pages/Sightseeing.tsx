@@ -1,14 +1,14 @@
 import { MapPin } from "lucide-react";
 import ServicePageLayout, { ServiceActivity } from "@/components/ServicePageLayout";
 import sightseeingImg from "@/assets/activities/sightseeing.jpg";
+import jaisalmerFortImg from "@/assets/activities/jaisalmer-fort.jpg";
+import gadisarLakeImg from "@/assets/activities/gadisar-lake.jpg";
+import tukTukImg from "@/assets/activities/tuk-tuk.jpg";
+import bulletRideImg from "@/assets/activities/bullet-ride.jpg";
 import camelSafariImg from "@/assets/activities/camel-safari.jpg";
-import jeepSafariImg from "@/assets/activities/jeep-safari.jpg";
 import adventureImg from "@/assets/activities/adventure.jpg";
-import exoticToursImg from "@/assets/activities/exotic-tours.jpg";
-import desertCampImg from "@/assets/activities/desert-camp.jpg";
-import specialEventsImg from "@/assets/activities/special-events.jpg";
-
-const imgs = [sightseeingImg, camelSafariImg, jeepSafariImg, adventureImg, exoticToursImg, desertCampImg, specialEventsImg];
+import desertSunriseImg from "@/assets/activities/desert-sunrise.jpg";
+import culturalDanceImg from "@/assets/activities/cultural-dance.jpg";
 
 const activities: ServiceActivity[] = [
   {
@@ -27,7 +27,7 @@ const activities: ServiceActivity[] = [
       "Minimum 2 people required",
       "Start: 8:00 AM | End: 12:00 PM",
     ],
-    image: imgs[0],
+    image: sightseeingImg,
   },
   {
     id: "jaisalmer-walk",
@@ -44,7 +44,7 @@ const activities: ServiceActivity[] = [
       "Minimum 2 people required",
       "Start: 8:00 AM | End: 1:30 PM",
     ],
-    image: imgs[1],
+    image: jaisalmerFortImg,
   },
   {
     id: "shopping",
@@ -61,7 +61,7 @@ const activities: ServiceActivity[] = [
       "Minimum 2 people required",
       "Start: 9:00 AM | End: 2:00 PM",
     ],
-    image: imgs[2],
+    image: jaisalmerFortImg,
   },
   {
     id: "evening-lake",
@@ -79,7 +79,7 @@ const activities: ServiceActivity[] = [
       "Minimum 2 people required",
       "Start: 4:00 PM | End: 8:30 PM",
     ],
-    image: imgs[3],
+    image: gadisarLakeImg,
   },
   {
     id: "city-tour",
@@ -97,7 +97,7 @@ const activities: ServiceActivity[] = [
       "Minimum 2 people required",
       "Start: 8:00 AM | End: 2:00 PM",
     ],
-    image: imgs[4],
+    image: sightseeingImg,
   },
   {
     id: "jewels-around",
@@ -118,7 +118,7 @@ const activities: ServiceActivity[] = [
       "Minimum 2 people required",
       "Start: 8:00 AM | End: 7:30 PM",
     ],
-    image: imgs[5],
+    image: desertSunriseImg,
   },
   {
     id: "padharo",
@@ -136,7 +136,7 @@ const activities: ServiceActivity[] = [
       "Minimum 2 people required",
       "Start: 8:00 AM | End: 8:00 PM",
     ],
-    image: imgs[6],
+    image: culturalDanceImg,
   },
   {
     id: "indo-pak-border",
@@ -154,7 +154,7 @@ const activities: ServiceActivity[] = [
       "Minimum 2 people required",
       "Start: 8:00 AM | End: 7:00 PM",
     ],
-    image: imgs[0],
+    image: adventureImg,
   },
   {
     id: "tuk-tuk-city",
@@ -171,7 +171,7 @@ const activities: ServiceActivity[] = [
       "Minimum 2 people required",
       "Start: 8:00 AM | End: 1:00 PM",
     ],
-    image: imgs[1],
+    image: tukTukImg,
   },
   {
     id: "tuk-tuk-sunset",
@@ -188,7 +188,7 @@ const activities: ServiceActivity[] = [
       "Minimum 2 people required",
       "Start: 4:00 PM | End: 7:30 PM",
     ],
-    image: imgs[2],
+    image: tukTukImg,
   },
   {
     id: "cycling-tour",
@@ -205,7 +205,7 @@ const activities: ServiceActivity[] = [
       "Minimum 2 people required",
       "Start: 8:00 AM | End: 2:30 PM",
     ],
-    image: imgs[3],
+    image: camelSafariImg,
   },
   {
     id: "scooty-tour",
@@ -222,7 +222,7 @@ const activities: ServiceActivity[] = [
       "Minimum 2 people required",
       "Start: 8:00 AM | End: 1:00 PM",
     ],
-    image: imgs[4],
+    image: jaisalmerFortImg,
   },
   {
     id: "bike-trip",
@@ -240,7 +240,7 @@ const activities: ServiceActivity[] = [
       "Minimum 2 people required",
       "Start: 8:00 AM | End: 7:30 PM",
     ],
-    image: imgs[5],
+    image: bulletRideImg,
   },
   {
     id: "bullet-ride",
@@ -258,7 +258,7 @@ const activities: ServiceActivity[] = [
       "Minimum 2 people required",
       "Start: 8:00 AM | End: 7:00 PM",
     ],
-    image: imgs[6],
+    image: bulletRideImg,
   },
   {
     id: "nanha-jaisalmer",
@@ -276,7 +276,7 @@ const activities: ServiceActivity[] = [
       "2 nights accommodation included",
       "Minimum 2 people required",
     ],
-    image: imgs[0],
+    image: culturalDanceImg,
   },
   {
     id: "dekho-jaisalmer",
@@ -295,7 +295,7 @@ const activities: ServiceActivity[] = [
       "3 nights accommodation included",
       "Minimum 2 people required",
     ],
-    image: imgs[1],
+    image: desertSunriseImg,
   },
   {
     id: "ghumo-jaisalmer",
@@ -314,7 +314,7 @@ const activities: ServiceActivity[] = [
       "4 nights accommodation included",
       "Minimum 2 people required",
     ],
-    image: imgs[2],
+    image: gadisarLakeImg,
   },
 ];
 
@@ -322,7 +322,7 @@ const Sightseeing = () => (
   <ServicePageLayout
     icon={<MapPin className="h-5 w-5 text-gold" />}
     navTitle="Sightseeing"
-    heroImage={sightseeingImg}
+    heroImage={jaisalmerFortImg}
     heroSubtitle="Discover Jaisalmer"
     heroTitle="Sightseeing & Tours"
     heroDescription="Explore the Golden City through walking tours, tuk-tuk rides, bike trips, and multi-day cultural packages."

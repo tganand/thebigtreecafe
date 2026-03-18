@@ -1,9 +1,9 @@
 import { Tent } from "lucide-react";
 import ServicePageLayout, { ServiceActivity } from "@/components/ServicePageLayout";
 import desertCampImg from "@/assets/activities/desert-camp.jpg";
-import camelSafariImg from "@/assets/activities/camel-safari.jpg";
+import luxuryCampImg from "@/assets/activities/luxury-camp.jpg";
+import desertNightCampImg from "@/assets/activities/desert-night-camp.jpg";
 import specialEventsImg from "@/assets/activities/special-events.jpg";
-import exoticToursImg from "@/assets/activities/exotic-tours.jpg";
 
 const activities: ServiceActivity[] = [
   {
@@ -48,7 +48,7 @@ const activities: ServiceActivity[] = [
       "Recommended arrival: ~4:00 PM | Checkout: ~11:00 AM next day",
       "Minimum 2 people required",
     ],
-    image: camelSafariImg,
+    image: luxuryCampImg,
   },
   {
     id: "mirage-camp",
@@ -70,7 +70,7 @@ const activities: ServiceActivity[] = [
       "Recommended arrival: ~4:00 PM | Checkout: ~11:00 AM next day",
       "Minimum 2 people required",
     ],
-    image: specialEventsImg,
+    image: desertNightCampImg,
   },
   {
     id: "el-grande",
@@ -93,7 +93,7 @@ const activities: ServiceActivity[] = [
       "Recommended arrival: ~4:00 PM | Checkout: ~11:00 AM next day",
       "Minimum 2 people required",
     ],
-    image: exoticToursImg,
+    image: specialEventsImg,
   },
 ];
 
@@ -101,7 +101,7 @@ const DesertCamp = () => (
   <ServicePageLayout
     icon={<Tent className="h-5 w-5 text-gold" />}
     navTitle="Desert Camp"
-    heroImage={desertCampImg}
+    heroImage={luxuryCampImg}
     heroSubtitle="Camp Under the Stars"
     heroTitle="Desert Camp Packages"
     heroDescription="Experience the magic of Thar with our curated desert camp packages — from budget Swiss tents to ultra-luxury stays."
