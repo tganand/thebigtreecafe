@@ -15,11 +15,14 @@ const FILTERS: { key: FilterKey; label: string; emoji: string }[] = [
 
 const MenuSection = () => {
   const [activeFilter, setActiveFilter] = useState<FilterKey>("all");
+  const [showAll, setShowAll] = useState(false);
 
   const filteredCategories = useMemo(() => {
     if (activeFilter === "all") return menuData;
     return menuData.filter((cat) => cat.tags.includes(activeFilter));
   }, [activeFilter]);
+
+  const visibleCategories = showAll ? filteredCategories : filteredCategories.slice(0, 3);
 
   const heading = useScrollReveal("blur-in", 0);
   const title = useScrollReveal("fade-up", 0.1);
