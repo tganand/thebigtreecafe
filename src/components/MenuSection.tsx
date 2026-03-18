@@ -15,11 +15,14 @@ const FILTERS: { key: FilterKey; label: string; emoji: string }[] = [
 
 const MenuSection = () => {
   const [activeFilter, setActiveFilter] = useState<FilterKey>("all");
+  const [showAll, setShowAll] = useState(false);
 
   const filteredCategories = useMemo(() => {
     if (activeFilter === "all") return menuData;
     return menuData.filter((cat) => cat.tags.includes(activeFilter));
   }, [activeFilter]);
+
+  const visibleCategories = showAll ? filteredCategories : filteredCategories.slice(0, 3);
 
   const heading = useScrollReveal("blur-in", 0);
   const title = useScrollReveal("fade-up", 0.1);
@@ -66,12 +69,33 @@ const MenuSection = () => {
         </p>
 
         <div ref={containerRef} className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {filteredCategories.map((section, i) => (
+          {visibleCategories.map((section, i) => (
             <div key={section.category} style={getItemStyle(i)}>
               <CategoryCard section={section} />
             </div>
           ))}
         </div>
+
+        {!showAll && filteredCategories.length > 3 && (
+          <div className="mt-10 text-center">
+            <button
+              onClick={() => setShowAll(true)}
+              className="rounded-full border border-primary bg-primary/10 px-8 py-3 font-accent text-sm font-bold uppercase tracking-wider text-primary transition-all hover:bg-primary hover:text-primary-foreground"
+            >
+              Show Full Menu ({filteredCategories.length - 3} more)
+            </button>
+          </div>
+        )}
+        {showAll && filteredCategories.length > 3 && (
+          <div className="mt-10 text-center">
+            <button
+              onClick={() => setShowAll(false)}
+              className="rounded-full border border-primary/30 bg-primary/5 px-8 py-3 font-accent text-sm font-semibold uppercase tracking-wider text-primary transition-all hover:bg-primary/10"
+            >
+              Show Less
+            </button>
+          </div>
+        )}
       </div>
     </section>
   );

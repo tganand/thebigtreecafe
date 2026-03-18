@@ -1,14 +1,14 @@
 import { MapPin } from "lucide-react";
 import ServicePageLayout, { ServiceActivity } from "@/components/ServicePageLayout";
 import sightseeingImg from "@/assets/activities/sightseeing.jpg";
+import jaisalmerFortImg from "@/assets/activities/jaisalmer-fort.jpg";
+import gadisarLakeImg from "@/assets/activities/gadisar-lake.jpg";
+import tukTukImg from "@/assets/activities/tuk-tuk.jpg";
+import bulletRideImg from "@/assets/activities/bullet-ride.jpg";
 import camelSafariImg from "@/assets/activities/camel-safari.jpg";
-import jeepSafariImg from "@/assets/activities/jeep-safari.jpg";
 import adventureImg from "@/assets/activities/adventure.jpg";
-import exoticToursImg from "@/assets/activities/exotic-tours.jpg";
-import desertCampImg from "@/assets/activities/desert-camp.jpg";
-import specialEventsImg from "@/assets/activities/special-events.jpg";
-
-const imgs = [sightseeingImg, camelSafariImg, jeepSafariImg, adventureImg, exoticToursImg, desertCampImg, specialEventsImg];
+import desertSunriseImg from "@/assets/activities/desert-sunrise.jpg";
+import culturalDanceImg from "@/assets/activities/cultural-dance.jpg";
 
 const activities: ServiceActivity[] = [
   {
@@ -19,8 +19,15 @@ const activities: ServiceActivity[] = [
     priceLabel: "/person",
     minPeople: 2,
     duration: "8:00 AM – 12:00 PM",
-    details: ["Local cuisines", "Famous tea stall", "Walking tour", "Market exploration"],
-    image: imgs[0],
+    details: [
+      "Walking tour exploring Jaisalmer attractions in the morning",
+      "Visit famous food spots and taste local cuisines",
+      "Special tea from a famous tea stall",
+      "Time to explore local markets",
+      "Minimum 2 people required",
+      "Start: 8:00 AM | End: 12:00 PM",
+    ],
+    image: sightseeingImg,
   },
   {
     id: "jaisalmer-walk",
@@ -30,8 +37,14 @@ const activities: ServiceActivity[] = [
     priceLabel: "/person",
     minPeople: 2,
     duration: "8:00 AM – 1:30 PM",
-    details: ["Fort visit", "Patwon ki Haveli", "Mandir Palace", "Gadisar Lake"],
-    image: imgs[1],
+    details: [
+      "Walking tour through historic streets of Jaisalmer",
+      "Visit: Jaisalmer Fort, Patwon ki Haveli, Mandir Palace, Gadisar Lake, markets",
+      "Learn about the history and culture from your guide",
+      "Minimum 2 people required",
+      "Start: 8:00 AM | End: 1:30 PM",
+    ],
+    image: jaisalmerFortImg,
   },
   {
     id: "shopping",
@@ -41,8 +54,14 @@ const activities: ServiceActivity[] = [
     priceLabel: "/person",
     minPeople: 2,
     duration: "9:00 AM – 2:00 PM",
-    details: ["Textiles", "Handicrafts", "Jewellery", "Camel leather"],
-    image: imgs[2],
+    details: [
+      "Guided local market shopping tour",
+      "Discover textiles, handicrafts, jewellery, camel leather products",
+      "Get the best deals with local guide",
+      "Minimum 2 people required",
+      "Start: 9:00 AM | End: 2:00 PM",
+    ],
+    image: jaisalmerFortImg,
   },
   {
     id: "evening-lake",
@@ -52,8 +71,15 @@ const activities: ServiceActivity[] = [
     priceLabel: "/person",
     minPeople: 2,
     duration: "4:00 PM – 8:30 PM",
-    details: ["Horse riding", "Boating", "Coffee included", "Cenotaphs & temples"],
-    image: imgs[3],
+    details: [
+      "Evening experience at the beautiful Gadisar Lake",
+      "Horse riding near cenotaphs and temples",
+      "Coffee included",
+      "30-minute boating on the lake",
+      "Minimum 2 people required",
+      "Start: 4:00 PM | End: 8:30 PM",
+    ],
+    image: gadisarLakeImg,
   },
   {
     id: "city-tour",
@@ -63,8 +89,15 @@ const activities: ServiceActivity[] = [
     priceLabel: "/person",
     minPeople: 2,
     duration: "8:00 AM – 2:00 PM",
-    details: ["Fort & Havelis", "Mandir Palace", "Vyas Chattri", "Gadisar Lake"],
-    image: imgs[4],
+    details: [
+      "Explore historic landmarks of Jaisalmer",
+      "Visit: Jaisalmer Fort, Patwon ki Haveli, Mandir Palace",
+      "Visit: Vyas Chattri, Gadisar Lake",
+      "Expert guided tour with history and culture",
+      "Minimum 2 people required",
+      "Start: 8:00 AM | End: 2:00 PM",
+    ],
+    image: sightseeingImg,
   },
   {
     id: "jewels-around",
@@ -74,8 +107,18 @@ const activities: ServiceActivity[] = [
     priceLabel: "/person",
     minPeople: 2,
     duration: "8:00 AM – 7:30 PM",
-    details: ["War Memorial", "Bada Bagh", "Kuldhara Village", "Sam Sand Dunes"],
-    image: imgs[5],
+    details: [
+      "Visit surrounding attractions including:",
+      "Jaisalmer War Memorial",
+      "Bada Bagh (royal cenotaphs)",
+      "Amar Sagar Jain Temple",
+      "Kuldhara Village (abandoned ghost village)",
+      "Jasairi Lake",
+      "Sam Sand Dunes",
+      "Minimum 2 people required",
+      "Start: 8:00 AM | End: 7:30 PM",
+    ],
+    image: desertSunriseImg,
   },
   {
     id: "padharo",
@@ -85,8 +128,15 @@ const activities: ServiceActivity[] = [
     priceLabel: "/person",
     minPeople: 2,
     duration: "8:00 AM – 8:00 PM",
-    details: ["Full day tour", "Historical landmarks", "Hidden gems", "Desert landscapes"],
-    image: imgs[6],
+    details: [
+      "Full-day cultural exploration of Jaisalmer",
+      "Visit historical landmarks and hidden gems",
+      "Explore desert landscapes",
+      "Complete immersive experience of the Golden City",
+      "Minimum 2 people required",
+      "Start: 8:00 AM | End: 8:00 PM",
+    ],
+    image: culturalDanceImg,
   },
   {
     id: "indo-pak-border",
@@ -96,8 +146,15 @@ const activities: ServiceActivity[] = [
     priceLabel: "/person",
     minPeople: 2,
     duration: "8:00 AM – 7:00 PM",
-    details: ["Longewala Battlefield", "Tanot Mata Temple", "War history", "Full day tour"],
-    image: imgs[0],
+    details: [
+      "Visit Longewala Battlefield from the 1971 Indo-Pak war",
+      "Visit Tanot Mata Temple",
+      "Learn about war history and see military exhibits",
+      "Full day tour to the India-Pakistan border area",
+      "Minimum 2 people required",
+      "Start: 8:00 AM | End: 7:00 PM",
+    ],
+    image: adventureImg,
   },
   {
     id: "tuk-tuk-city",
@@ -107,8 +164,14 @@ const activities: ServiceActivity[] = [
     priceLabel: "/person",
     minPeople: 2,
     duration: "8:00 AM – 1:00 PM",
-    details: ["Tuk-tuk ride", "Fort & havelis", "Local bazaars", "Fun experience"],
-    image: imgs[1],
+    details: [
+      "Explore Jaisalmer in a fun three-wheeler tuk-tuk",
+      "Visit Jaisalmer Fort, havelis, bazaars and landmarks",
+      "Unique and fun way to see the city",
+      "Minimum 2 people required",
+      "Start: 8:00 AM | End: 1:00 PM",
+    ],
+    image: tukTukImg,
   },
   {
     id: "tuk-tuk-sunset",
@@ -118,8 +181,14 @@ const activities: ServiceActivity[] = [
     priceLabel: "/person",
     minPeople: 2,
     duration: "4:00 PM – 7:30 PM",
-    details: ["Bada Bagh sunset", "Cenotaphs", "Tuk-tuk ride", "Photography"],
-    image: imgs[2],
+    details: [
+      "Tuk-tuk ride to Bada Bagh for sunset",
+      "Explore royal cenotaphs and desert views",
+      "Great photography opportunity",
+      "Minimum 2 people required",
+      "Start: 4:00 PM | End: 7:30 PM",
+    ],
+    image: tukTukImg,
   },
   {
     id: "cycling-tour",
@@ -129,8 +198,14 @@ const activities: ServiceActivity[] = [
     priceLabel: "/person",
     minPeople: 2,
     duration: "8:00 AM – 2:30 PM",
-    details: ["Eco-friendly", "Bicycle tour", "Hidden gems", "Cultural exploration"],
-    image: imgs[3],
+    details: [
+      "Eco-friendly sightseeing tour by bicycle",
+      "Explore landscapes, culture and hidden gems",
+      "Bicycle and guide provided",
+      "Minimum 2 people required",
+      "Start: 8:00 AM | End: 2:30 PM",
+    ],
+    image: camelSafariImg,
   },
   {
     id: "scooty-tour",
@@ -140,8 +215,14 @@ const activities: ServiceActivity[] = [
     priceLabel: "/person",
     minPeople: 2,
     duration: "8:00 AM – 1:00 PM",
-    details: ["Self-drive", "Own pace", "Landmarks", "Markets"],
-    image: imgs[4],
+    details: [
+      "Self-drive scooter tour through city streets",
+      "Visit landmarks and markets at your own pace",
+      "Explore Jaisalmer independently",
+      "Minimum 2 people required",
+      "Start: 8:00 AM | End: 1:00 PM",
+    ],
+    image: jaisalmerFortImg,
   },
   {
     id: "bike-trip",
@@ -151,8 +232,15 @@ const activities: ServiceActivity[] = [
     priceLabel: "/person",
     minPeople: 2,
     duration: "8:00 AM – 7:30 PM",
-    details: ["Motorbike tour", "Fort & Lake", "Bada Bagh", "Sam Desert"],
-    image: imgs[5],
+    details: [
+      "Motorbike tour exploring city and surroundings",
+      "Visit: Jaisalmer Fort, Patwon ki Haveli, Gadisar Lake",
+      "Visit: Bada Bagh, Amar Sagar, Kuldhara, Jasairi Oasis, Sam Desert",
+      "Full day adventure on two wheels",
+      "Minimum 2 people required",
+      "Start: 8:00 AM | End: 7:30 PM",
+    ],
+    image: bulletRideImg,
   },
   {
     id: "bullet-ride",
@@ -162,8 +250,15 @@ const activities: ServiceActivity[] = [
     priceLabel: "/person",
     minPeople: 2,
     duration: "8:00 AM – 7:00 PM",
-    details: ["Royal Enfield", "Border area", "War Memorial", "Temple visit"],
-    image: imgs[6],
+    details: [
+      "Royal Enfield ride through the desert to the border area",
+      "Visit Tanot Mata Temple",
+      "Visit Longewala War Memorial and War Museum",
+      "Epic ride through the desert landscape",
+      "Minimum 2 people required",
+      "Start: 8:00 AM | End: 7:00 PM",
+    ],
+    image: bulletRideImg,
   },
   {
     id: "nanha-jaisalmer",
@@ -174,8 +269,14 @@ const activities: ServiceActivity[] = [
     nights: 2,
     minPeople: 2,
     duration: "2 Nights / 3 Days",
-    details: ["Fort & havelis", "Camel ride", "Cultural program", "Kuldhara village"],
-    image: imgs[0],
+    details: [
+      "Visit Jaisalmer Fort, havelis and Gadisar Lake",
+      "Camel ride and cultural program at Sam dunes",
+      "Visit Jaseri Oasis, Kuldhara village, Amar Sagar Temple",
+      "2 nights accommodation included",
+      "Minimum 2 people required",
+    ],
+    image: culturalDanceImg,
   },
   {
     id: "dekho-jaisalmer",
@@ -186,8 +287,15 @@ const activities: ServiceActivity[] = [
     nights: 3,
     minPeople: 2,
     duration: "3 Nights / 4 Days",
-    details: ["City sightseeing", "Camel safari", "Border tour", "Jeep safari"],
-    image: imgs[1],
+    details: [
+      "City sightseeing and camel safari",
+      "Visit Amar Sagar Temple, Kuldhara, Khaba Fort",
+      "Tanot & Longewala border tour",
+      "Jeep safari and cultural program",
+      "3 nights accommodation included",
+      "Minimum 2 people required",
+    ],
+    image: desertSunriseImg,
   },
   {
     id: "ghumo-jaisalmer",
@@ -198,8 +306,15 @@ const activities: ServiceActivity[] = [
     nights: 4,
     minPeople: 2,
     duration: "4 Nights / 5 Days",
-    details: ["Comprehensive tour", "Desert camping", "Tanot Longewala", "Akal Fossil Park"],
-    image: imgs[2],
+    details: [
+      "City sightseeing, camel safari and desert camping",
+      "Visit Tanot, Longewala, War Memorial",
+      "Jeep safari and cultural program at Sam dunes",
+      "Visit Akal Fossil Park and Bada Bagh",
+      "4 nights accommodation included",
+      "Minimum 2 people required",
+    ],
+    image: gadisarLakeImg,
   },
 ];
 
@@ -207,7 +322,7 @@ const Sightseeing = () => (
   <ServicePageLayout
     icon={<MapPin className="h-5 w-5 text-gold" />}
     navTitle="Sightseeing"
-    heroImage={sightseeingImg}
+    heroImage={jaisalmerFortImg}
     heroSubtitle="Discover Jaisalmer"
     heroTitle="Sightseeing & Tours"
     heroDescription="Explore the Golden City through walking tours, tuk-tuk rides, bike trips, and multi-day cultural packages."

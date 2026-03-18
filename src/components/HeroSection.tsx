@@ -15,13 +15,19 @@ const Navbar = () => {
           <span className="font-display text-lg md:text-xl font-bold text-gold leading-tight">The Big Tree Cafe & Restaurant</span>
         </a>
         <div className="hidden md:flex items-center gap-8">
-          {["Home", "About", "Menu", "Reviews", "Contact"].map((item) => (
+          {[
+            { label: "Home", href: "/#home" },
+            { label: "About", href: "/#about" },
+            { label: "Services", href: "/#services" },
+            { label: "Reviews", href: "/#reviews" },
+            { label: "Contact", href: "/#contact" },
+          ].map((item) => (
             <a
-              key={item}
-              href={`/#${item.toLowerCase()}`}
+              key={item.label}
+              href={item.href}
               className="font-body text-sm tracking-widest uppercase text-gold-light/80 hover:text-gold transition-colors"
             >
-              {item}
+              {item.label}
             </a>
           ))}
         </div>
@@ -31,14 +37,20 @@ const Navbar = () => {
       </div>
       {mobileOpen && (
         <div className="md:hidden bg-desert-brown/95 backdrop-blur-sm border-t border-gold/10 px-6 py-4 space-y-3">
-          {["Home", "About", "Menu", "Reviews", "Contact"].map((item) => (
+          {[
+            { label: "Home", href: "/#home" },
+            { label: "About", href: "/#about" },
+            { label: "Services", href: "/#services" },
+            { label: "Reviews", href: "/#reviews" },
+            { label: "Contact", href: "/#contact" },
+          ].map((item) => (
             <a
-              key={item}
-              href={`/#${item.toLowerCase()}`}
+              key={item.label}
+              href={item.href}
               onClick={() => setMobileOpen(false)}
               className="block font-body text-sm tracking-widest uppercase text-gold-light/80 hover:text-gold transition-colors"
             >
-              {item}
+              {item.label}
             </a>
           ))}
         </div>

@@ -1,9 +1,10 @@
 import { Bike } from "lucide-react";
 import ServicePageLayout, { ServiceActivity } from "@/components/ServicePageLayout";
-import adventureImg from "@/assets/activities/adventure.jpg";
+import quadBikingImg from "@/assets/activities/quad-biking.jpg";
 import jeepSafariImg from "@/assets/activities/jeep-safari.jpg";
-import camelSafariImg from "@/assets/activities/camel-safari.jpg";
-import sightseeingImg from "@/assets/activities/sightseeing.jpg";
+import parasailingImg from "@/assets/activities/parasailing.jpg";
+import gadisarLakeImg from "@/assets/activities/gadisar-lake.jpg";
+import adventureImg from "@/assets/activities/adventure.jpg";
 
 const activities: ServiceActivity[] = [
   {
@@ -13,8 +14,15 @@ const activities: ServiceActivity[] = [
     price: 3250,
     priceLabel: "/person/ride",
     duration: "~10 minutes | 8 AM – 6 PM",
-    details: ["4×4 ATV", "Sam Sand Dunes", "Adrenaline rush", "Desert photos"],
-    image: adventureImg,
+    details: [
+      "ATV quad bike ride on Sam Sand Dunes",
+      "Designed for adventure lovers who want an adrenaline rush",
+      "Explore the dunes on a powerful 4×4 quad bike",
+      "Great opportunity for desert photos after the ride",
+      "Duration: ~10 minutes",
+      "Available time: 8:00 AM – 6:00 PM",
+    ],
+    image: quadBikingImg,
   },
   {
     id: "jeep-safari",
@@ -23,7 +31,13 @@ const activities: ServiceActivity[] = [
     price: 1050,
     priceLabel: "/person",
     duration: "~30 minutes | 6 AM – 8 PM",
-    details: ["Open 4×4 jeep", "Dune bashing", "Popular activity", "Family friendly"],
+    details: [
+      "Ride across sand dunes in an open 4×4 jeep",
+      "One of the most popular desert adventure activities",
+      "Thrilling dune-bashing experience with friends or family",
+      "Duration: ~30 minutes",
+      "Available time: 6:00 AM – 8:00 PM",
+    ],
     image: jeepSafariImg,
   },
   {
@@ -33,8 +47,14 @@ const activities: ServiceActivity[] = [
     price: 3750,
     priceLabel: "/person",
     duration: "~30 minutes ride",
-    details: ["Toyota Fortuner", "Hotel pickup & drop", "Camel ride", "Welcome drink"],
-    image: jeepSafariImg,
+    details: [
+      "Luxury dune-bashing experience in a Toyota Fortuner SUV",
+      "Windows can stay closed to avoid sand",
+      "Includes hotel pickup and drop-off",
+      "Includes camel ride, welcome drink, and bottled water",
+      "Duration: ~30 minutes total ride",
+    ],
+    image: adventureImg,
   },
   {
     id: "parasailing",
@@ -43,8 +63,14 @@ const activities: ServiceActivity[] = [
     price: 850,
     priceLabel: "/person",
     duration: "~4-5 minutes | 7 AM – 7 PM",
-    details: ["Bird's-eye view", "Safety area", "Desert panorama", "Quick thrill"],
-    image: camelSafariImg,
+    details: [
+      "Fly high above the Thar Desert for a bird's-eye view",
+      "See dunes, villages, and desert landscape from the air",
+      "Conducted in a designated safety area",
+      "Duration: ~4–5 minutes",
+      "Available time: 7:00 AM – 7:00 PM",
+    ],
+    image: parasailingImg,
   },
   {
     id: "paramotoring",
@@ -53,8 +79,14 @@ const activities: ServiceActivity[] = [
     price: 4450,
     priceLabel: "/person",
     duration: "~10-15 minutes | 7 AM – 7 PM",
-    details: ["Extended flight", "Aerial photos", "Desert landscape", "Advanced flying"],
-    image: adventureImg,
+    details: [
+      "Advanced version of parasailing with more freedom to explore",
+      "Fly further into the desert landscape",
+      "Perfect for aerial photos and videos",
+      "Duration: ~10–15 minutes",
+      "Available time: 7:00 AM – 7:00 PM",
+    ],
+    image: parasailingImg,
   },
   {
     id: "boating",
@@ -64,8 +96,14 @@ const activities: ServiceActivity[] = [
     priceLabel: "/boat",
     fixedPrice: true,
     duration: "~30 minutes | 7 AM – 6 PM",
-    details: ["Gadisar Lake", "Temples & ghats", "Family friendly", "Scenic views"],
-    image: sightseeingImg,
+    details: [
+      "Relaxing boat ride at Gadisar Lake",
+      "Enjoy scenic views of temples, ghats and historic architecture",
+      "Suitable for couples, families and groups",
+      "Duration: ~30 minutes",
+      "Available time: 7:00 AM – 6:00 PM",
+    ],
+    image: gadisarLakeImg,
   },
 ];
 
@@ -73,7 +111,7 @@ const Adventure = () => (
   <ServicePageLayout
     icon={<Bike className="h-5 w-5 text-gold" />}
     navTitle="Adventure"
-    heroImage={adventureImg}
+    heroImage={quadBikingImg}
     heroSubtitle="Thrill & Adrenaline"
     heroTitle="Adventure Activities"
     heroDescription="Get your adrenaline pumping with quad biking, jeep safaris, parasailing, and more in the Thar Desert."

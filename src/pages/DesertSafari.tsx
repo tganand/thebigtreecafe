@@ -1,14 +1,15 @@
 import { TreePine } from "lucide-react";
 import ServicePageLayout, { ServiceActivity } from "@/components/ServicePageLayout";
 import camelSafariImg from "@/assets/activities/camel-safari.jpg";
-import jeepSafariImg from "@/assets/activities/jeep-safari.jpg";
+import camelSunsetImg from "@/assets/activities/camel-sunset.jpg";
 import desertCampImg from "@/assets/activities/desert-camp.jpg";
+import desertNightCampImg from "@/assets/activities/desert-night-camp.jpg";
+import desertSunriseImg from "@/assets/activities/desert-sunrise.jpg";
+import culturalDanceImg from "@/assets/activities/cultural-dance.jpg";
+import specialEventsImg from "@/assets/activities/special-events.jpg";
+import jeepSafariImg from "@/assets/activities/jeep-safari.jpg";
 import sightseeingImg from "@/assets/activities/sightseeing.jpg";
 import adventureImg from "@/assets/activities/adventure.jpg";
-import exoticToursImg from "@/assets/activities/exotic-tours.jpg";
-import specialEventsImg from "@/assets/activities/special-events.jpg";
-
-const imgs = [camelSafariImg, jeepSafariImg, desertCampImg, sightseeingImg, adventureImg, exoticToursImg, specialEventsImg];
 
 const activities: ServiceActivity[] = [
   {
@@ -18,8 +19,15 @@ const activities: ServiceActivity[] = [
     price: 2350,
     priceLabel: "/person",
     duration: "5:00 AM – 11:00 AM",
-    details: ["Sunrise in desert", "Breakfast included", "Expert guide", "Photo stops"],
-    image: imgs[0],
+    details: [
+      "Ideal for travelers who want a quick desert experience",
+      "Enjoy sunrise in the desert with golden light over dunes",
+      "Breakfast served freshly cooked in the desert",
+      "Great photography opportunities during sunrise",
+      "Expert camel guide throughout the ride",
+      "Start: ~5:00 AM | End: ~11:00 AM (same day)",
+    ],
+    image: desertSunriseImg,
   },
   {
     id: "sunset-camel",
@@ -28,8 +36,14 @@ const activities: ServiceActivity[] = [
     price: 2450,
     priceLabel: "/person",
     duration: "1:30 PM – 9:30 PM",
-    details: ["Sunset views", "Wood-fire dinner", "Camel ride", "Sand dunes"],
-    image: imgs[1],
+    details: [
+      "Perfect for people exploring the city during the day",
+      "Camel ride through beautiful sand dunes",
+      "Watch stunning sunset behind the dunes",
+      "Dinner cooked on wood fire by local guides",
+      "Start: ~1:30 PM | End: ~9:30 PM (same day)",
+    ],
+    image: camelSunsetImg,
   },
   {
     id: "one-day-camel",
@@ -39,8 +53,16 @@ const activities: ServiceActivity[] = [
     priceLabel: "/person",
     duration: "6:30 AM – 9:30 PM",
     minPeople: 2,
-    details: ["Full day ride", "All meals included", "Sunset on dunes", "Tree shade rest"],
-    image: imgs[0],
+    details: [
+      "Full day desert experience without overnight stay",
+      "Morning camel ride with breakfast in the desert",
+      "Rest under tree shade during afternoon",
+      "Freshly cooked lunch and dinner in the desert",
+      "Sunset views from the sand dunes",
+      "Minimum 2 people required",
+      "Start: ~6:30 AM | End: ~9:30 PM (same day)",
+    ],
+    image: camelSafariImg,
   },
   {
     id: "overnight-4a",
@@ -49,8 +71,15 @@ const activities: ServiceActivity[] = [
     price: 3650,
     priceLabel: "/person",
     duration: "6:30 AM – 11:00 AM next day",
-    details: ["Off-track route", "Sleep under stars", "Warm bedding", "Desert exploration"],
-    image: imgs[2],
+    details: [
+      "Non-touristic off-track desert route away from crowds",
+      "Explore desert landscapes, huts, and temples",
+      "Observe local flora and fauna along the way",
+      "Sleep under the stars with warm bedding provided",
+      "All meals (breakfast, lunch, dinner) included",
+      "Start: ~6:30 AM | End: ~11:00 AM next day",
+    ],
+    image: desertNightCampImg,
   },
   {
     id: "overnight-4b",
@@ -59,8 +88,15 @@ const activities: ServiceActivity[] = [
     price: 4150,
     priceLabel: "/person",
     duration: "6:30 AM – 5:30 PM next day",
-    details: ["Nomadic experience", "Wildlife spotting", "Sleep under stars", "Varied terrain"],
-    image: imgs[3],
+    details: [
+      "Experience authentic nomadic desert life",
+      "Camel ride across scrublands, fields, rocky areas and dunes",
+      "Spot local wildlife including desert foxes and birds",
+      "Sleep under the stars with warm bedding",
+      "All meals freshly cooked in the desert",
+      "Start: ~6:30 AM | End: ~5:30 PM next day",
+    ],
+    image: sightseeingImg,
   },
   {
     id: "overnight-4c",
@@ -69,8 +105,15 @@ const activities: ServiceActivity[] = [
     price: 2950,
     priceLabel: "/person",
     duration: "1:30 PM – 11:00 AM next day",
-    details: ["Non-touristic route", "Farms & dunes", "Flora & fauna", "Star sleeping"],
-    image: imgs[4],
+    details: [
+      "Raw desert experience on non-touristic routes",
+      "Camel ride through farms, rocky areas and sand dunes",
+      "Observe local flora and fauna",
+      "Sleep under the stars with warm bedding",
+      "Dinner and breakfast included",
+      "Start: ~1:30 PM | End: ~11:00 AM next day",
+    ],
+    image: adventureImg,
   },
   {
     id: "overnight-4d",
@@ -79,8 +122,15 @@ const activities: ServiceActivity[] = [
     price: 3650,
     priceLabel: "/person",
     duration: "1:30 PM – 5:30 PM next day",
-    details: ["Off-beat route", "Mud houses & temples", "Scrublands", "Star sleeping"],
-    image: imgs[5],
+    details: [
+      "Off-beat desert safari experience",
+      "Ride through dunes and scrublands",
+      "Pass traditional mud houses and ancient temples",
+      "Overnight stay under the stars with warm bedding",
+      "All meals included",
+      "Start: ~1:30 PM | End: ~5:30 PM next day",
+    ],
+    image: jeepSafariImg,
   },
   {
     id: "camping",
@@ -89,8 +139,14 @@ const activities: ServiceActivity[] = [
     price: 3450,
     priceLabel: "/person",
     duration: "1:30 PM – 11:00 AM next day",
-    details: ["Desert tent", "Warm bedding", "Camel ride", "Rocky landscapes"],
-    image: imgs[2],
+    details: [
+      "Camel ride across farms, dunes and rocky landscapes",
+      "Camp in a desert tent set among sand dunes",
+      "Warm bedding provided inside the tent",
+      "Dinner and breakfast freshly cooked",
+      "Start: ~1:30 PM | End: ~11:00 AM next day",
+    ],
+    image: desertCampImg,
   },
   {
     id: "real-desert",
@@ -99,8 +155,16 @@ const activities: ServiceActivity[] = [
     price: 7950,
     priceLabel: "/person",
     duration: "2 Nights / 3 Days",
-    details: ["2 nights", "Luxury camp", "Cultural program", "Sunrise & sunset"],
-    image: imgs[6],
+    details: [
+      "2 nights / 3 days immersive desert experience",
+      "First night sleeping under the stars",
+      "Second night in a luxury desert camp",
+      "Camel ride with sunset and sunrise views",
+      "Cultural dance and music program included",
+      "All meals included throughout",
+      "Start: ~1:30 PM | End: ~11:00 AM (third day)",
+    ],
+    image: specialEventsImg,
   },
   {
     id: "live-entertainment",
@@ -109,8 +173,15 @@ const activities: ServiceActivity[] = [
     price: 3650,
     priceLabel: "/person",
     duration: "1:30 PM – 9:30 PM",
-    details: ["Folk dance & music", "Sunset experience", "Gypsy community", "Camel ride"],
-    image: imgs[5],
+    details: [
+      "Camel ride to the sand dunes",
+      "Watch stunning sunset from the dunes",
+      "Live Rajasthani folk dance and music performance",
+      "Interaction with local gypsy community",
+      "Dinner included",
+      "Start: ~1:30 PM | End: ~9:30 PM (same day)",
+    ],
+    image: culturalDanceImg,
   },
   {
     id: "dance-music-overnight",
@@ -119,8 +190,15 @@ const activities: ServiceActivity[] = [
     price: 4450,
     priceLabel: "/person",
     duration: "1:30 PM – 11:00 AM next day",
-    details: ["Live performance", "Sunset view", "Overnight stay", "Star-lit sky"],
-    image: imgs[6],
+    details: [
+      "Camel ride through the desert with sunset view",
+      "Live Rajasthani dance and music performance",
+      "Overnight stay under the star-lit sky",
+      "Warm bedding provided",
+      "Dinner and breakfast included",
+      "Start: ~1:30 PM | End: ~11:00 AM next day",
+    ],
+    image: camelSunsetImg,
   },
   {
     id: "cultural-program",
@@ -129,8 +207,14 @@ const activities: ServiceActivity[] = [
     price: 3450,
     priceLabel: "/person",
     duration: "3:00 PM – 10:30 PM",
-    details: ["Cultural show", "Traditional welcome", "Desert dinner", "Camp seating"],
-    image: imgs[3],
+    details: [
+      "Camel ride through the sand dunes",
+      "Traditional Rajasthani folk dance and music show",
+      "Traditional welcome ceremony on arrival",
+      "Dinner served at desert camp seating arrangement",
+      "Start: ~3:00 PM | End: ~10:30 PM (same day)",
+    ],
+    image: culturalDanceImg,
   },
   {
     id: "non-touristic",
@@ -140,8 +224,15 @@ const activities: ServiceActivity[] = [
     priceLabel: "/person/night",
     nights: 2,
     duration: "2 Nights / 3 Days",
-    details: ["Off-track route", "Open-fire meals", "Starry camping", "2 nights"],
-    image: imgs[4],
+    details: [
+      "Camel ride through scrublands, farms and sand dunes",
+      "Off-track non-touristic route away from crowds",
+      "Camp under the starry sky each night",
+      "Traditional meals cooked on open fire",
+      "Warm bedding provided",
+      "Start: ~6:30 AM or ~1:30 PM | End: ~11:00 AM or ~5:30 PM (3rd day)",
+    ],
+    image: desertNightCampImg,
   },
   {
     id: "into-thar",
@@ -151,8 +242,14 @@ const activities: ServiceActivity[] = [
     priceLabel: "/person/night",
     nights: 3,
     duration: "3 Nights / 4 Days",
-    details: ["Deep exploration", "Rocky landscapes", "Traditional meals", "3 nights"],
-    image: imgs[0],
+    details: [
+      "Deep desert exploration over 3 nights and 4 days",
+      "Camel rides across sand dunes and rocky landscapes",
+      "Camp under the stars each night",
+      "Traditional meals cooked fresh in the desert",
+      "Experience remote desert wilderness",
+    ],
+    image: desertSunriseImg,
   },
   {
     id: "thar-desert",
@@ -162,8 +259,14 @@ const activities: ServiceActivity[] = [
     priceLabel: "/person/night",
     nights: 4,
     duration: "4 Nights / 5 Days",
-    details: ["Long expedition", "Sunrise & sunset", "Star camping", "4 nights"],
-    image: imgs[1],
+    details: [
+      "Long camel expedition spanning 4 nights and 5 days",
+      "Camp each night under the stars",
+      "Enjoy both sunset and sunrise views from dunes",
+      "All meals freshly cooked in the desert",
+      "Warm bedding provided each night",
+    ],
+    image: camelSafariImg,
   },
   {
     id: "nomad-experience",
@@ -173,8 +276,14 @@ const activities: ServiceActivity[] = [
     priceLabel: "/person/night",
     nights: 5,
     duration: "5 Nights / 6 Days",
-    details: ["Immersive experience", "Desert camping", "Traditional meals", "5 nights"],
-    image: imgs[2],
+    details: [
+      "Immersive 5-night desert experience",
+      "Camel rides across dunes and rocky terrain",
+      "Traditional meals and desert camping each night",
+      "Experience the true nomadic lifestyle",
+      "Warm bedding and all supplies provided",
+    ],
+    image: desertCampImg,
   },
   {
     id: "exploring-thar",
@@ -184,8 +293,14 @@ const activities: ServiceActivity[] = [
     priceLabel: "/person/night",
     nights: 6,
     duration: "6 Nights / 7 Days",
-    details: ["Deep exploration", "Starry camping", "Open-fire meals", "6 nights"],
-    image: imgs[3],
+    details: [
+      "Deep exploration of Thar Desert over 6 nights",
+      "Camping under the starry sky each night",
+      "Traditional open-fire meals throughout",
+      "Visit remote desert areas and landscapes",
+      "All supplies and bedding provided",
+    ],
+    image: sightseeingImg,
   },
   {
     id: "thar-compass",
@@ -195,8 +310,14 @@ const activities: ServiceActivity[] = [
     priceLabel: "/person/night",
     nights: 7,
     duration: "7 Nights / 8 Days",
-    details: ["Extensive journey", "Multiple terrains", "Star camping", "7 nights"],
-    image: imgs[4],
+    details: [
+      "Extensive 7-night desert journey",
+      "Camel rides across multiple desert terrains",
+      "Camp under the stars each night",
+      "All meals and warm bedding included",
+      "Most comprehensive desert experience",
+    ],
+    image: adventureImg,
   },
   {
     id: "multi-day",
@@ -207,8 +328,15 @@ const activities: ServiceActivity[] = [
     nights: 2,
     minPeople: 2,
     duration: "Min 3 Days / 2 Nights",
-    details: ["Fully customizable", "Jeep support", "Up to 22 days", "Flexible timing"],
-    image: imgs[6],
+    details: [
+      "Fully customizable safari — you choose the duration",
+      "Minimum 3 days / 2 nights, up to 22 days / 21 nights",
+      "Jeep support vehicle and drinking water included",
+      "Start and end time is flexible",
+      "All meals freshly cooked in the desert",
+      "Minimum 2 people required",
+    ],
+    image: jeepSafariImg,
   },
 ];
 

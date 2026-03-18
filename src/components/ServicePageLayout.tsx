@@ -123,15 +123,15 @@ const ServicePageLayout = ({
                 </div>
               </div>
               <div className="p-5">
-                <p className="font-body text-sm text-muted-foreground mb-3 line-clamp-2">{activity.description}</p>
-                <div className="flex flex-wrap gap-1.5 mb-4">
-                  {activity.details.slice(0, 4).map((item) => (
-                    <span key={item} className="px-2 py-0.5 bg-primary/10 text-primary text-[10px] font-body rounded-full">{item}</span>
+                <p className="font-body text-sm text-muted-foreground mb-3">{activity.description}</p>
+                <ul className="space-y-1.5 mb-4">
+                  {activity.details.map((item) => (
+                    <li key={item} className="flex items-start gap-2 font-body text-xs text-muted-foreground">
+                      <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-primary/60" />
+                      {item}
+                    </li>
                   ))}
-                  {activity.details.length > 4 && (
-                    <span className="px-2 py-0.5 bg-muted text-muted-foreground text-[10px] font-body rounded-full">+{activity.details.length - 4} more</span>
-                  )}
-                </div>
+                </ul>
                 <div className="flex items-center justify-between">
                   <div>
                     <span className="font-display text-xl font-bold text-foreground">₹{activity.price.toLocaleString("en-IN")}</span>

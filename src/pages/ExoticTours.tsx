@@ -1,13 +1,13 @@
 import { Compass } from "lucide-react";
 import ServicePageLayout, { ServiceActivity } from "@/components/ServicePageLayout";
 import exoticToursImg from "@/assets/activities/exotic-tours.jpg";
-import camelSafariImg from "@/assets/activities/camel-safari.jpg";
+import desertSunriseImg from "@/assets/activities/desert-sunrise.jpg";
 import sightseeingImg from "@/assets/activities/sightseeing.jpg";
-import desertCampImg from "@/assets/activities/desert-camp.jpg";
-import specialEventsImg from "@/assets/activities/special-events.jpg";
+import jaisalmerFortImg from "@/assets/activities/jaisalmer-fort.jpg";
+import desertNightCampImg from "@/assets/activities/desert-night-camp.jpg";
+import gadisarLakeImg from "@/assets/activities/gadisar-lake.jpg";
+import camelSafariImg from "@/assets/activities/camel-safari.jpg";
 import adventureImg from "@/assets/activities/adventure.jpg";
-
-const imgs = [exoticToursImg, camelSafariImg, sightseeingImg, desertCampImg, specialEventsImg, adventureImg];
 
 const activities: ServiceActivity[] = [
   {
@@ -18,8 +18,15 @@ const activities: ServiceActivity[] = [
     priceLabel: "/person",
     minPeople: 2,
     duration: "5:00 AM – 10:00 AM",
-    details: ["Khaba Fort", "Peacocks & peahens", "Sunrise breakfast", "Desert experience"],
-    image: imgs[0],
+    details: [
+      "Sunrise breakfast experience at Khaba Fort in the Thar Desert",
+      "Enjoy breakfast surrounded by peacocks and peahens",
+      "Food options: sandwiches, eggs, fruits or traditional Indian breakfast",
+      "Unique sunrise desert experience",
+      "Minimum 2 people required",
+      "Start: ~5:00 AM | End: ~10:00 AM (same day)",
+    ],
+    image: desertSunriseImg,
   },
   {
     id: "culinary-tour",
@@ -29,8 +36,15 @@ const activities: ServiceActivity[] = [
     priceLabel: "/person",
     minPeople: 2,
     duration: "8:00 AM – 8:00 PM",
-    details: ["Street food", "Restaurant dining", "Home dining", "Local vendors"],
-    image: imgs[1],
+    details: [
+      "Full-day food exploration of Jaisalmer",
+      "Taste local street food from famous vendors",
+      "Dine at selected local restaurants",
+      "Local home dining experience included",
+      "Minimum 2 people required",
+      "Start: ~8:00 AM | End: ~8:00 PM (same day)",
+    ],
+    image: sightseeingImg,
   },
   {
     id: "haunted-trail",
@@ -40,8 +54,15 @@ const activities: ServiceActivity[] = [
     priceLabel: "/person",
     minPeople: 2,
     duration: "11:30 PM – 3:00 AM",
-    details: ["Ghost villages", "Kuldhara & Khaba", "Night tour", "Thrill seekers"],
-    image: imgs[2],
+    details: [
+      "Night tour exploring haunted locations in Jaisalmer",
+      "Visit ghost villages like Kuldhara and Khaba",
+      "Explore cemeteries, cremation grounds, and spooky desert areas",
+      "Designed for thrill seekers",
+      "Minimum 2 people required",
+      "Start: ~11:30 PM | End: ~3:00 AM (same night)",
+    ],
+    image: desertNightCampImg,
   },
   {
     id: "temple-trail",
@@ -51,8 +72,15 @@ const activities: ServiceActivity[] = [
     priceLabel: "/person",
     minPeople: 2,
     duration: "6:30 AM – 8:30 PM",
-    details: ["Hindu & Jain temples", "400+ years old", "Spiritual journey", "Cultural exploration"],
-    image: imgs[3],
+    details: [
+      "Spiritual journey to historic Hindu and Jain temples",
+      "Learn about religious traditions and local culture",
+      "Visit temples that are over 400 years old",
+      "Cultural and spiritual exploration",
+      "Minimum 2 people required",
+      "Start: ~6:30 AM | End: ~8:30 PM (same day)",
+    ],
+    image: jaisalmerFortImg,
   },
   {
     id: "village-tour",
@@ -62,8 +90,15 @@ const activities: ServiceActivity[] = [
     priceLabel: "/person",
     minPeople: 2,
     duration: "8:00 AM – 10:00 AM next day",
-    details: ["Village life", "Farm exploration", "Local home stay", "Camel ride"],
-    image: imgs[4],
+    details: [
+      "Experience rural village life in the Thar Desert",
+      "Interact with villagers and explore farms",
+      "Stay in a local home",
+      "Short camel ride included",
+      "Minimum 2 people required",
+      "Start: ~8:00 AM | End: ~10:00 AM (next day)",
+    ],
+    image: camelSafariImg,
   },
   {
     id: "desert-national-park",
@@ -73,8 +108,15 @@ const activities: ServiceActivity[] = [
     priceLabel: "/person",
     minPeople: 2,
     duration: "8:00 AM – 11:00 AM next day",
-    details: ["Wildlife spotting", "Bird watching", "Jeep ride", "Desert stay"],
-    image: imgs[5],
+    details: [
+      "Wildlife excursion inside Desert National Park",
+      "Jeep ride with guide for wildlife spotting",
+      "Bird watching and desert ecosystem exploration",
+      "Camel ride, dinner and desert stay included",
+      "Minimum 2 people required",
+      "Start: ~8:00 AM | End: ~11:00 AM (next day)",
+    ],
+    image: adventureImg,
   },
   {
     id: "akal-fossil-park",
@@ -84,8 +126,14 @@ const activities: ServiceActivity[] = [
     priceLabel: "/person",
     minPeople: 2,
     duration: "9:30 AM – 1:00 PM",
-    details: ["Prehistoric fossils", "Geological history", "Guided tour", "Jeep/AC car"],
-    image: imgs[0],
+    details: [
+      "Visit prehistoric fossil park with ancient tree fossils",
+      "Learn about geological history of the desert",
+      "Travel by jeep or AC car with guide",
+      "Minimum 2 people required",
+      "Start: ~9:30 AM | End: ~1:00 PM (same day)",
+    ],
+    image: exoticToursImg,
   },
   {
     id: "eco-farm-stay",
@@ -95,8 +143,15 @@ const activities: ServiceActivity[] = [
     priceLabel: "/person",
     minPeople: 2,
     duration: "4:00 PM – 11:00 AM next day",
-    details: ["Mud house", "Eco-resort", "Bonfire", "Farm experience", "Lake nearby"],
-    image: imgs[3],
+    details: [
+      "Stay in an eco-resort deep in the desert",
+      "Traditional mud house accommodation",
+      "Enjoy local meals, bonfire and farm experience",
+      "Lake nearby attracts birds and wildlife",
+      "Minimum 2 people required",
+      "Arrival recommended: ~4:00 PM | Checkout: ~11:00 AM next day",
+    ],
+    image: gadisarLakeImg,
   },
 ];
 
