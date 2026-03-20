@@ -55,7 +55,7 @@ const activities: ServiceActivity[] = [
       "Includes camel ride, welcome drink, and bottled water",
       "Duration: ~30 minutes total ride",
     ],
-    image: adventureImg,
+    image: fortunerSafariImg,
   },
   {
     id: "parasailing",
