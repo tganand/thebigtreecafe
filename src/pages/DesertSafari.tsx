@@ -220,7 +220,7 @@ const activities: ServiceActivity[] = [
       "Dinner served at desert camp seating arrangement",
       "Start: ~3:00 PM | End: ~10:30 PM (same day)",
     ],
-    image: culturalDanceImg,
+    image: culturalProgramImg,
   },
   {
     id: "non-touristic",
