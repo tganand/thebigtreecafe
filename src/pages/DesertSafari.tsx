@@ -272,7 +272,7 @@ const activities: ServiceActivity[] = [
       "All meals freshly cooked in the desert",
       "Warm bedding provided each night",
     ],
-    image: camelSafariImg,
+    image: tharDesertSafariImg,
   },
   {
     id: "nomad-experience",
