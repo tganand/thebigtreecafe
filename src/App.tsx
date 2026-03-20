@@ -14,7 +14,7 @@ const ExoticTours = lazy(() => import("./pages/ExoticTours"));
 const SpecialEvents = lazy(() => import("./pages/SpecialEvents"));
 const HotelRooms = lazy(() => import("./pages/HotelRooms"));
 const NotFound = lazy(() => import("./pages/NotFound"));
-const GenerateImages = lazy(() => import("./pages/GenerateImages"));
+
 
 const queryClient = new QueryClient();
 
