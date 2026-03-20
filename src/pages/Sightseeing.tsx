@@ -303,7 +303,7 @@ const activities: ServiceActivity[] = [
       "3 nights accommodation included",
       "Minimum 2 people required",
     ],
-    image: jaisalmerWalkImg,
+    image: dekhoJaisalmerImg,
   },
   {
     id: "ghumo-jaisalmer",
