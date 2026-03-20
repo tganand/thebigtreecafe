@@ -139,7 +139,7 @@ const activities: ServiceActivity[] = [
       "Minimum 2 people required",
       "Start: ~9:30 AM | End: ~1:00 PM (same day)",
     ],
-    image: exoticToursImg,
+    image: akalFossilParkImg,
   },
   {
     id: "eco-farm-stay",
