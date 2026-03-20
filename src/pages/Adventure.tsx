@@ -2,9 +2,10 @@ import { Bike } from "lucide-react";
 import ServicePageLayout, { ServiceActivity } from "@/components/ServicePageLayout";
 import quadBikingImg from "@/assets/activities/quad-biking.jpg";
 import jeepSafariImg from "@/assets/activities/jeep-safari.jpg";
-import parasailingImg from "@/assets/activities/parasailing-desert.jpg";
+import parasailingImg from "@/assets/activities/parasailing-new.jpg";
+import paramotoringImg from "@/assets/activities/paramotoring.jpg";
 import gadisarLakeImg from "@/assets/activities/gadisar-lake.jpg";
-import adventureImg from "@/assets/activities/adventure.jpg";
+import fortunerSafariImg from "@/assets/activities/fortuner-safari.jpg";
 
 const activities: ServiceActivity[] = [
   {
