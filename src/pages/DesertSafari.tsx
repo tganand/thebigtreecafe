@@ -119,7 +119,7 @@ const activities: ServiceActivity[] = [
       "Dinner and breakfast included",
       "Start: ~1:30 PM | End: ~11:00 AM next day",
     ],
-    image: adventureImg,
+    image: overnight4cImg,
   },
   {
     id: "overnight-4d",
