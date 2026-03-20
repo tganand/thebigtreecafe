@@ -157,7 +157,7 @@ const activities: ServiceActivity[] = [
       "Minimum 2 people required",
       "Arrival recommended: ~4:00 PM | Checkout: ~11:00 AM next day",
     ],
-    image: gadisarLakeImg,
+    image: ecoFarmStayImg,
   },
 ];
 
