@@ -37,6 +37,7 @@ const ServicePageLayout = ({
   icon, navTitle, heroImage, heroSubtitle, heroTitle, heroDescription, activities, bookingType,
 }: Props) => {
   const navigate = useNavigate();
+  useEffect(() => { window.scrollTo(0, 0); }, []);
   const [bookingActivity, setBookingActivity] = useState<ServiceActivity | null>(null);
   const [guests, setGuests] = useState(1);
   const [formData, setFormData] = useState({ name: "", phone: "+91 ", date: "" });
