@@ -88,6 +88,7 @@ const activities: ServiceActivity[] = [
       "Available time: 7:00 AM – 7:00 PM",
     ],
     image: paramotoringImg,
+  },
   {
     id: "boating",
     title: "Boating",
