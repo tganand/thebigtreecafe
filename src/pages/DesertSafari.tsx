@@ -306,7 +306,7 @@ const activities: ServiceActivity[] = [
       "Visit remote desert areas and landscapes",
       "All supplies and bedding provided",
     ],
-    image: sightseeingImg,
+    image: exploringTharImg,
   },
   {
     id: "thar-compass",
