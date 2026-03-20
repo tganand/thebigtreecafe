@@ -1,13 +1,19 @@
 import { Compass } from "lucide-react";
 import ServicePageLayout, { ServiceActivity } from "@/components/ServicePageLayout";
 import exoticToursImg from "@/assets/activities/exotic-tours.jpg";
-import desertSunriseImg from "@/assets/activities/desert-sunrise.jpg";
-import sightseeingImg from "@/assets/activities/sightseeing.jpg";
+import breakfastPeacocksImg from "@/assets/activities/breakfast-peacocks.jpg";
+import culinaryTourImg from "@/assets/activities/culinary-tour.jpg";
 import jaisalmerFortImg from "@/assets/activities/jaisalmer-fort.jpg";
 import desertNightCampImg from "@/assets/activities/desert-night-camp.jpg";
-import gadisarLakeImg from "@/assets/activities/gadisar-lake.jpg";
-import camelSafariImg from "@/assets/activities/camel-safari.jpg";
-import adventureImg from "@/assets/activities/adventure.jpg";
+import templeTrailImg from "@/assets/activities/temple-trail.jpg";
+import villageTourImg from "@/assets/activities/village-tour.jpg";
+import desertNationalParkImg from "@/assets/activities/desert-national-park.jpg";
+import akalFossilParkImg from "@/assets/activities/akal-fossil-park.jpg";
+import ecoFarmStayImg from "@/assets/activities/eco-farm-stay.jpg";
+import dekhoJaisalmerImg from "@/assets/activities/dekho-jaisalmer.jpg";
+import ghumoJaisalmerImg from "@/assets/activities/ghumo-jaisalmer.jpg";
+import jaisalmerWalkImg from "@/assets/activities/jaisalmer-walk.jpg";
+import jewelsImg from "@/assets/activities/jewels-jaisalmer.jpg";
 
 const activities: ServiceActivity[] = [
   {
