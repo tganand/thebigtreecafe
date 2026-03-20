@@ -104,7 +104,7 @@ const activities: ServiceActivity[] = [
       "Minimum 2 people required",
       "Start: ~8:00 AM | End: ~10:00 AM (next day)",
     ],
-    image: camelSafariImg,
+    image: villageTourImg,
   },
   {
     id: "desert-national-park",
