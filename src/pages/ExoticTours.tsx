@@ -122,7 +122,7 @@ const activities: ServiceActivity[] = [
       "Minimum 2 people required",
       "Start: ~8:00 AM | End: ~11:00 AM (next day)",
     ],
-    image: adventureImg,
+    image: desertNationalParkImg,
   },
   {
     id: "akal-fossil-park",
