@@ -32,7 +32,7 @@ const activities: ServiceActivity[] = [
       "Minimum 2 people required",
       "Start: ~5:00 AM | End: ~10:00 AM (same day)",
     ],
-    image: desertSunriseImg,
+    image: breakfastPeacocksImg,
   },
   {
     id: "culinary-tour",
