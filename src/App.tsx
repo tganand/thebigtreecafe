@@ -14,7 +14,7 @@ const ExoticTours = lazy(() => import("./pages/ExoticTours"));
 const SpecialEvents = lazy(() => import("./pages/SpecialEvents"));
 const HotelRooms = lazy(() => import("./pages/HotelRooms"));
 const NotFound = lazy(() => import("./pages/NotFound"));
-const GenerateImages = lazy(() => import("./pages/GenerateImages"));
+
 
 const queryClient = new QueryClient();
 
@@ -34,7 +34,7 @@ const App = () => (
             <Route path="/exotic-tours" element={<ExoticTours />} />
             <Route path="/special-events" element={<SpecialEvents />} />
             <Route path="/hotel-rooms" element={<HotelRooms />} />
-            <Route path="/admin/generate-images" element={<GenerateImages />} />
+            
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Suspense>

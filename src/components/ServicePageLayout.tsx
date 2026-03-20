@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { ArrowLeft, CalendarDays, User, Phone, Minus, Plus, Clock } from "lucide-react";
 import { Dialog, DialogContent, DialogTitle, DialogDescription } from "@/components/ui/dialog";
@@ -37,6 +37,7 @@ const ServicePageLayout = ({
   icon, navTitle, heroImage, heroSubtitle, heroTitle, heroDescription, activities, bookingType,
 }: Props) => {
   const navigate = useNavigate();
+  useEffect(() => { window.scrollTo(0, 0); }, []);
   const [bookingActivity, setBookingActivity] = useState<ServiceActivity | null>(null);
   const [guests, setGuests] = useState(1);
   const [formData, setFormData] = useState({ name: "", phone: "+91 ", date: "" });
