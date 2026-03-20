@@ -342,7 +342,7 @@ const activities: ServiceActivity[] = [
       "All meals freshly cooked in the desert",
       "Minimum 2 people required",
     ],
-    image: jeepSafariImg,
+    image: multiDayCamelImg,
   },
 ];
 

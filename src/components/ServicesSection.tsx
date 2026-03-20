@@ -75,7 +75,7 @@ const ServicesSection = () => {
   const divider = useScrollReveal("zoom-in", 0.2);
 
   return (
-    <section className="py-24 bg-sand-gradient">
+    <section id="services" className="py-24 bg-sand-gradient">
       <div className="container mx-auto px-6 max-w-6xl">
         <div className="text-center mb-16">
           <p ref={heading.ref} style={heading.style} className="font-accent text-lg tracking-[0.25em] uppercase text-primary mb-4">
