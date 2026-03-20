@@ -1,4 +1,4 @@
-export const UPI_ID = "tganand1223-1@oksbi";
+export const UPI_ID = "motisain536-1@oksbi";
 export const PAYEE_NAME = "Anand";
 
 export const getUpiLink = (amount: number) =>
