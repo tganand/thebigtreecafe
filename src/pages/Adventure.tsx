@@ -2,7 +2,7 @@ import { Bike } from "lucide-react";
 import ServicePageLayout, { ServiceActivity } from "@/components/ServicePageLayout";
 import quadBikingImg from "@/assets/activities/quad-biking.jpg";
 import jeepSafariImg from "@/assets/activities/jeep-safari.jpg";
-import parasailingImg from "@/assets/activities/parasailing.jpg";
+import parasailingImg from "@/assets/activities/parasailing-desert.jpg";
 import gadisarLakeImg from "@/assets/activities/gadisar-lake.jpg";
 import adventureImg from "@/assets/activities/adventure.jpg";
 

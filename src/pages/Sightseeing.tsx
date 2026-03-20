@@ -1,13 +1,19 @@
 import { MapPin } from "lucide-react";
 import ServicePageLayout, { ServiceActivity } from "@/components/ServicePageLayout";
 import sightseeingImg from "@/assets/activities/sightseeing.jpg";
+import jaisalmerWalkImg from "@/assets/activities/jaisalmer-walk.jpg";
+import shoppingImg from "@/assets/activities/shopping-jaisalmer.jpg";
+import eveningLakeImg from "@/assets/activities/evening-lake.jpg";
+import jewelsImg from "@/assets/activities/jewels-jaisalmer.jpg";
+import padharoImg from "@/assets/activities/padharo-cultural.jpg";
+import indoPakImg from "@/assets/activities/indo-pak-border.jpg";
+import tukTukSunsetImg from "@/assets/activities/tuk-tuk-sunset.jpg";
+import cyclingImg from "@/assets/activities/cycling-jaisalmer.jpg";
+import scootyImg from "@/assets/activities/scooty-jaisalmer.jpg";
+import bikeTripImg from "@/assets/activities/bike-trip-jaisalmer.jpg";
 import jaisalmerFortImg from "@/assets/activities/jaisalmer-fort.jpg";
-import gadisarLakeImg from "@/assets/activities/gadisar-lake.jpg";
 import tukTukImg from "@/assets/activities/tuk-tuk.jpg";
 import bulletRideImg from "@/assets/activities/bullet-ride.jpg";
-import camelSafariImg from "@/assets/activities/camel-safari.jpg";
-import adventureImg from "@/assets/activities/adventure.jpg";
-import desertSunriseImg from "@/assets/activities/desert-sunrise.jpg";
 import culturalDanceImg from "@/assets/activities/cultural-dance.jpg";
 
 const activities: ServiceActivity[] = [
@@ -44,7 +50,7 @@ const activities: ServiceActivity[] = [
       "Minimum 2 people required",
       "Start: 8:00 AM | End: 1:30 PM",
     ],
-    image: jaisalmerFortImg,
+    image: jaisalmerWalkImg,
   },
   {
     id: "shopping",
@@ -61,7 +67,7 @@ const activities: ServiceActivity[] = [
       "Minimum 2 people required",
       "Start: 9:00 AM | End: 2:00 PM",
     ],
-    image: jaisalmerFortImg,
+    image: shoppingImg,
   },
   {
     id: "evening-lake",
@@ -79,7 +85,7 @@ const activities: ServiceActivity[] = [
       "Minimum 2 people required",
       "Start: 4:00 PM | End: 8:30 PM",
     ],
-    image: gadisarLakeImg,
+    image: eveningLakeImg,
   },
   {
     id: "city-tour",
@@ -118,7 +124,7 @@ const activities: ServiceActivity[] = [
       "Minimum 2 people required",
       "Start: 8:00 AM | End: 7:30 PM",
     ],
-    image: desertSunriseImg,
+    image: jewelsImg,
   },
   {
     id: "padharo",
@@ -136,7 +142,7 @@ const activities: ServiceActivity[] = [
       "Minimum 2 people required",
       "Start: 8:00 AM | End: 8:00 PM",
     ],
-    image: culturalDanceImg,
+    image: padharoImg,
   },
   {
     id: "indo-pak-border",
@@ -154,7 +160,7 @@ const activities: ServiceActivity[] = [
       "Minimum 2 people required",
       "Start: 8:00 AM | End: 7:00 PM",
     ],
-    image: adventureImg,
+    image: indoPakImg,
   },
   {
     id: "tuk-tuk-city",
@@ -188,7 +194,7 @@ const activities: ServiceActivity[] = [
       "Minimum 2 people required",
       "Start: 4:00 PM | End: 7:30 PM",
     ],
-    image: tukTukImg,
+    image: tukTukSunsetImg,
   },
   {
     id: "cycling-tour",
@@ -205,7 +211,7 @@ const activities: ServiceActivity[] = [
       "Minimum 2 people required",
       "Start: 8:00 AM | End: 2:30 PM",
     ],
-    image: camelSafariImg,
+    image: cyclingImg,
   },
   {
     id: "scooty-tour",
@@ -222,7 +228,7 @@ const activities: ServiceActivity[] = [
       "Minimum 2 people required",
       "Start: 8:00 AM | End: 1:00 PM",
     ],
-    image: jaisalmerFortImg,
+    image: scootyImg,
   },
   {
     id: "bike-trip",
@@ -240,7 +246,7 @@ const activities: ServiceActivity[] = [
       "Minimum 2 people required",
       "Start: 8:00 AM | End: 7:30 PM",
     ],
-    image: bulletRideImg,
+    image: bikeTripImg,
   },
   {
     id: "bullet-ride",
@@ -295,7 +301,7 @@ const activities: ServiceActivity[] = [
       "3 nights accommodation included",
       "Minimum 2 people required",
     ],
-    image: desertSunriseImg,
+    image: jaisalmerWalkImg,
   },
   {
     id: "ghumo-jaisalmer",
@@ -314,7 +320,7 @@ const activities: ServiceActivity[] = [
       "4 nights accommodation included",
       "Minimum 2 people required",
     ],
-    image: gadisarLakeImg,
+    image: jewelsImg,
   },
 ];
 
