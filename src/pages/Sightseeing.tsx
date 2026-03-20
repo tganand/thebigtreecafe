@@ -322,7 +322,7 @@ const activities: ServiceActivity[] = [
       "4 nights accommodation included",
       "Minimum 2 people required",
     ],
-    image: jewelsImg,
+    image: ghumoJaisalmerImg,
   },
 ];
 
