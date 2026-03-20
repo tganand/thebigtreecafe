@@ -8,8 +8,14 @@ import desertSunriseImg from "@/assets/activities/desert-sunrise.jpg";
 import culturalDanceImg from "@/assets/activities/cultural-dance.jpg";
 import specialEventsImg from "@/assets/activities/special-events.jpg";
 import jeepSafariImg from "@/assets/activities/jeep-safari.jpg";
-import sightseeingImg from "@/assets/activities/sightseeing.jpg";
-import adventureImg from "@/assets/activities/adventure.jpg";
+import overnight4bImg from "@/assets/activities/overnight-4b.jpg";
+import overnight4cImg from "@/assets/activities/overnight-4c.jpg";
+import overnight4dImg from "@/assets/activities/overnight-4d.jpg";
+import realDesertSafariImg from "@/assets/activities/real-desert-safari.jpg";
+import culturalProgramImg from "@/assets/activities/cultural-program.jpg";
+import tharDesertSafariImg from "@/assets/activities/thar-desert-safari.jpg";
+import exploringTharImg from "@/assets/activities/exploring-thar.jpg";
+import multiDaySafariImg from "@/assets/activities/multi-day-safari.jpg";
 
 const activities: ServiceActivity[] = [
   {
