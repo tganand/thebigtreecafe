@@ -1,4 +1,5 @@
-import { lazy, Suspense } from "react";
+import { lazy, Suspense, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import { Navbar, HeroSection } from "@/components/HeroSection";
 import AboutSection from "@/components/AboutSection";
 
@@ -14,6 +15,17 @@ const Footer = lazy(() =>
 );
 
 const Index = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.hash) {
+      const id = location.hash.replace("#", "");
+      setTimeout(() => {
+        document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+      }, 300);
+    }
+  }, [location.hash]);
+
   return (
     <div className="min-h-screen">
       <Navbar />

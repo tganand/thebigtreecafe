@@ -15,6 +15,8 @@ import jaisalmerFortImg from "@/assets/activities/jaisalmer-fort.jpg";
 import tukTukImg from "@/assets/activities/tuk-tuk.jpg";
 import bulletRideImg from "@/assets/activities/bullet-ride.jpg";
 import culturalDanceImg from "@/assets/activities/cultural-dance.jpg";
+import dekhoJaisalmerImg from "@/assets/activities/dekho-jaisalmer.jpg";
+import ghumoJaisalmerImg from "@/assets/activities/ghumo-jaisalmer.jpg";
 
 const activities: ServiceActivity[] = [
   {
@@ -301,7 +303,7 @@ const activities: ServiceActivity[] = [
       "3 nights accommodation included",
       "Minimum 2 people required",
     ],
-    image: jaisalmerWalkImg,
+    image: dekhoJaisalmerImg,
   },
   {
     id: "ghumo-jaisalmer",
@@ -320,7 +322,7 @@ const activities: ServiceActivity[] = [
       "4 nights accommodation included",
       "Minimum 2 people required",
     ],
-    image: jewelsImg,
+    image: ghumoJaisalmerImg,
   },
 ];
 

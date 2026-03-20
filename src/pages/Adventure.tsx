@@ -2,9 +2,10 @@ import { Bike } from "lucide-react";
 import ServicePageLayout, { ServiceActivity } from "@/components/ServicePageLayout";
 import quadBikingImg from "@/assets/activities/quad-biking.jpg";
 import jeepSafariImg from "@/assets/activities/jeep-safari.jpg";
-import parasailingImg from "@/assets/activities/parasailing-desert.jpg";
+import parasailingImg from "@/assets/activities/parasailing-new.jpg";
+import paramotoringImg from "@/assets/activities/paramotoring.jpg";
 import gadisarLakeImg from "@/assets/activities/gadisar-lake.jpg";
-import adventureImg from "@/assets/activities/adventure.jpg";
+import fortunerSafariImg from "@/assets/activities/fortuner-safari.jpg";
 
 const activities: ServiceActivity[] = [
   {
@@ -54,7 +55,7 @@ const activities: ServiceActivity[] = [
       "Includes camel ride, welcome drink, and bottled water",
       "Duration: ~30 minutes total ride",
     ],
-    image: adventureImg,
+    image: fortunerSafariImg,
   },
   {
     id: "parasailing",
@@ -86,7 +87,7 @@ const activities: ServiceActivity[] = [
       "Duration: ~10–15 minutes",
       "Available time: 7:00 AM – 7:00 PM",
     ],
-    image: parasailingImg,
+    image: paramotoringImg,
   },
   {
     id: "boating",

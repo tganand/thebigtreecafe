@@ -89,7 +89,7 @@ const ServicePageLayout = ({
     <div className="min-h-screen bg-background">
       <nav className="sticky top-0 z-50 bg-desert-brown/90 backdrop-blur-sm border-b border-gold/20">
         <div className="container mx-auto px-6 py-4 flex items-center gap-4">
-          <button onClick={() => navigate("/")} className="text-gold hover:text-gold-light transition-colors">
+          <button onClick={() => navigate("/#services")} className="text-gold hover:text-gold-light transition-colors">
             <ArrowLeft className="h-5 w-5" />
           </button>
           <div className="flex items-center gap-2">
