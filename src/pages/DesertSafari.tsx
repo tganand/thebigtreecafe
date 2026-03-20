@@ -323,7 +323,7 @@ const activities: ServiceActivity[] = [
       "All meals and warm bedding included",
       "Most comprehensive desert experience",
     ],
-    image: adventureImg,
+    image: multiDaySafariImg,
   },
   {
     id: "multi-day",
