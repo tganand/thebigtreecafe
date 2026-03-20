@@ -87,8 +87,7 @@ const activities: ServiceActivity[] = [
       "Duration: ~10–15 minutes",
       "Available time: 7:00 AM – 7:00 PM",
     ],
-    image: parasailingImg,
-  },
+    image: paramotoringImg,
   {
     id: "boating",
     title: "Boating",
