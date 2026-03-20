@@ -1,4 +1,5 @@
-import { lazy, Suspense } from "react";
+import { lazy, Suspense, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import { Navbar, HeroSection } from "@/components/HeroSection";
 import AboutSection from "@/components/AboutSection";
 
