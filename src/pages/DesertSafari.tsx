@@ -8,8 +8,14 @@ import desertSunriseImg from "@/assets/activities/desert-sunrise.jpg";
 import culturalDanceImg from "@/assets/activities/cultural-dance.jpg";
 import specialEventsImg from "@/assets/activities/special-events.jpg";
 import jeepSafariImg from "@/assets/activities/jeep-safari.jpg";
-import sightseeingImg from "@/assets/activities/sightseeing.jpg";
-import adventureImg from "@/assets/activities/adventure.jpg";
+import overnight4bImg from "@/assets/activities/overnight-4b.jpg";
+import overnight4cImg from "@/assets/activities/overnight-4c.jpg";
+import overnight4dImg from "@/assets/activities/overnight-4d.jpg";
+import realDesertSafariImg from "@/assets/activities/real-desert-safari.jpg";
+import culturalProgramImg from "@/assets/activities/cultural-program.jpg";
+import tharDesertSafariImg from "@/assets/activities/thar-desert-safari.jpg";
+import exploringTharImg from "@/assets/activities/exploring-thar.jpg";
+import multiDaySafariImg from "@/assets/activities/multi-day-safari.jpg";
 
 const activities: ServiceActivity[] = [
   {
@@ -96,7 +102,7 @@ const activities: ServiceActivity[] = [
       "All meals freshly cooked in the desert",
       "Start: ~6:30 AM | End: ~5:30 PM next day",
     ],
-    image: sightseeingImg,
+    image: overnight4bImg,
   },
   {
     id: "overnight-4c",
@@ -113,7 +119,7 @@ const activities: ServiceActivity[] = [
       "Dinner and breakfast included",
       "Start: ~1:30 PM | End: ~11:00 AM next day",
     ],
-    image: adventureImg,
+    image: overnight4cImg,
   },
   {
     id: "overnight-4d",
@@ -130,7 +136,7 @@ const activities: ServiceActivity[] = [
       "All meals included",
       "Start: ~1:30 PM | End: ~5:30 PM next day",
     ],
-    image: jeepSafariImg,
+    image: overnight4dImg,
   },
   {
     id: "camping",
@@ -164,7 +170,7 @@ const activities: ServiceActivity[] = [
       "All meals included throughout",
       "Start: ~1:30 PM | End: ~11:00 AM (third day)",
     ],
-    image: specialEventsImg,
+    image: realDesertSafariImg,
   },
   {
     id: "live-entertainment",
@@ -214,7 +220,7 @@ const activities: ServiceActivity[] = [
       "Dinner served at desert camp seating arrangement",
       "Start: ~3:00 PM | End: ~10:30 PM (same day)",
     ],
-    image: culturalDanceImg,
+    image: culturalProgramImg,
   },
   {
     id: "non-touristic",
@@ -266,7 +272,7 @@ const activities: ServiceActivity[] = [
       "All meals freshly cooked in the desert",
       "Warm bedding provided each night",
     ],
-    image: camelSafariImg,
+    image: tharDesertSafariImg,
   },
   {
     id: "nomad-experience",
@@ -300,7 +306,7 @@ const activities: ServiceActivity[] = [
       "Visit remote desert areas and landscapes",
       "All supplies and bedding provided",
     ],
-    image: sightseeingImg,
+    image: exploringTharImg,
   },
   {
     id: "thar-compass",
@@ -317,7 +323,7 @@ const activities: ServiceActivity[] = [
       "All meals and warm bedding included",
       "Most comprehensive desert experience",
     ],
-    image: adventureImg,
+    image: multiDaySafariImg,
   },
   {
     id: "multi-day",
