@@ -16,6 +16,7 @@ import culturalProgramImg from "@/assets/activities/cultural-program.jpg";
 import tharDesertSafariImg from "@/assets/activities/thar-desert-safari.jpg";
 import exploringTharImg from "@/assets/activities/exploring-thar.jpg";
 import multiDaySafariImg from "@/assets/activities/multi-day-safari.jpg";
+import multiDayCamelImg from "@/assets/activities/multi-day-camel.jpg";
 
 const activities: ServiceActivity[] = [
   {
@@ -342,7 +343,7 @@ const activities: ServiceActivity[] = [
       "All meals freshly cooked in the desert",
       "Minimum 2 people required",
     ],
-    image: jeepSafariImg,
+    image: multiDayCamelImg,
   },
 ];
 
