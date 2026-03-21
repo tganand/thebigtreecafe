@@ -217,7 +217,7 @@ const activities: ServiceActivity[] = [
       "Camel ride and jeep safari",
       "Arrival: ~4:00 PM | End: ~1:00 AM (same night)",
     ],
-    image: desertCampImg,
+    image: newYearSamImg,
   },
   {
     id: "new-year-budget",
