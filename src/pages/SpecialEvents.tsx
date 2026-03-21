@@ -270,7 +270,7 @@ const activities: ServiceActivity[] = [
       "Sleep on a luxury four-poster bed in the desert",
       "Start: ~3:00 PM | End: ~11:00 AM (next day)",
     ],
-    image: specialEventsImg,
+    image: luxuryNightImg,
   },
 ];
 
