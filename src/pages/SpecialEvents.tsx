@@ -93,7 +93,7 @@ const activities: ServiceActivity[] = [
       "Cultural dance and music program",
       "Start: ~10:00 AM | End: ~10:00 AM (third day)",
     ],
-    image: luxuryCampImg,
+    image: honeymoonJaisalmerImg,
   },
   {
     id: "pre-wedding",
