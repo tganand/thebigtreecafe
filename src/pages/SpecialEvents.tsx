@@ -166,7 +166,7 @@ const activities: ServiceActivity[] = [
       "Overnight stay under the stars",
       "Start: ~1:30 PM | End: ~11:00 AM (next day)",
     ],
-    image: desertNightCampImg,
+    image: christmasDunesImg,
   },
   {
     id: "new-year-dunes",
