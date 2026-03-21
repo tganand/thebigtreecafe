@@ -3,13 +3,18 @@ import ServicePageLayout, { ServiceActivity } from "@/components/ServicePageLayo
 import specialEventsImg from "@/assets/activities/special-events.jpg";
 import dinnerDunesImg from "@/assets/activities/dinner-dunes.jpg";
 import camelSunsetImg from "@/assets/activities/camel-sunset.jpg";
-import desertNightCampImg from "@/assets/activities/desert-night-camp.jpg";
-import luxuryCampImg from "@/assets/activities/luxury-camp.jpg";
 import gadisarLakeImg from "@/assets/activities/gadisar-lake.jpg";
 import culturalDanceImg from "@/assets/activities/cultural-dance.jpg";
 import holiFestivalImg from "@/assets/activities/holi-festival.jpg";
 import newYearDesertImg from "@/assets/activities/new-year-desert.jpg";
-import desertCampImg from "@/assets/activities/desert-camp.jpg";
+import newYearSamImg from "@/assets/activities/new-year-sam.jpg";
+import diwaliDesertImg from "@/assets/activities/diwali-desert.jpg";
+import preWeddingImg from "@/assets/activities/pre-wedding-shoot.jpg";
+import newYearJaisalmerImg from "@/assets/activities/new-year-jaisalmer.jpg";
+import honeymoonDunesImg from "@/assets/activities/honeymoon-dunes.jpg";
+import honeymoonJaisalmerImg from "@/assets/activities/honeymoon-jaisalmer.jpg";
+import luxuryNightImg from "@/assets/activities/luxury-night-dunes.jpg";
+import christmasDunesImg from "@/assets/activities/christmas-dunes.jpg";
 
 const activities: ServiceActivity[] = [
   {
@@ -69,7 +74,7 @@ const activities: ServiceActivity[] = [
       "Overnight stay in a private desert tent",
       "Start: ~4:00 PM | End: ~10:00 AM (next day)",
     ],
-    image: dinnerDunesImg,
+    image: honeymoonDunesImg,
   },
   {
     id: "honeymoon-jaisalmer",
@@ -88,7 +93,7 @@ const activities: ServiceActivity[] = [
       "Cultural dance and music program",
       "Start: ~10:00 AM | End: ~10:00 AM (third day)",
     ],
-    image: luxuryCampImg,
+    image: honeymoonJaisalmerImg,
   },
   {
     id: "pre-wedding",
@@ -106,7 +111,7 @@ const activities: ServiceActivity[] = [
       "Scenic desert locations for stunning photos",
       "Start: ~1:00 PM | End: ~8:00 PM (next day)",
     ],
-    image: camelSunsetImg,
+    image: preWeddingImg,
   },
   {
     id: "desert-festival",
@@ -143,7 +148,7 @@ const activities: ServiceActivity[] = [
       "Camel ride next day",
       "Start: ~4:00 PM | End: ~10:00 AM (next day)",
     ],
-    image: newYearDesertImg,
+    image: diwaliDesertImg,
   },
   {
     id: "christmas-dunes",
@@ -161,7 +166,7 @@ const activities: ServiceActivity[] = [
       "Overnight stay under the stars",
       "Start: ~1:30 PM | End: ~11:00 AM (next day)",
     ],
-    image: desertNightCampImg,
+    image: christmasDunesImg,
   },
   {
     id: "new-year-dunes",
@@ -195,7 +200,7 @@ const activities: ServiceActivity[] = [
       "Cultural dance and music program",
       "Start: ~3:00 PM | End: ~11:00 AM (third day)",
     ],
-    image: luxuryCampImg,
+    image: newYearJaisalmerImg,
   },
   {
     id: "new-year-sam",
@@ -212,7 +217,7 @@ const activities: ServiceActivity[] = [
       "Camel ride and jeep safari",
       "Arrival: ~4:00 PM | End: ~1:00 AM (same night)",
     ],
-    image: desertCampImg,
+    image: newYearSamImg,
   },
   {
     id: "new-year-budget",
@@ -265,7 +270,7 @@ const activities: ServiceActivity[] = [
       "Sleep on a luxury four-poster bed in the desert",
       "Start: ~3:00 PM | End: ~11:00 AM (next day)",
     ],
-    image: specialEventsImg,
+    image: luxuryNightImg,
   },
 ];
 
