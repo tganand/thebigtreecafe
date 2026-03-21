@@ -111,7 +111,7 @@ const activities: ServiceActivity[] = [
       "Scenic desert locations for stunning photos",
       "Start: ~1:00 PM | End: ~8:00 PM (next day)",
     ],
-    image: camelSunsetImg,
+    image: preWeddingImg,
   },
   {
     id: "desert-festival",
