@@ -306,6 +306,7 @@ export const menuData: MenuCategory[] = [
       { name: "Rajasthani Spl. Thali", price: "₹650", desc: "(Complete meal platter: 3 Veg curries, Dal, Rice, Chapati, Papad, Sweet)" },
       { name: "Marwadi Spl. Thali", price: "₹850", desc: "(Grand meal platter: 4 Veg curries, Dal, Rice, Chapati, Salad, Sweet, Papad)" },
       { name: "Jaisalmer Spl. Thali", price: "₹1100", desc: "(Premium platter: Desert Beans, Gatta Curry, Dal Tadka, Jeera Rice, Butter Paneer, Jaisalmer Special Lassi, Green Salad, Traditional Sweet, Fried Papad, Mix Veg, Butter Chapati)" },
+      { name: "The Big Tree Special Thali", price: "₹1300", desc: "(Signature platter: Dal Baati Churma, Lahsun & Tomato Chutney, Fried Green Chilli, Ker Sangri, Gatte ki Sabzi, Gawar Phali ki Sabji, Mango Pickle, Special Lassi, Veg Pulao, Papad)" },
     ],
   },
 ];
