@@ -73,7 +73,12 @@ export function useScrollReveal<T extends HTMLElement = HTMLDivElement>(
 ) {
   const ref = useRef<T>(null);
   const [isVisible, setIsVisible] = useState(false);
+  const [hasHydrated, setHasHydrated] = useState(false);
   const { threshold = 0.12, rootMargin = "0px 0px -40px 0px", once = true } = options || {};
+
+  useEffect(() => {
+    setHasHydrated(true);
+  }, []);
 
   useEffect(() => {
     const el = ref.current;
@@ -98,13 +103,17 @@ export function useScrollReveal<T extends HTMLElement = HTMLDivElement>(
   const transforms = TRANSFORM_MAP[variant];
   const isBlur = variant === "blur-in";
 
-  const style: React.CSSProperties = {
-    opacity: isVisible ? 1 : 0,
-    transform: isVisible ? transforms.to : transforms.from,
-    filter: isBlur ? (isVisible ? "blur(0px)" : "blur(8px)") : undefined,
-    transition: `opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1) ${delay}s, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1) ${delay}s${isBlur ? `, filter 0.8s cubic-bezier(0.16, 1, 0.3, 1) ${delay}s` : ""}`,
-    willChange: "opacity, transform",
-  };
+  // Before JS hydrates, content is fully visible (SEO-friendly).
+  // After hydration, animations kick in.
+  const style: React.CSSProperties = !hasHydrated
+    ? {}
+    : {
+        opacity: isVisible ? 1 : 0,
+        transform: isVisible ? transforms.to : transforms.from,
+        filter: isBlur ? (isVisible ? "blur(0px)" : "blur(8px)") : undefined,
+        transition: `opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1) ${delay}s, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1) ${delay}s${isBlur ? `, filter 0.8s cubic-bezier(0.16, 1, 0.3, 1) ${delay}s` : ""}`,
+        willChange: "opacity, transform",
+      };
 
   return { ref, style, isVisible };
 }
