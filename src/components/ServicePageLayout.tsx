@@ -138,17 +138,27 @@ const ServicePageLayout = ({
                     <span className="font-display text-xl font-bold text-foreground">₹{activity.price.toLocaleString("en-IN")}</span>
                     <span className="font-body text-xs text-muted-foreground"> {activity.priceLabel}</span>
                   </div>
-                  <Button
-                    onClick={() => {
-                      setBookingActivity(activity);
-                      resetForm();
-                      setGuests(activity.minPeople || 1);
-                    }}
-                    size="sm"
-                    className="rounded-xl font-body text-xs"
-                  >
-                    Book Now
-                  </Button>
+                  <div className="flex items-center gap-2">
+                    <Button
+                      onClick={() => {
+                        setBookingActivity(activity);
+                        resetForm();
+                        setGuests(activity.minPeople || 1);
+                      }}
+                      size="sm"
+                      className="rounded-xl font-body text-xs"
+                    >
+                      Book Now
+                    </Button>
+                    <a
+                      href="tel:7038712305"
+                      onClick={(e) => e.stopPropagation()}
+                      className="h-9 w-9 rounded-xl bg-green-600 hover:bg-green-700 text-white flex items-center justify-center transition-colors"
+                      title="Call Now"
+                    >
+                      <Phone className="h-4 w-4" />
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>

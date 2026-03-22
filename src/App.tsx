@@ -4,6 +4,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import WhatsAppButton from "@/components/WhatsAppButton";
 
 const Index = lazy(() => import("./pages/Index"));
 const DesertSafari = lazy(() => import("./pages/DesertSafari"));
@@ -14,7 +15,6 @@ const ExoticTours = lazy(() => import("./pages/ExoticTours"));
 const SpecialEvents = lazy(() => import("./pages/SpecialEvents"));
 const HotelRooms = lazy(() => import("./pages/HotelRooms"));
 const NotFound = lazy(() => import("./pages/NotFound"));
-
 
 const queryClient = new QueryClient();
 
@@ -34,10 +34,10 @@ const App = () => (
             <Route path="/exotic-tours" element={<ExoticTours />} />
             <Route path="/special-events" element={<SpecialEvents />} />
             <Route path="/hotel-rooms" element={<HotelRooms />} />
-            
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Suspense>
+        <WhatsAppButton />
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
