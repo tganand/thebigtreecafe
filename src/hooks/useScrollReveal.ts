@@ -150,8 +150,16 @@ export function useStaggerReveal(
     return () => observer.disconnect();
   }, [threshold, rootMargin, once]);
 
+  const [hasHydrated, setHasHydrated] = useState(false);
+
+  useEffect(() => {
+    setHasHydrated(true);
+  }, []);
+
   const getItemStyle = useCallback(
     (index: number): React.CSSProperties => {
+      if (!hasHydrated) return {};
+
       const transforms = TRANSFORM_MAP[variant];
       const delay = baseDelay + index * stagger;
       const isBlur = variant === "blur-in";
@@ -164,7 +172,7 @@ export function useStaggerReveal(
         willChange: "opacity, transform",
       };
     },
-    [isVisible, variant, baseDelay, stagger]
+    [hasHydrated, isVisible, variant, baseDelay, stagger]
   );
 
   return { containerRef, getItemStyle, isVisible };
