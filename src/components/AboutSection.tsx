@@ -52,12 +52,9 @@ const AboutSection = () => {
           the freshest local ingredients.
         </p>
         <p
+          ref={para3.ref as React.RefObject<HTMLParagraphElement>}
+          style={para3.style}
           className="font-body text-lg text-muted-foreground leading-relaxed"
-          style={{
-            opacity: para3.isVisible ? 1 : 0,
-            transform: para3.isVisible ? "translate3d(0,0,0)" : "translate3d(0,40px,0)",
-            transition: "opacity 0.8s cubic-bezier(0.16,1,0.3,1) 0.55s, transform 0.8s cubic-bezier(0.16,1,0.3,1) 0.55s",
-          }}
         >
           Beyond food, we offer a real Rajasthani experience — breathtaking sunset views from
           our rooftop terrace, live folk music evenings, and the warmest desert hospitality that
