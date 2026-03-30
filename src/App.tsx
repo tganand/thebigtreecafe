@@ -32,22 +32,21 @@ const App = () => {
         <BrowserRouter>
           <Suspense fallback={null}>
             <Routes>
-            <Route path="/" element={<Index />} />
-            <Route path="/desert-safari" element={<DesertSafari />} />
-            <Route path="/desert-camp" element={<DesertCamp />} />
-            <Route path="/adventure" element={<Adventure />} />
-            <Route path="/sightseeing" element={<Sightseeing />} />
-            <Route path="/exotic-tours" element={<ExoticTours />} />
-            <Route path="/special-events" element={<SpecialEvents />} />
-            <Route path="/hotel-rooms" element={<HotelRooms />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </Suspense>
-        <WhatsAppButton />
-      </BrowserRouter>
-    </TooltipProvider>
-    </TooltipProvider>
-  </QueryClientProvider>
+              <Route path="/" element={<Index />} />
+              <Route path="/desert-safari" element={<DesertSafari />} />
+              <Route path="/desert-camp" element={<DesertCamp />} />
+              <Route path="/adventure" element={<Adventure />} />
+              <Route path="/sightseeing" element={<Sightseeing />} />
+              <Route path="/exotic-tours" element={<ExoticTours />} />
+              <Route path="/special-events" element={<SpecialEvents />} />
+              <Route path="/hotel-rooms" element={<HotelRooms />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </Suspense>
+          <WhatsAppButton />
+        </BrowserRouter>
+      </TooltipProvider>
+    </QueryClientProvider>
   );
 };
 
