@@ -46,7 +46,9 @@ const App = () => {
         <WhatsAppButton />
       </BrowserRouter>
     </TooltipProvider>
+    </TooltipProvider>
   </QueryClientProvider>
-);
+  );
+};
 
 export default App;
