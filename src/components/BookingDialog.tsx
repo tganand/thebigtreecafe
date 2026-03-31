@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { CalendarDays, Clock, User, Phone, Minus, Plus, Sparkles } from "lucide-react";
+import { CalendarDays, Clock, User, Phone, Minus, Plus } from "lucide-react";
 import { z } from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -86,35 +86,32 @@ const BookingDialog = ({ open, onOpenChange }: BookingDialogProps) => {
   return (
     <>
       <Dialog open={open} onOpenChange={onOpenChange}>
-        <DialogContent className="sm:max-w-[380px] max-h-[90vh] border-none bg-transparent p-0 shadow-none overflow-hidden [&>button]:hidden">
-          <div className="rounded-3xl overflow-hidden shadow-2xl bg-card border border-border max-h-[85vh] overflow-y-auto">
-            <div className="relative px-6 pt-8 pb-5 text-center bg-primary/5 border-b border-border">
-              <button onClick={() => onOpenChange(false)} className="absolute top-3 right-3 h-8 w-8 rounded-full flex items-center justify-center bg-foreground/5 hover:bg-foreground/10 transition-colors text-muted-foreground hover:text-foreground">✕</button>
-              <div className="inline-flex items-center justify-center h-12 w-12 rounded-full bg-primary/10 mb-3">
-                <Sparkles className="h-5 w-5 text-primary" />
-              </div>
-              <DialogHeader className="space-y-1">
-                <DialogTitle className="font-display text-2xl text-foreground tracking-tight">Reserve a Table</DialogTitle>
-                <DialogDescription className="font-accent text-base text-muted-foreground italic">Your golden evening awaits</DialogDescription>
+        <DialogContent className="sm:max-w-[360px] border-none bg-transparent p-0 shadow-none overflow-hidden [&>button]:hidden">
+          <div className="rounded-2xl overflow-hidden shadow-2xl bg-card border border-border">
+            <div className="relative px-5 pt-5 pb-3 text-center bg-primary/5 border-b border-border">
+              <button onClick={() => onOpenChange(false)} className="absolute top-2 right-2 h-7 w-7 rounded-full flex items-center justify-center bg-foreground/5 hover:bg-foreground/10 transition-colors text-muted-foreground hover:text-foreground text-sm">✕</button>
+              <DialogHeader className="space-y-0.5">
+                <DialogTitle className="font-display text-lg text-foreground tracking-tight">Reserve a Table</DialogTitle>
+                <DialogDescription className="font-accent text-sm text-muted-foreground italic">Your golden evening awaits</DialogDescription>
               </DialogHeader>
             </div>
 
-            <div className="px-6 pb-6 pt-5">
+            <div className="px-5 pb-4 pt-3">
               <Form {...form}>
-                <form onSubmit={form.handleSubmit(onSubmitForm)} className="space-y-4">
+                <form onSubmit={form.handleSubmit(onSubmitForm)} className="space-y-2.5">
                   <FormField control={form.control} name="name" render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="font-body text-xs font-medium text-muted-foreground/80 flex items-center gap-1.5"><User className="h-3.5 w-3.5 text-primary/60" /> Full Name</FormLabel>
-                      <FormControl><Input placeholder="Your name" className="h-11 font-body rounded-xl border-border bg-background/60 focus:border-primary/40" {...field} /></FormControl>
+                      <FormLabel className="font-body text-[11px] font-medium text-muted-foreground/80 flex items-center gap-1"><User className="h-3 w-3 text-primary/60" /> Full Name</FormLabel>
+                      <FormControl><Input placeholder="Your name" className="h-9 font-body text-sm rounded-lg border-border bg-background/60" {...field} /></FormControl>
                       <FormMessage />
                     </FormItem>
                   )} />
 
                   <FormField control={form.control} name="phone" render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="font-body text-xs font-medium text-muted-foreground/80 flex items-center gap-1.5"><Phone className="h-3.5 w-3.5 text-primary/60" /> Phone Number</FormLabel>
+                      <FormLabel className="font-body text-[11px] font-medium text-muted-foreground/80 flex items-center gap-1"><Phone className="h-3 w-3 text-primary/60" /> Phone Number</FormLabel>
                       <FormControl>
-                        <Input placeholder="+91 XXXXX XXXXX" className="h-11 font-body rounded-xl border-border bg-background/60 focus:border-primary/40" {...field}
+                        <Input placeholder="+91 XXXXX XXXXX" className="h-9 font-body text-sm rounded-lg border-border bg-background/60" {...field}
                           onChange={(e) => {
                             let val = e.target.value;
                             if (!val.startsWith("+91")) val = "+91 " + val.replace(/^\+91\s*/, "");
@@ -126,52 +123,49 @@ const BookingDialog = ({ open, onOpenChange }: BookingDialogProps) => {
                     </FormItem>
                   )} />
 
-                  <div className="grid grid-cols-2 gap-3">
+                  <div className="grid grid-cols-2 gap-2">
                     <FormField control={form.control} name="date" render={({ field }) => (
                       <FormItem>
-                        <FormLabel className="font-body text-xs font-medium text-muted-foreground/80 flex items-center gap-1.5"><CalendarDays className="h-3.5 w-3.5 text-primary/60" /> Date</FormLabel>
-                        <FormControl><Input type="date" min={today} className="h-11 font-body text-sm rounded-xl border-border bg-background/60 focus:border-primary/40" {...field} /></FormControl>
+                        <FormLabel className="font-body text-[11px] font-medium text-muted-foreground/80 flex items-center gap-1"><CalendarDays className="h-3 w-3 text-primary/60" /> Date</FormLabel>
+                        <FormControl><Input type="date" min={today} className="h-9 font-body text-xs rounded-lg border-border bg-background/60" {...field} /></FormControl>
                         <FormMessage />
                       </FormItem>
                     )} />
 
                     <FormField control={form.control} name="time" render={({ field }) => (
                       <FormItem>
-                        <FormLabel className="font-body text-xs font-medium text-muted-foreground/80 flex items-center gap-1.5"><Clock className="h-3.5 w-3.5 text-primary/60" /> Time</FormLabel>
+                        <FormLabel className="font-body text-[11px] font-medium text-muted-foreground/80 flex items-center gap-1"><Clock className="h-3 w-3 text-primary/60" /> Time</FormLabel>
                         <Select onValueChange={field.onChange} value={field.value}>
-                          <FormControl><SelectTrigger className="h-11 font-body rounded-xl border-border bg-background/60 focus:border-primary/40"><SelectValue placeholder="Select" /></SelectTrigger></FormControl>
-                          <SelectContent className="rounded-xl">{TIME_SLOTS.map((s) => <SelectItem key={s} value={s}>{s}</SelectItem>)}</SelectContent>
+                          <FormControl><SelectTrigger className="h-9 font-body text-sm rounded-lg border-border bg-background/60"><SelectValue placeholder="Select" /></SelectTrigger></FormControl>
+                          <SelectContent className="rounded-lg">{TIME_SLOTS.map((s) => <SelectItem key={s} value={s}>{s}</SelectItem>)}</SelectContent>
                         </Select>
                         <FormMessage />
                       </FormItem>
                     )} />
                   </div>
 
-                  {/* Guest counter */}
                   <div>
-                    <p className="font-body text-xs font-medium text-muted-foreground/80 mb-2">Number of Guests</p>
-                    <div className="flex items-center justify-between bg-background/60 rounded-xl border border-border px-4 py-2.5">
-                      <button type="button" onClick={() => setGuests(Math.max(1, guests - 1))} className="h-8 w-8 rounded-full bg-primary/10 text-primary flex items-center justify-center hover:bg-primary/20 transition-colors"><Minus className="h-4 w-4" /></button>
-                      <span className="font-display text-lg font-bold text-foreground">{guests} {guests === 1 ? "Guest" : "Guests"}</span>
-                      <button type="button" onClick={() => setGuests(Math.min(20, guests + 1))} className="h-8 w-8 rounded-full bg-primary/10 text-primary flex items-center justify-center hover:bg-primary/20 transition-colors"><Plus className="h-4 w-4" /></button>
+                    <p className="font-body text-[11px] font-medium text-muted-foreground/80 mb-1.5">Number of Guests</p>
+                    <div className="flex items-center justify-between bg-background/60 rounded-lg border border-border px-3 py-1.5">
+                      <button type="button" onClick={() => setGuests(Math.max(1, guests - 1))} className="h-7 w-7 rounded-full bg-primary/10 text-primary flex items-center justify-center hover:bg-primary/20 transition-colors"><Minus className="h-3.5 w-3.5" /></button>
+                      <span className="font-display text-base font-bold text-foreground">{guests} {guests === 1 ? "Guest" : "Guests"}</span>
+                      <button type="button" onClick={() => setGuests(Math.min(20, guests + 1))} className="h-7 w-7 rounded-full bg-primary/10 text-primary flex items-center justify-center hover:bg-primary/20 transition-colors"><Plus className="h-3.5 w-3.5" /></button>
                     </div>
                   </div>
 
-                  {/* Total */}
-                  <div className="bg-primary/5 rounded-xl p-4 text-center border border-primary/10">
-                    <p className="font-body text-xs text-muted-foreground">Total Amount</p>
-                    <p className="font-display text-2xl font-bold text-primary">₹{totalAmount.toLocaleString("en-IN")}</p>
-                    <p className="font-body text-[10px] text-muted-foreground/60">₹{PRICE_PER_PERSON}/person × {guests} guest{guests > 1 ? "s" : ""}</p>
+                  <div className="bg-primary/5 rounded-lg p-2.5 text-center border border-primary/10">
+                    <p className="font-body text-[10px] text-muted-foreground">Total Amount</p>
+                    <p className="font-display text-xl font-bold text-primary">₹{totalAmount.toLocaleString("en-IN")}</p>
+                    <p className="font-body text-[9px] text-muted-foreground/60">₹{PRICE_PER_PERSON}/person × {guests} guest{guests > 1 ? "s" : ""}</p>
                   </div>
 
-                  {/* Important Note */}
-                  <div className="bg-amber-500/10 border border-amber-500/30 rounded-xl p-3 text-center">
-                    <p className="font-body text-[11px] text-amber-700 dark:text-amber-400 leading-relaxed">
-                      📞 After payment, our team will call you to confirm your booking. Please show your payment proof at the counter upon arrival for confirmation.
+                  <div className="bg-amber-500/10 border border-amber-500/30 rounded-lg p-2 text-center">
+                    <p className="font-body text-[10px] text-amber-700 dark:text-amber-400 leading-relaxed">
+                      📞 After payment, our team will call you to confirm your booking. Please show your payment proof at the counter upon arrival.
                     </p>
                   </div>
 
-                  <Button type="submit" disabled={submitting} className="w-full h-12 rounded-xl font-body tracking-wide text-sm">
+                  <Button type="submit" disabled={submitting} className="w-full h-10 rounded-lg font-body tracking-wide text-sm">
                     {submitting ? "Sending..." : "Book Table"}
                   </Button>
                 </form>
