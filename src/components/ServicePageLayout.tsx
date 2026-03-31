@@ -62,15 +62,20 @@ const ServicePageLayout = ({
     }
     setSubmitting(true);
     try {
+      const detailsList = bookingActivity.details.map((d) => `  • ${d}`).join("\n");
       const message =
         `🏜️ <b>New ${bookingType} Booking</b>\n\n` +
-        `<b>Activity:</b> ${bookingActivity.title}\n` +
+        `👤 <b>Customer Details</b>\n` +
         `<b>Name:</b> ${formData.name}\n` +
         `<b>Phone:</b> ${formData.phone}\n` +
         `<b>Date:</b> ${formData.date}\n` +
         (!bookingActivity.fixedPrice ? `<b>Guests:</b> ${guests}\n` : "") +
-        `<b>Price:</b> ₹${bookingActivity.price.toLocaleString("en-IN")} ${bookingActivity.priceLabel}\n` +
-        `<b>Total Amount:</b> ₹${totalAmount.toLocaleString("en-IN")}`;
+        `<b>Total Amount:</b> ₹${totalAmount.toLocaleString("en-IN")}\n\n` +
+        `📋 <b>Service Details</b>\n` +
+        `<b>Service:</b> ${bookingActivity.title}\n` +
+        `<b>Description:</b> ${bookingActivity.description}\n` +
+        `<b>Price:</b> ₹${bookingActivity.price.toLocaleString("en-IN")} ${bookingActivity.priceLabel}\n\n` +
+        `<b>Inclusions:</b>\n${detailsList}`;
       await sendTelegramMessage(message);
     } catch { /* continue */ }
     setPaymentAmount(totalAmount);
