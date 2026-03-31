@@ -164,6 +164,13 @@ const BookingDialog = ({ open, onOpenChange }: BookingDialogProps) => {
                     <p className="font-body text-[10px] text-muted-foreground/60">₹{PRICE_PER_PERSON}/person × {guests} guest{guests > 1 ? "s" : ""}</p>
                   </div>
 
+                  {/* Important Note */}
+                  <div className="bg-amber-500/10 border border-amber-500/30 rounded-xl p-3 text-center">
+                    <p className="font-body text-[11px] text-amber-700 dark:text-amber-400 leading-relaxed">
+                      📞 After payment, our team will call you to confirm your booking. Please show your payment proof at the counter upon arrival for confirmation.
+                    </p>
+                  </div>
+
                   <Button type="submit" disabled={submitting} className="w-full h-12 rounded-xl font-body tracking-wide text-sm">
                     {submitting ? "Sending..." : "Book Table"}
                   </Button>
