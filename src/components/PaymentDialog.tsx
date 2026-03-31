@@ -4,6 +4,9 @@ import { Button } from "@/components/ui/button";
 import { CheckCircle } from "lucide-react";
 import QRCode from "qrcode";
 import { getUpiLink, getGPayLink, getPhonePeLink, getPaytmLink } from "@/lib/payment";
+import gpayLogo from "@/assets/gpay-logo.png";
+import phonepeLogo from "@/assets/phonepe-logo.png";
+import paytmLogo from "@/assets/paytm-logo.png";
 
 interface PaymentDialogProps {
   open: boolean;
@@ -25,9 +28,9 @@ const PaymentDialog = ({ open, onOpenChange, amount, bookingType }: PaymentDialo
   }, [open, amount]);
 
   const paymentOptions = [
-    { id: "gpay", name: "Google Pay", color: "bg-[#4285F4]", textColor: "text-white", getLink: getGPayLink },
-    { id: "phonepe", name: "PhonePe", color: "bg-[#5F259F]", textColor: "text-white", getLink: getPhonePeLink },
-    { id: "paytm", name: "Paytm", color: "bg-[#00BAF2]", textColor: "text-white", getLink: getPaytmLink },
+    { id: "gpay", name: "Google Pay", logo: gpayLogo, getLink: getGPayLink },
+    { id: "phonepe", name: "PhonePe", logo: phonepeLogo, getLink: getPhonePeLink },
+    { id: "paytm", name: "Paytm", logo: paytmLogo, getLink: getPaytmLink },
   ];
 
   const handlePay = () => {
@@ -70,7 +73,7 @@ const PaymentDialog = ({ open, onOpenChange, amount, bookingType }: PaymentDialo
               <div className="flex-1 h-px bg-border" />
             </div>
 
-            {/* Payment options */}
+            {/* Payment options with real logos */}
             <div className="flex gap-3 justify-center">
               {paymentOptions.map((opt) => (
                 <button
@@ -82,14 +85,19 @@ const PaymentDialog = ({ open, onOpenChange, amount, bookingType }: PaymentDialo
                       : "border-border hover:border-primary/40"
                   }`}
                 >
-                  <div className={`w-10 h-10 rounded-lg ${opt.color} ${opt.textColor} flex items-center justify-center mx-auto mb-1.5 font-bold text-[10px] leading-tight`}>
-                    {opt.id === "gpay" && "G Pay"}
-                    {opt.id === "phonepe" && "PhPe"}
-                    {opt.id === "paytm" && "PTM"}
+                  <div className="w-10 h-10 rounded-lg flex items-center justify-center mx-auto mb-1.5 overflow-hidden">
+                    <img src={opt.logo} alt={opt.name} className="w-full h-full object-contain" />
                   </div>
                   <span className="text-foreground">{opt.name}</span>
                 </button>
               ))}
+            </div>
+
+            {/* Important Note */}
+            <div className="bg-amber-500/10 border border-amber-500/30 rounded-xl p-3 text-center">
+              <p className="font-body text-[11px] text-amber-700 dark:text-amber-400 leading-relaxed">
+                📞 After payment, our team will call you to confirm your booking. Please show your payment proof at the counter upon arrival for confirmation.
+              </p>
             </div>
 
             {/* Pay button */}

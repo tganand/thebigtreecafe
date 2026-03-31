@@ -62,15 +62,20 @@ const ServicePageLayout = ({
     }
     setSubmitting(true);
     try {
+      const detailsList = bookingActivity.details.map((d) => `  • ${d}`).join("\n");
       const message =
         `🏜️ <b>New ${bookingType} Booking</b>\n\n` +
-        `<b>Activity:</b> ${bookingActivity.title}\n` +
+        `👤 <b>Customer Details</b>\n` +
         `<b>Name:</b> ${formData.name}\n` +
         `<b>Phone:</b> ${formData.phone}\n` +
         `<b>Date:</b> ${formData.date}\n` +
         (!bookingActivity.fixedPrice ? `<b>Guests:</b> ${guests}\n` : "") +
-        `<b>Price:</b> ₹${bookingActivity.price.toLocaleString("en-IN")} ${bookingActivity.priceLabel}\n` +
-        `<b>Total Amount:</b> ₹${totalAmount.toLocaleString("en-IN")}`;
+        `<b>Total Amount:</b> ₹${totalAmount.toLocaleString("en-IN")}\n\n` +
+        `📋 <b>Service Details</b>\n` +
+        `<b>Service:</b> ${bookingActivity.title}\n` +
+        `<b>Description:</b> ${bookingActivity.description}\n` +
+        `<b>Price:</b> ₹${bookingActivity.price.toLocaleString("en-IN")} ${bookingActivity.priceLabel}\n\n` +
+        `<b>Inclusions:</b>\n${detailsList}`;
       await sendTelegramMessage(message);
     } catch { /* continue */ }
     setPaymentAmount(totalAmount);
@@ -232,6 +237,12 @@ const ServicePageLayout = ({
                     {bookingActivity?.nights ? ` × ${bookingActivity.nights} night${bookingActivity.nights > 1 ? "s" : ""}` : ""}
                   </p>
                 )}
+              </div>
+              {/* Important Note */}
+              <div className="bg-amber-500/10 border border-amber-500/30 rounded-xl p-3 text-center">
+                <p className="font-body text-[11px] text-amber-700 dark:text-amber-400 leading-relaxed">
+                  📞 After payment, our team will call you to confirm your booking. Please show your payment proof at the counter upon arrival for confirmation.
+                </p>
               </div>
               <Button onClick={handleBook} disabled={submitting} className="w-full h-12 rounded-xl font-body tracking-wide text-sm">
                 {submitting ? "Sending..." : "Book Now"}
