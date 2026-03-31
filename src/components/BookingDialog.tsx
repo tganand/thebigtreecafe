@@ -52,13 +52,15 @@ const BookingDialog = ({ open, onOpenChange }: BookingDialogProps) => {
     try {
       const message =
         `🍽️ <b>New Table Reservation</b>\n\n` +
+        `👤 <b>Customer Details</b>\n` +
         `<b>Name:</b> ${data.name}\n` +
         `<b>Phone:</b> ${data.phone}\n` +
         `<b>Date:</b> ${data.date}\n` +
-        `<b>Time:</b> ${data.time}\n` +
+        `<b>Time:</b> ${data.time}\n\n` +
+        `📋 <b>Reservation Details</b>\n` +
         `<b>Guests:</b> ${guests}\n` +
-        `<b>Total Amount:</b> ₹${totalAmount.toLocaleString("en-IN")}\n\n` +
-        `Please confirm and process payment.`;
+        `<b>Price:</b> ₹${PRICE_PER_PERSON}/person × ${guests} guest${guests > 1 ? "s" : ""}\n` +
+        `<b>Total Amount:</b> ₹${totalAmount.toLocaleString("en-IN")}`;
 
       await sendTelegramMessage(message);
       toast({ title: "Booking sent!", description: "Opening payment options..." });
