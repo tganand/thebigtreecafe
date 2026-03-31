@@ -43,8 +43,8 @@ const PaymentDialog = ({ open, onOpenChange, amount, bookingType }: PaymentDialo
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="sm:max-w-[400px] border-none bg-transparent p-0 shadow-none [&>button]:hidden">
-        <div className="rounded-3xl overflow-hidden shadow-2xl bg-card border border-border">
+      <DialogContent className="sm:max-w-[370px] max-h-[90vh] border-none bg-transparent p-0 shadow-none [&>button]:hidden">
+        <div className="rounded-3xl overflow-hidden shadow-2xl bg-card border border-border max-h-[85vh] overflow-y-auto">
           {/* Header */}
           <div className="px-6 pt-7 pb-4 text-center bg-primary/5 border-b border-border">
             <div className="inline-flex items-center justify-center h-10 w-10 rounded-full bg-primary/10 mb-2">
