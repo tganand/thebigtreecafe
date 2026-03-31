@@ -173,21 +173,21 @@ const HotelRooms = () => {
 
       {/* Booking Dialog */}
       <Dialog open={!!bookingRoom} onOpenChange={(v) => !v && setBookingRoom(null)}>
-         <DialogContent className="sm:max-w-[380px] max-h-[90vh] border-none bg-transparent p-0 shadow-none [&>button]:hidden">
-          <div className="rounded-3xl overflow-hidden shadow-2xl bg-card border border-border max-h-[85vh] overflow-y-auto">
-            <div className="relative px-6 pt-7 pb-4 text-center bg-primary/5 border-b border-border">
-              <button onClick={() => setBookingRoom(null)} className="absolute top-3 right-3 h-8 w-8 rounded-full flex items-center justify-center bg-foreground/5 hover:bg-foreground/10 transition-colors text-muted-foreground">✕</button>
-              <h3 className="font-display text-xl font-bold text-foreground">{bookingRoom?.title}</h3>
-              <p className="font-body text-sm text-muted-foreground mt-1">₹{bookingRoom?.price.toLocaleString("en-IN")}/night</p>
+        <DialogContent className="sm:max-w-[360px] border-none bg-transparent p-0 shadow-none [&>button]:hidden">
+          <div className="rounded-2xl overflow-hidden shadow-2xl bg-card border border-border">
+            <div className="relative px-5 pt-5 pb-3 text-center bg-primary/5 border-b border-border">
+              <button onClick={() => setBookingRoom(null)} className="absolute top-2 right-2 h-7 w-7 rounded-full flex items-center justify-center bg-foreground/5 hover:bg-foreground/10 transition-colors text-muted-foreground hover:text-foreground text-sm">✕</button>
+              <h3 className="font-display text-lg font-bold text-foreground">{bookingRoom?.title}</h3>
+              <p className="font-body text-xs text-muted-foreground mt-0.5">₹{bookingRoom?.price.toLocaleString("en-IN")}/night</p>
             </div>
-            <div className="px-6 pb-6 pt-5 space-y-4">
+            <div className="px-5 pb-4 pt-3 space-y-2.5">
               <div>
-                <label className="font-body text-xs font-medium text-muted-foreground/80 flex items-center gap-1.5 mb-1.5"><User className="h-3.5 w-3.5 text-primary/60" /> Full Name</label>
-                <Input placeholder="Your name" className="h-11 rounded-xl border-border" value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} />
+                <label className="font-body text-[11px] font-medium text-muted-foreground/80 flex items-center gap-1 mb-1"><User className="h-3 w-3 text-primary/60" /> Full Name</label>
+                <Input placeholder="Your name" className="h-9 text-sm rounded-lg border-border" value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} />
               </div>
               <div>
-                <label className="font-body text-xs font-medium text-muted-foreground/80 flex items-center gap-1.5 mb-1.5"><Phone className="h-3.5 w-3.5 text-primary/60" /> Phone Number</label>
-                <Input placeholder="+91 XXXXX XXXXX" className="h-11 rounded-xl border-border" value={formData.phone}
+                <label className="font-body text-[11px] font-medium text-muted-foreground/80 flex items-center gap-1 mb-1"><Phone className="h-3 w-3 text-primary/60" /> Phone Number</label>
+                <Input placeholder="+91 XXXXX XXXXX" className="h-9 text-sm rounded-lg border-border" value={formData.phone}
                   onChange={(e) => {
                     let val = e.target.value;
                     if (!val.startsWith("+91")) val = "+91 " + val.replace(/^\+91\s*/, "");
@@ -196,23 +196,28 @@ const HotelRooms = () => {
                 />
               </div>
               <div>
-                <label className="font-body text-xs font-medium text-muted-foreground/80 flex items-center gap-1.5 mb-1.5"><CalendarDays className="h-3.5 w-3.5 text-primary/60" /> Check-in Date</label>
-                <Input type="date" min={today} className="h-11 rounded-xl border-border" value={formData.date} onChange={(e) => setFormData({ ...formData, date: e.target.value })} />
+                <label className="font-body text-[11px] font-medium text-muted-foreground/80 flex items-center gap-1 mb-1"><CalendarDays className="h-3 w-3 text-primary/60" /> Check-in Date</label>
+                <Input type="date" min={today} className="h-9 text-sm rounded-lg border-border" value={formData.date} onChange={(e) => setFormData({ ...formData, date: e.target.value })} />
               </div>
               <div>
-                <p className="font-body text-xs font-medium text-muted-foreground/80 mb-2">Number of Nights</p>
-                <div className="flex items-center justify-between bg-background/60 rounded-xl border border-border px-4 py-2.5">
-                  <button type="button" onClick={() => setGuests(Math.max(1, guests - 1))} className="h-8 w-8 rounded-full bg-primary/10 text-primary flex items-center justify-center hover:bg-primary/20"><Minus className="h-4 w-4" /></button>
-                  <span className="font-display text-lg font-bold text-foreground">{guests} {guests === 1 ? "Night" : "Nights"}</span>
-                  <button type="button" onClick={() => setGuests(Math.min(30, guests + 1))} className="h-8 w-8 rounded-full bg-primary/10 text-primary flex items-center justify-center hover:bg-primary/20"><Plus className="h-4 w-4" /></button>
+                <p className="font-body text-[11px] font-medium text-muted-foreground/80 mb-1.5">Number of Nights</p>
+                <div className="flex items-center justify-between bg-background/60 rounded-lg border border-border px-3 py-1.5">
+                  <button type="button" onClick={() => setGuests(Math.max(1, guests - 1))} className="h-7 w-7 rounded-full bg-primary/10 text-primary flex items-center justify-center hover:bg-primary/20"><Minus className="h-3.5 w-3.5" /></button>
+                  <span className="font-display text-base font-bold text-foreground">{guests} {guests === 1 ? "Night" : "Nights"}</span>
+                  <button type="button" onClick={() => setGuests(Math.min(30, guests + 1))} className="h-7 w-7 rounded-full bg-primary/10 text-primary flex items-center justify-center hover:bg-primary/20"><Plus className="h-3.5 w-3.5" /></button>
                 </div>
               </div>
-              <div className="bg-primary/5 rounded-xl p-4 text-center border border-primary/10">
-                <p className="font-body text-xs text-muted-foreground">Total Amount</p>
-                <p className="font-display text-2xl font-bold text-primary">₹{totalAmount.toLocaleString("en-IN")}</p>
-                <p className="font-body text-[10px] text-muted-foreground/60">₹{bookingRoom?.price.toLocaleString("en-IN")}/night × {guests} night{guests > 1 ? "s" : ""}</p>
+              <div className="bg-primary/5 rounded-lg p-2.5 text-center border border-primary/10">
+                <p className="font-body text-[10px] text-muted-foreground">Total Amount</p>
+                <p className="font-display text-xl font-bold text-primary">₹{totalAmount.toLocaleString("en-IN")}</p>
+                <p className="font-body text-[9px] text-muted-foreground/60">₹{bookingRoom?.price.toLocaleString("en-IN")}/night × {guests} night{guests > 1 ? "s" : ""}</p>
               </div>
-              <Button onClick={handleBook} disabled={submitting} className="w-full h-12 rounded-xl font-body tracking-wide text-sm">
+              <div className="bg-amber-500/10 border border-amber-500/30 rounded-lg p-2 text-center">
+                <p className="font-body text-[10px] text-amber-700 dark:text-amber-400 leading-relaxed">
+                  📞 After payment, our team will call you to confirm. Show payment proof at counter upon arrival.
+                </p>
+              </div>
+              <Button onClick={handleBook} disabled={submitting} className="w-full h-10 rounded-lg font-body tracking-wide text-sm">
                 {submitting ? "Sending..." : "Book Now"}
               </Button>
             </div>
