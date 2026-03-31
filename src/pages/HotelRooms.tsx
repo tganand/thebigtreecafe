@@ -173,8 +173,8 @@ const HotelRooms = () => {
 
       {/* Booking Dialog */}
       <Dialog open={!!bookingRoom} onOpenChange={(v) => !v && setBookingRoom(null)}>
-        <DialogContent className="sm:max-w-[420px] border-none bg-transparent p-0 shadow-none [&>button]:hidden">
-          <div className="rounded-3xl overflow-hidden shadow-2xl bg-card border border-border">
+         <DialogContent className="sm:max-w-[380px] max-h-[90vh] border-none bg-transparent p-0 shadow-none [&>button]:hidden">
+          <div className="rounded-3xl overflow-hidden shadow-2xl bg-card border border-border max-h-[85vh] overflow-y-auto">
             <div className="relative px-6 pt-7 pb-4 text-center bg-primary/5 border-b border-border">
               <button onClick={() => setBookingRoom(null)} className="absolute top-3 right-3 h-8 w-8 rounded-full flex items-center justify-center bg-foreground/5 hover:bg-foreground/10 transition-colors text-muted-foreground">✕</button>
               <h3 className="font-display text-xl font-bold text-foreground">{bookingRoom?.title}</h3>
