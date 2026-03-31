@@ -55,7 +55,9 @@ const PaymentDialog = ({ open, onOpenChange, amount, bookingType }: PaymentDialo
             <p className="font-display text-3xl font-bold text-primary mt-3">₹{amount.toLocaleString("en-IN")}</p>
           </div>
 
-          <div className="px-6 py-5 space-y-5">
+          {/* Close button */}
+          <button onClick={() => onOpenChange(false)} className="absolute top-3 right-3 z-10 h-8 w-8 rounded-full flex items-center justify-center bg-foreground/5 hover:bg-foreground/10 transition-colors text-muted-foreground hover:text-foreground">✕</button>
+          <div className="px-5 py-4 space-y-4">
             {/* QR Code */}
             <div className="text-center">
               <p className="font-body text-xs text-muted-foreground mb-3">Scan QR code to pay via any UPI app</p>
