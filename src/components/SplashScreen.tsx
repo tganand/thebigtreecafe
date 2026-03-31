@@ -37,7 +37,7 @@ const SplashScreen = ({ onComplete }: { onComplete: () => void }) => {
           <motion.img
             src={logo}
             alt="The Big Tree Cafe & Restaurant"
-            className="w-40 h-40 md:w-52 md:h-52 object-contain drop-shadow-2xl"
+            className="w-56 h-56 md:w-72 md:h-72 object-contain drop-shadow-2xl"
             initial={{ opacity: 0, scale: 0.3, rotate: -10 }}
             animate={{
               opacity: 1,
