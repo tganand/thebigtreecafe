@@ -43,10 +43,10 @@ const PaymentDialog = ({ open, onOpenChange, amount, bookingType }: PaymentDialo
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="sm:max-w-[400px] border-none bg-transparent p-0 shadow-none [&>button]:hidden">
-        <div className="rounded-3xl overflow-hidden shadow-2xl bg-card border border-border">
+      <DialogContent className="sm:max-w-[370px] max-h-[90vh] border-none bg-transparent p-0 shadow-none [&>button]:hidden">
+        <div className="rounded-3xl overflow-hidden shadow-2xl bg-card border border-border max-h-[85vh] overflow-y-auto">
           {/* Header */}
-          <div className="px-6 pt-7 pb-4 text-center bg-primary/5 border-b border-border">
+          <div className="relative px-5 pt-6 pb-3 text-center bg-primary/5 border-b border-border">
             <div className="inline-flex items-center justify-center h-10 w-10 rounded-full bg-primary/10 mb-2">
               <CheckCircle className="h-5 w-5 text-primary" />
             </div>
@@ -55,7 +55,9 @@ const PaymentDialog = ({ open, onOpenChange, amount, bookingType }: PaymentDialo
             <p className="font-display text-3xl font-bold text-primary mt-3">₹{amount.toLocaleString("en-IN")}</p>
           </div>
 
-          <div className="px-6 py-5 space-y-5">
+          {/* Close button */}
+          <button onClick={() => onOpenChange(false)} className="absolute top-3 right-3 z-10 h-8 w-8 rounded-full flex items-center justify-center bg-foreground/5 hover:bg-foreground/10 transition-colors text-muted-foreground hover:text-foreground">✕</button>
+          <div className="px-5 py-4 space-y-4">
             {/* QR Code */}
             <div className="text-center">
               <p className="font-body text-xs text-muted-foreground mb-3">Scan QR code to pay via any UPI app</p>

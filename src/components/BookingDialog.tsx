@@ -86,8 +86,8 @@ const BookingDialog = ({ open, onOpenChange }: BookingDialogProps) => {
   return (
     <>
       <Dialog open={open} onOpenChange={onOpenChange}>
-        <DialogContent className="sm:max-w-[420px] border-none bg-transparent p-0 shadow-none overflow-hidden [&>button]:hidden">
-          <div className="rounded-3xl overflow-hidden shadow-2xl bg-card border border-border">
+        <DialogContent className="sm:max-w-[380px] max-h-[90vh] border-none bg-transparent p-0 shadow-none overflow-hidden [&>button]:hidden">
+          <div className="rounded-3xl overflow-hidden shadow-2xl bg-card border border-border max-h-[85vh] overflow-y-auto">
             <div className="relative px-6 pt-8 pb-5 text-center bg-primary/5 border-b border-border">
               <button onClick={() => onOpenChange(false)} className="absolute top-3 right-3 h-8 w-8 rounded-full flex items-center justify-center bg-foreground/5 hover:bg-foreground/10 transition-colors text-muted-foreground hover:text-foreground">✕</button>
               <div className="inline-flex items-center justify-center h-12 w-12 rounded-full bg-primary/10 mb-3">
