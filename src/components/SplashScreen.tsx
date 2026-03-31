@@ -56,7 +56,7 @@ const SplashScreen = ({ onComplete }: { onComplete: () => void }) => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6, duration: 0.5, ease: "easeOut" }}
-            className="font-accent text-sm md:text-base tracking-[0.3em] uppercase mt-4"
+            className="font-accent text-xl md:text-2xl tracking-[0.3em] uppercase mt-6"
             style={{ color: "hsl(38 75% 65%)" }}
           >
             Jaisalmer
