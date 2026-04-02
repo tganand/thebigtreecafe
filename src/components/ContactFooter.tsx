@@ -63,6 +63,17 @@ const Footer = () => {
           </a>
         </div>
 
+        <div className="flex items-center justify-center gap-4 mb-8">
+          <a href="https://www.instagram.com/the_big_tree8505_jaisalmer/" target="_blank" rel="noopener noreferrer"
+            className="h-10 w-10 rounded-full bg-gold-light/[0.08] border border-gold/15 flex items-center justify-center hover:bg-primary/20 hover:border-primary/40 transition-colors">
+            <Instagram className="h-5 w-5 text-gold-light/70 hover:text-primary" />
+          </a>
+          <a href="https://www.facebook.com/profile.php?id=61568547670539" target="_blank" rel="noopener noreferrer"
+            className="h-10 w-10 rounded-full bg-gold-light/[0.08] border border-gold/15 flex items-center justify-center hover:bg-primary/20 hover:border-primary/40 transition-colors">
+            <Facebook className="h-5 w-5 text-gold-light/70 hover:text-primary" />
+          </a>
+        </div>
+
         <div className="pt-8 border-t border-gold/10 text-center">
           <p className="font-body text-[10px] tracking-[0.15em] uppercase text-gold-light/30">
             &copy; {new Date().getFullYear()} The Big Tree Cafe & Restaurant. All rights reserved.
