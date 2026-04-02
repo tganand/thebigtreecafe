@@ -1,4 +1,4 @@
-import { MapPin, Phone, Clock, TreePine, ExternalLink } from "lucide-react";
+import { MapPin, Phone, Clock, TreePine, ExternalLink, Instagram, Facebook } from "lucide-react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const Footer = () => {
