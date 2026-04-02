@@ -72,6 +72,10 @@ const Footer = () => {
             className="h-10 w-10 rounded-full bg-gold-light/[0.08] border border-gold/15 flex items-center justify-center hover:bg-primary/20 hover:border-primary/40 transition-colors">
             <Facebook className="h-5 w-5 text-gold-light/70 hover:text-primary" />
           </a>
+          <a href="https://www.tripadvisor.in/Restaurant_Review-g297667-d25294226-Reviews-The_Big_Tree_Cafe_And_Restaurant-Jaisalmer_Jaisalmer_District_Rajasthan.html" target="_blank" rel="noopener noreferrer"
+            className="h-10 w-10 rounded-full bg-gold-light/[0.08] border border-gold/15 flex items-center justify-center hover:bg-primary/20 hover:border-primary/40 transition-colors">
+            <Star className="h-5 w-5 text-gold-light/70 hover:text-primary" />
+          </a>
         </div>
 
         <div className="pt-8 border-t border-gold/10 text-center">
