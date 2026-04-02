@@ -38,10 +38,7 @@ const Footer = () => {
               <h4 className="font-display text-sm font-semibold text-gold">Call Us</h4>
             </div>
             <div className="font-body text-xs space-y-1.5">
-              <a href="tel:+919610601931" className="block text-gold-light/60 hover:text-primary transition-colors">+91 96106 01931</a>
-              <a href="https://wa.me/916377598501" target="_blank" rel="noopener noreferrer" className="block text-gold-light/60 hover:text-primary transition-colors">
-                +91 63775 98501 <span className="text-gold-light/40">(WhatsApp)</span>
-              </a>
+              <a href="tel:+919251171605" className="block text-gold-light/60 hover:text-primary transition-colors">+91 92511 71605</a>
             </div>
           </div>
 

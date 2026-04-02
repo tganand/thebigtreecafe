@@ -156,7 +156,7 @@ const ServicePageLayout = ({
                       Book Now
                     </Button>
                     <a
-                      href="tel:7038712305"
+                      href="tel:9251171605"
                       onClick={(e) => e.stopPropagation()}
                       className="h-9 w-9 rounded-xl bg-green-600 hover:bg-green-700 text-white flex items-center justify-center transition-colors"
                       title="Call Now"
