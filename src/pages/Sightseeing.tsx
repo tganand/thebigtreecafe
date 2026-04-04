@@ -337,6 +337,7 @@ const Sightseeing = () => (
     heroDescription="Explore the Golden City through walking tours, tuk-tuk rides, bike trips, and multi-day cultural packages."
     activities={activities}
     bookingType="Sightseeing Tour"
+    gallerySlot={<SightseeingGallery />}
   />
 );
 
