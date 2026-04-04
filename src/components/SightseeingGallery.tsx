@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Camera, X } from "lucide-react";
+import { Camera, X, Sparkles, Images } from "lucide-react";
 import {
   DraggableCardBody,
   DraggableCardContainer,
@@ -12,16 +12,14 @@ import img3 from "@/assets/gallery/sightseeing-3.jpg";
 import img4 from "@/assets/gallery/sightseeing-4.jpg";
 import img5 from "@/assets/gallery/sightseeing-5.jpg";
 import img6 from "@/assets/gallery/sightseeing-6.jpg";
-import img7 from "@/assets/gallery/sightseeing-7.jpg";
 
 const items = [
-  { title: "Golden Fort View", image: img1, className: "absolute top-10 left-[20%] rotate-[-5deg]" },
-  { title: "City Heritage", image: img2, className: "absolute top-40 left-[25%] rotate-[-7deg]" },
-  { title: "Desert Landscape", image: img3, className: "absolute top-5 left-[40%] rotate-[8deg]" },
-  { title: "Scenic Beauty", image: img4, className: "absolute top-32 left-[55%] rotate-[10deg]" },
-  { title: "Ancient Temple", image: img5, className: "absolute top-20 right-[35%] rotate-[2deg]" },
-  { title: "Village Life", image: img6, className: "absolute top-24 left-[45%] rotate-[-7deg]" },
-  { title: "Desert Camels", image: img7, className: "absolute top-8 left-[30%] rotate-[4deg]" },
+  { title: "Kuldhara Heritage", image: img1, className: "absolute top-[28%] left-[5%] md:left-[15%] rotate-[-5deg]" },
+  { title: "Ancient Ruins", image: img2, className: "absolute top-[35%] left-[15%] md:left-[25%] rotate-[-7deg]" },
+  { title: "Desert Doorway", image: img3, className: "absolute top-[25%] left-[30%] md:left-[38%] rotate-[8deg]" },
+  { title: "Village Art", image: img4, className: "absolute top-[38%] left-[42%] md:left-[52%] rotate-[5deg]" },
+  { title: "Desert Explorers", image: img5, className: "absolute top-[26%] right-[15%] md:right-[25%] rotate-[2deg]" },
+  { title: "Panoramic Views", image: img6, className: "absolute top-[32%] left-[25%] md:left-[42%] rotate-[-4deg]" },
 ];
 
 const SightseeingGallery = () => {
@@ -29,31 +27,79 @@ const SightseeingGallery = () => {
 
   return (
     <>
-      {/* Attractive CTA Button */}
-      <div className="flex justify-center my-12">
+      {/* Premium CTA Button */}
+      <div className="flex justify-center my-14">
         <motion.button
           onClick={() => setIsOpen(true)}
-          className="group relative overflow-hidden rounded-full px-8 py-4 font-display text-lg font-bold shadow-lg border-2 border-primary/30 bg-gradient-to-r from-primary/90 to-primary text-primary-foreground"
-          whileHover={{ scale: 1.05 }}
+          className="group relative overflow-hidden rounded-2xl cursor-pointer border-0 bg-transparent p-0"
+          whileHover={{ scale: 1.03 }}
           whileTap={{ scale: 0.97 }}
-          animate={{
-            boxShadow: [
-              "0 0 0 0 hsla(var(--primary), 0.4)",
-              "0 0 0 12px hsla(var(--primary), 0)",
-              "0 0 0 0 hsla(var(--primary), 0)",
-            ],
-          }}
-          transition={{
-            boxShadow: { duration: 2, repeat: Infinity, ease: "easeInOut" },
-          }}
         >
-          <span className="relative z-10 flex items-center gap-3">
-            <Camera className="h-5 w-5" />
-            Explore Sightseeing Gallery
-          </span>
+          {/* Animated glow border */}
           <motion.div
-            className="absolute inset-0 bg-gradient-to-r from-primary to-accent opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+            className="absolute -inset-[2px] rounded-2xl opacity-75 blur-sm"
+            style={{
+              background: "linear-gradient(135deg, hsl(var(--primary)), hsl(var(--gold, 43 96% 56%)), hsl(var(--primary)))",
+            }}
+            animate={{
+              background: [
+                "linear-gradient(0deg, hsl(var(--primary)), hsl(43 96% 56%), hsl(var(--primary)))",
+                "linear-gradient(120deg, hsl(var(--primary)), hsl(43 96% 56%), hsl(var(--primary)))",
+                "linear-gradient(240deg, hsl(var(--primary)), hsl(43 96% 56%), hsl(var(--primary)))",
+                "linear-gradient(360deg, hsl(var(--primary)), hsl(43 96% 56%), hsl(var(--primary)))",
+              ],
+            }}
+            transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
           />
+          
+          {/* Outer pulsing ring */}
+          <motion.div
+            className="absolute -inset-3 rounded-3xl border-2 border-primary/30"
+            animate={{
+              scale: [1, 1.08, 1],
+              opacity: [0.5, 0, 0.5],
+            }}
+            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+          />
+
+          {/* Inner card */}
+          <div className="relative flex items-center gap-4 rounded-2xl bg-card px-8 py-5 md:px-10 md:py-6 shadow-xl border border-border/50">
+            {/* Icon container */}
+            <div className="relative flex items-center justify-center">
+              <motion.div
+                className="absolute inset-0 rounded-full bg-primary/20 blur-md"
+                animate={{ scale: [1, 1.3, 1], opacity: [0.5, 0.8, 0.5] }}
+                transition={{ duration: 2, repeat: Infinity }}
+              />
+              <div className="relative h-12 w-12 rounded-full bg-gradient-to-br from-primary to-primary/70 flex items-center justify-center shadow-lg">
+                <Images className="h-6 w-6 text-primary-foreground" />
+              </div>
+            </div>
+
+            {/* Text */}
+            <div className="text-left">
+              <div className="flex items-center gap-2">
+                <span className="font-display text-lg md:text-xl font-bold text-foreground">
+                  Explore Gallery
+                </span>
+                <Sparkles className="h-4 w-4 text-primary animate-pulse" />
+              </div>
+              <p className="font-body text-xs md:text-sm text-muted-foreground">
+                See real moments from our sightseeing tours
+              </p>
+            </div>
+
+            {/* Arrow */}
+            <motion.div
+              className="ml-2 text-primary"
+              animate={{ x: [0, 6, 0] }}
+              transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+            >
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </motion.div>
+          </div>
         </motion.button>
       </div>
 
@@ -69,19 +115,23 @@ const SightseeingGallery = () => {
             {/* Close Button */}
             <button
               onClick={() => setIsOpen(false)}
-              className="absolute top-4 right-4 z-[110] p-2 rounded-full bg-muted hover:bg-muted/80 transition-colors"
+              className="absolute top-4 right-4 z-[110] p-2.5 rounded-full bg-muted hover:bg-muted/80 transition-colors"
             >
               <X className="h-6 w-6 text-foreground" />
             </button>
 
-            <DraggableCardContainer className="flex-1 flex items-center justify-center overflow-hidden">
-              <p className="absolute top-8 left-0 right-0 text-center font-display text-3xl md:text-5xl font-bold text-foreground z-10">
+            {/* Title area - above the cards */}
+            <div className="pt-6 pb-2 px-4 text-center z-20 relative">
+              <h2 className="font-display text-3xl md:text-5xl font-bold text-foreground">
                 Jaisalmer Sightseeing
-              </p>
-              <p className="absolute top-20 md:top-24 left-0 right-0 text-center font-body text-sm md:text-base text-muted-foreground z-10 px-4">
+              </h2>
+              <p className="font-body text-sm md:text-base text-muted-foreground mt-2">
                 Drag the cards around — explore Jaisalmer where every journey becomes a story.
               </p>
+            </div>
 
+            {/* Cards area - takes remaining space */}
+            <DraggableCardContainer className="flex-1 relative overflow-hidden">
               {items.map((item) => (
                 <DraggableCardBody key={item.title} className={item.className}>
                   <img
