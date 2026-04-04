@@ -1,5 +1,6 @@
 import { MapPin } from "lucide-react";
 import ServicePageLayout, { ServiceActivity } from "@/components/ServicePageLayout";
+import SightseeingGallery from "@/components/SightseeingGallery";
 import sightseeingImg from "@/assets/activities/sightseeing.jpg";
 import jaisalmerWalkImg from "@/assets/activities/jaisalmer-walk.jpg";
 import shoppingImg from "@/assets/activities/shopping-jaisalmer.jpg";
@@ -336,6 +337,7 @@ const Sightseeing = () => (
     heroDescription="Explore the Golden City through walking tours, tuk-tuk rides, bike trips, and multi-day cultural packages."
     activities={activities}
     bookingType="Sightseeing Tour"
+    gallerySlot={<SightseeingGallery />}
   />
 );
 

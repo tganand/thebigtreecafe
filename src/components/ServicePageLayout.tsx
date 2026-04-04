@@ -31,10 +31,11 @@ interface Props {
   heroDescription: string;
   activities: ServiceActivity[];
   bookingType: string;
+  gallerySlot?: React.ReactNode;
 }
 
 const ServicePageLayout = ({
-  icon, navTitle, heroImage, heroSubtitle, heroTitle, heroDescription, activities, bookingType,
+  icon, navTitle, heroImage, heroSubtitle, heroTitle, heroDescription, activities, bookingType, gallerySlot,
 }: Props) => {
   const navigate = useNavigate();
   useEffect(() => { window.scrollTo(0, 0); }, []);
@@ -169,6 +170,7 @@ const ServicePageLayout = ({
             </div>
           ))}
         </div>
+        {gallerySlot}
       </div>
 
       <Dialog open={!!bookingActivity} onOpenChange={(v) => !v && setBookingActivity(null)}>
