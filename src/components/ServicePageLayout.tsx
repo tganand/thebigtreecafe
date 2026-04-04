@@ -170,6 +170,7 @@ const ServicePageLayout = ({
             </div>
           ))}
         </div>
+        {gallerySlot}
       </div>
 
       <Dialog open={!!bookingActivity} onOpenChange={(v) => !v && setBookingActivity(null)}>
