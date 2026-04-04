@@ -35,7 +35,7 @@ interface Props {
 }
 
 const ServicePageLayout = ({
-  icon, navTitle, heroImage, heroSubtitle, heroTitle, heroDescription, activities, bookingType,
+  icon, navTitle, heroImage, heroSubtitle, heroTitle, heroDescription, activities, bookingType, gallerySlot,
 }: Props) => {
   const navigate = useNavigate();
   useEffect(() => { window.scrollTo(0, 0); }, []);
