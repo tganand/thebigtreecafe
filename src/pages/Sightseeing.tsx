@@ -1,5 +1,6 @@
 import { MapPin } from "lucide-react";
 import ServicePageLayout, { ServiceActivity } from "@/components/ServicePageLayout";
+import SightseeingGallery from "@/components/SightseeingGallery";
 import sightseeingImg from "@/assets/activities/sightseeing.jpg";
 import jaisalmerWalkImg from "@/assets/activities/jaisalmer-walk.jpg";
 import shoppingImg from "@/assets/activities/shopping-jaisalmer.jpg";
