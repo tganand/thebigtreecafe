@@ -31,6 +31,7 @@ interface Props {
   heroDescription: string;
   activities: ServiceActivity[];
   bookingType: string;
+  gallerySlot?: React.ReactNode;
 }
 
 const ServicePageLayout = ({
