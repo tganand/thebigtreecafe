@@ -14,7 +14,7 @@ Deno.serve(async (req) => {
       throw new Error('TELEGRAM_BOT_TOKEN is not configured');
     }
 
-    const CHAT_ID = '7719238333';
+    const CHAT_ID = '8770781618';
     const { message } = await req.json();
 
     if (!message || typeof message !== 'string') {
