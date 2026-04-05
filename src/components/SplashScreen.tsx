@@ -26,7 +26,6 @@ const SplashScreen = ({ onComplete }: { onComplete: () => void }) => {
       >
         {/* Dark overlay for readability */}
         <div className="absolute inset-0 bg-black/50" />
-      >
         {/* Radial glow */}
         <motion.div
           initial={{ opacity: 0, scale: 0.5 }}
