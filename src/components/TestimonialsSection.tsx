@@ -19,11 +19,14 @@ const testimonials = [
   { name: "Wendysue Burton", stars: 5, text: "This café serves the most delicious and authentic dishes. Dilip's recommendations were a treat." },
   { name: "Arshia Gupta", stars: 4, text: "The atmosphere was amazing, the view impeccable, and the owner friendly. The drinks were average, but it's a great place to sit and enjoy the vibe." },
   { name: "Ujjwal Choudhary", stars: 5, text: "Big Tree Café is an absolute gem. The ambiance is vibrant and relaxing. The experience was exceptional thanks to the warm hospitality." },
+  { name: "Isaac Moore", stars: 5, text: "Had an amazing experience here! It's a lovely family-run restaurant with such a warm and welcoming atmosphere. The staff were incredibly kind and friendly, which made us feel right at home. The food was all vegetarian but the flavours were unreal. Very well priced for the quality. What really made it special was the stunning view over the city especially during sunset. Highly recommend!" },
+  { name: "Naomi Moore", stars: 5, text: "The Big Tree Cafe is a lovely little gem! Family run by a lovely gentleman and his sons. There is a little wait for the food as it is all cooked fresh to order, and is amazing!! Genuine home cooking and totally worth the little wait. The view is also amazing, and the service was lovely and so warm. They showed us the best spot to see the sunset. Would highly recommend!" },
 ];
 
-const firstColumn = testimonials.slice(0, 5);
-const secondColumn = testimonials.slice(5, 10);
-const thirdColumn = testimonials.slice(10, 15);
+const colSize = Math.ceil(testimonials.length / 3);
+const firstColumn = testimonials.slice(0, colSize);
+const secondColumn = testimonials.slice(colSize, colSize * 2);
+const thirdColumn = testimonials.slice(colSize * 2);
 
 const avatarColors = [
   "bg-primary/20 text-primary",
