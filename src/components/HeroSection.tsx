@@ -12,7 +12,7 @@ const Navbar = () => {
       <div className="container mx-auto px-6 py-4 flex items-center justify-between">
         <a href="/" className="flex items-center gap-2">
           <TreePine className="h-6 w-6 text-gold" />
-          <span className="font-display text-lg md:text-xl font-bold text-gold leading-tight">The Big Tree Cafe & Restaurant</span>
+          <span className="font-cursive text-lg md:text-xl font-bold text-gold leading-tight">The Big Tree Cafe & Restaurant</span>
         </a>
         <div className="hidden md:flex items-center gap-8">
           {[

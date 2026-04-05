@@ -70,6 +70,7 @@ export default {
         display: ['Playfair Display', 'serif'],
         accent: ['Cormorant Garamond', 'serif'],
         body: ['Lato', 'sans-serif'],
+        cursive: ['Dancing Script', 'cursive'],
       },
       borderRadius: {
         lg: "var(--radius)",
