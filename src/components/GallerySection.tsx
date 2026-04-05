@@ -5,6 +5,8 @@ import gallery2 from "@/assets/gallery-2.jpg";
 import gallery3 from "@/assets/gallery-3.jpg";
 import gallery4 from "@/assets/gallery-4.jpg";
 import gallery5 from "@/assets/gallery-5.jpg";
+import gallery6 from "@/assets/gallery-6.jpg";
+import gallery7 from "@/assets/gallery-7.jpg";
 
 const BASE_IMAGES = [
   { src: gallery1, alt: "Pasta with Jaisalmer fort view" },
@@ -12,6 +14,8 @@ const BASE_IMAGES = [
   { src: gallery3, alt: "Guests enjoying sunset at the terrace" },
   { src: gallery4, alt: "Chai with a view of Jaisalmer" },
   { src: gallery5, alt: "Rooftop dining area with fort view" },
+  { src: gallery6, alt: "Moonlit dinner on the rooftop" },
+  { src: gallery7, alt: "Couple enjoying candlelit dinner" },
 ];
 
 // Triple the images for infinite loop illusion
