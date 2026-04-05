@@ -5,14 +5,20 @@ import cafe3 from "@/assets/cafe-3.png";
 import cafe4 from "@/assets/cafe-4.png";
 import cafe5 from "@/assets/cafe-5.png";
 import cafe6 from "@/assets/cafe-6.png";
+import cafe7 from "@/assets/cafe-7.jpg";
+import cafe8 from "@/assets/cafe-8.jpg";
+import cafe9 from "@/assets/cafe-9.jpg";
 
 const cafeImages = [
   { src: cafe1, alt: "Guest enjoying thali with a view", caption: "Rooftop Dining" },
   { src: cafe6, alt: "Colorful cushions with city panorama", caption: "Chill Corners" },
   { src: cafe2, alt: "Panoramic rooftop seating area", caption: "Panoramic Views" },
+  { src: cafe7, alt: "Family celebration with city night view", caption: "Family Moments" },
   { src: cafe5, alt: "Jaisalmer fort golden hour view", caption: "Fort Views" },
   { src: cafe4, alt: "Guest in traditional attire at the cafe", caption: "Cultural Vibes" },
+  { src: cafe8, alt: "Group photo with guests at night", caption: "Happy Guests" },
   { src: cafe3, alt: "Sunset from the cafe terrace", caption: "Golden Sunsets" },
+  { src: cafe9, alt: "Twilight terrace with panoramic desert view", caption: "Twilight Views" },
 ];
 
 const CafeVibesSection = () => {
