@@ -24,7 +24,7 @@ const FeaturedInSection = () => {
             Le Routard Travel Guide
           </h2>
           <p className="font-body text-sm md:text-base text-muted-foreground max-w-xl mx-auto">
-            Recognized by France's most iconic travel guidebook — Le Routard recommends The Big Tree Café for its stunning views, warm hospitality, and authentic cuisine.
+            Recognized by France's most iconic travel guidebook — Le Routard recommends The Big Tree Café on <span className="font-semibold text-primary">page 340</span> for its stunning views, warm hospitality, and authentic cuisine.
           </p>
           <div className="w-16 h-0.5 bg-primary mx-auto mt-4" />
         </div>

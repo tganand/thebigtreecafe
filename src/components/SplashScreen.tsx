@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import logo from "@/assets/logo.png";
+import splashBg from "@/assets/splash-bg.png";
 
 const SplashScreen = ({ onComplete }: { onComplete: () => void }) => {
   const [phase, setPhase] = useState<"enter" | "hold" | "exit">("enter");
@@ -21,8 +22,10 @@ const SplashScreen = ({ onComplete }: { onComplete: () => void }) => {
         animate={phase === "exit" ? { opacity: 0, scale: 1.1 } : { opacity: 1 }}
         transition={{ duration: 0.8, ease: "easeInOut" }}
         className="fixed inset-0 z-[9999] flex items-center justify-center"
-        style={{ background: "linear-gradient(135deg, hsl(20 35% 7%) 0%, hsl(20 30% 12%) 100%)" }}
+        style={{ background: `url(${splashBg}) center/cover no-repeat` }}
       >
+        {/* Dark overlay for readability */}
+        <div className="absolute inset-0 bg-black/50" />
         {/* Radial glow */}
         <motion.div
           initial={{ opacity: 0, scale: 0.5 }}
