@@ -21,6 +21,18 @@ const testimonials = [
   { name: "Ujjwal Choudhary", stars: 5, text: "Big Tree Café is an absolute gem. The ambiance is vibrant and relaxing. The experience was exceptional thanks to the warm hospitality." },
   { name: "Isaac Moore", stars: 5, text: "Had an amazing experience here! It's a lovely family-run restaurant with such a warm and welcoming atmosphere. The staff were incredibly kind and friendly, which made us feel right at home. The food was all vegetarian but the flavours were unreal. Very well priced for the quality. What really made it special was the stunning view over the city especially during sunset. Highly recommend!" },
   { name: "Naomi Moore", stars: 5, text: "The Big Tree Cafe is a lovely little gem! Family run by a lovely gentleman and his sons. There is a little wait for the food as it is all cooked fresh to order, and is amazing!! Genuine home cooking and totally worth the little wait. The view is also amazing, and the service was lovely and so warm. They showed us the best spot to see the sunset. Would highly recommend!" },
+  { name: "Fabiano Medeiros Magalhaes", stars: 5, text: "o melhor por do Sol do mundo, excelente café e ótimo atendimento, garçom de primeira qualidade, sorbha kumar" },
+  { name: "しゅきこれたん", stars: 5, text: "おいしかったし小さい子供がお手伝いしててめっちゃ可愛かった！オレンジジュースが破格のおいしさ！" },
+  { name: "Louis Yanchal", stars: 5, text: "店員さんもフレンドリーで食事も美味しく景色もよく、とてもリラックスして過ごせました\nひとりでインドに来て不安ですがここなら安心です。" },
+  { name: "Marzena Sztuka", stars: 5, text: "Miejsce magiczne- bardzo dobre jedzenie; smaki , zapachy, kolory i pièkne widoki" },
+  { name: "Marcin Drągowski", stars: 5, text: "Super miejsce, polecam. Można pojeść lokalnych potraw i poczuć cudowny klimat i spotkać się z życzliwością 😊" },
+  { name: "Monika Drągowska", stars: 5, text: "Wspaniale miejsce, żeby zjeść lokalnie, zrelaksować się i poczu chillout. Gorąco polecam 😍🥰" },
+  { name: "Mateusz Jaśkiewicz", stars: 5, text: "Uwielbiam tu wracać. Świetna kuchnia, piękny widok oraz wspaniali właściciele i obsługa ❤️ do zobaczenia!" },
+  { name: "H T", stars: 5, text: "景色良かったです。\n日本語喋れる人で楽しかったです！" },
+  { name: "Alexia Ruiz", stars: 5, text: "Très bons moments dans ce petit café où l'on peut avoir une vue extraordinaire et un coucher de soleil magnifique. De plus c'est très bon et les propriétaires sont adorables, mention spécial au petit garçon qui sert les clients et qui est vraiment un rayon de soleil ☀️" },
+  { name: "Julia Sander", stars: 5, text: "Wir haben uns sehr willkommen hier gefühlt.. Der Besitzer ist wirklich sehr höflich und auch sein Neffe macht super Service. Das Essen hat auch echt lecker geschmeckt und man sitzt sehr sehr gemütlich und hat einen tollen Blick." },
+  { name: "You Naga", stars: 5, text: "とても眺めがよく気持ちいい場所でした。店主の方は、大変優しくしてくれて感謝でいっぱいです。ジャイサルメールをまた訪れたいと思いました。" },
+  { name: "Ambre D'Hervilly", stars: 5, text: "Super vue sur la ville de nuit, le coucher du soleil doit probablement y être incroyable. Nous avons dîner ici et c'était très bon, bien que le service était un peu long." },
 ];
 
 const colSize = Math.ceil(testimonials.length / 3);

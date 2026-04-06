@@ -11,6 +11,7 @@ const SpecialSection = lazy(() => import("@/components/SpecialSection"));
 const FeaturedInSection = lazy(() => import("@/components/FeaturedInSection"));
 const CafeVibesSection = lazy(() => import("@/components/CafeVibesSection"));
 const ServicesSection = lazy(() => import("@/components/ServicesSection"));
+const WorkawaySection = lazy(() => import("@/components/WorkawaySection"));
 const Footer = lazy(() =>
   import("@/components/ContactFooter").then((m) => ({ default: m.Footer }))
 );
@@ -42,6 +43,7 @@ const Index = () => {
           <TestimonialsSection />
           <FeaturedInSection />
           <ServicesSection />
+          <WorkawaySection />
         </Suspense>
       </main>
       <Suspense fallback={null}>
