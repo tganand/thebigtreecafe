@@ -43,6 +43,7 @@ const Index = () => {
           <TestimonialsSection />
           <FeaturedInSection />
           <ServicesSection />
+          <WorkawaySection />
         </Suspense>
       </main>
       <Suspense fallback={null}>
