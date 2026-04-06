@@ -34,6 +34,16 @@ const AboutSection = () => {
           style={para2.style}
           className="font-body text-lg text-muted-foreground leading-relaxed mb-6"
         >
+          The Big Tree Cafe & Restaurant is a popular cafe in Jaisalmer located near Jaisalmer Fort.
+          Known as one of the best cafes in Jaisalmer, we offer delicious food, a peaceful atmosphere,
+          and beautiful rooftop views. Whether you are looking for a cafe in Jaisalmer or a restaurant
+          near Jaisalmer Fort, we provide a great experience for tourists and locals alike.
+        </p>
+        <p
+          ref={para2.ref as React.RefObject<HTMLParagraphElement>}
+          style={para2.style}
+          className="font-body text-lg text-muted-foreground leading-relaxed mb-6"
+        >
           Nestled in the heart of Jaisalmer's majestic Golden Fort, The Big Tree Cafe & Restaurant
           sits beneath a centuries-old tree that has witnessed the ebb and flow of desert life.
           Our café is a haven where travelers and locals come together to share stories over

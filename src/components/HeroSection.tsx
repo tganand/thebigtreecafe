@@ -71,7 +71,7 @@ const HeroSection = () => {
     <section id="home" className="relative h-screen flex items-center justify-center overflow-hidden">
       <img
         src={heroBg}
-        alt="The Big Tree Cafe & Restaurant ambiance in Jaisalmer"
+        alt="Best cafe in Jaisalmer rooftop view at The Big Tree Cafe & Restaurant"
         className="absolute inset-0 w-full h-full object-cover"
         loading="eager"
         fetchPriority="high"
@@ -88,7 +88,10 @@ const HeroSection = () => {
         <h1 ref={heading.ref as React.RefObject<HTMLHeadingElement>} style={heading.style} className="font-display text-5xl md:text-7xl lg:text-8xl font-bold text-gold-light mb-6 leading-tight">
           The Big Tree<br />Cafe & Restaurant
         </h1>
-        <p ref={desc.ref as React.RefObject<HTMLParagraphElement>} style={desc.style} className="font-accent text-xl md:text-2xl text-gold-light/80 max-w-xl mx-auto mb-8">
+        <p ref={desc.ref as React.RefObject<HTMLParagraphElement>} style={desc.style} className="font-accent text-xl md:text-2xl text-gold-light/80 max-w-xl mx-auto mb-4">
+          Best Cafe and Restaurant in Jaisalmer
+        </p>
+        <p ref={desc.ref as React.RefObject<HTMLParagraphElement>} style={desc.style} className="font-accent text-base md:text-lg text-gold-light/60 max-w-lg mx-auto mb-8">
           Authentic Rajasthani flavors under the golden desert sky
         </p>
         <div ref={buttons.ref} style={buttons.style} className="flex flex-col sm:flex-row items-center justify-center gap-4">
