@@ -58,14 +58,6 @@ const services = [
     link: "/special-events",
     buttonText: "View Events",
   },
-  {
-    title: "Heritage Rooms",
-    subtitle: "Stay in the Golden Fort",
-    description: "Rest in beautifully appointed rooms with traditional Rajasthani décor, fort views, and warm hospitality.",
-    image: hotelRoomImg,
-    link: "/hotel-rooms",
-    buttonText: "View Rooms",
-  },
 ];
 
 const ServicesSection = () => {
