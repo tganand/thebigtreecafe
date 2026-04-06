@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import desertSafariImg from "@/assets/services/desert-safari.jpg";
-import hotelRoomImg from "@/assets/services/hotel-room.jpg";
+
 import desertCampImg from "@/assets/activities/desert-camp.jpg";
 import adventureImg from "@/assets/activities/adventure.jpg";
 import sightseeingImg from "@/assets/activities/sightseeing.jpg";
@@ -57,14 +57,6 @@ const services = [
     image: specialEventsImg,
     link: "/special-events",
     buttonText: "View Events",
-  },
-  {
-    title: "Heritage Rooms",
-    subtitle: "Stay in the Golden Fort",
-    description: "Rest in beautifully appointed rooms with traditional Rajasthani décor, fort views, and warm hospitality.",
-    image: hotelRoomImg,
-    link: "/hotel-rooms",
-    buttonText: "View Rooms",
   },
 ];
 
