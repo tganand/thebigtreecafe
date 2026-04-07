@@ -3,7 +3,7 @@ import { motion } from "motion/react";
 import { Star } from "lucide-react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
-const testimonials = [
+const localTestimonials = [
   { name: "Burner", stars: 5, text: "This chow mein was an absolute delight. The noodles were stir-fried to perfection with a lovely smoky aroma, and each bite was packed with flavor. The vegetables were crisp and fresh, and the seasoning was excellent." },
   { name: "Julie Baxter", stars: 5, text: "Great little rooftop café. Gorgeous sunset views, friendly service, and delicious, freshly prepared thali. Only drawback is the multitude of people that come just for the sunset and take a million selfies." },
   { name: "Rebecca K", stars: 5, text: "Really tasty food and friendly service. You can sit in the shade with AC and enjoy an amazing view of the desert. We came here multiple times during our stay in Fort Jaisalmer. Highly recommend!" },
@@ -21,6 +21,9 @@ const testimonials = [
   { name: "Ujjwal Choudhary", stars: 5, text: "Big Tree Café is an absolute gem. The ambiance is vibrant and relaxing. The experience was exceptional thanks to the warm hospitality." },
   { name: "Isaac Moore", stars: 5, text: "Had an amazing experience here! It's a lovely family-run restaurant with such a warm and welcoming atmosphere. The staff were incredibly kind and friendly, which made us feel right at home. The food was all vegetarian but the flavours were unreal. Very well priced for the quality. What really made it special was the stunning view over the city especially during sunset. Highly recommend!" },
   { name: "Naomi Moore", stars: 5, text: "The Big Tree Cafe is a lovely little gem! Family run by a lovely gentleman and his sons. There is a little wait for the food as it is all cooked fresh to order, and is amazing!! Genuine home cooking and totally worth the little wait. The view is also amazing, and the service was lovely and so warm. They showed us the best spot to see the sunset. Would highly recommend!" },
+];
+
+const internationalTestimonials = [
   { name: "Fabiano Medeiros Magalhaes", stars: 5, text: "o melhor por do Sol do mundo, excelente café e ótimo atendimento, garçom de primeira qualidade, sorbha kumar" },
   { name: "しゅきこれたん", stars: 5, text: "おいしかったし小さい子供がお手伝いしててめっちゃ可愛かった！オレンジジュースが破格のおいしさ！" },
   { name: "Louis Yanchal", stars: 5, text: "店員さんもフレンドリーで食事も美味しく景色もよく、とてもリラックスして過ごせました\nひとりでインドに来て不安ですがここなら安心です。" },
@@ -34,6 +37,22 @@ const testimonials = [
   { name: "You Naga", stars: 5, text: "とても眺めがよく気持ちいい場所でした。店主の方は、大変優しくしてくれて感謝でいっぱいです。ジャイサルメールをまた訪れたいと思いました。" },
   { name: "Ambre D'Hervilly", stars: 5, text: "Super vue sur la ville de nuit, le coucher du soleil doit probablement y être incroyable. Nous avons dîner ici et c'était très bon, bien que le service était un peu long." },
 ];
+
+const buildReviewMix = (local: typeof localTestimonials, international: typeof internationalTestimonials) => {
+  const totalSlots = 30;
+
+  return Array.from({ length: totalSlots }, (_, index) => {
+    const isInternationalSlot = index % 10 < 7;
+
+    if (isInternationalSlot) {
+      return international[index % international.length];
+    }
+
+    return local[index % local.length];
+  });
+};
+
+const testimonials = buildReviewMix(localTestimonials, internationalTestimonials);
 
 const colSize = Math.ceil(testimonials.length / 3);
 const firstColumn = testimonials.slice(0, colSize);
