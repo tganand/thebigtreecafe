@@ -1,20 +1,20 @@
 import { PartyPopper } from "lucide-react";
 import ServicePageLayout, { ServiceActivity } from "@/components/ServicePageLayout";
-import specialEventsImg from "@/assets/activities/special-events.jpg";
-import dinnerDunesImg from "@/assets/activities/dinner-dunes.jpg";
-import camelSunsetImg from "@/assets/activities/camel-sunset.jpg";
-import gadisarLakeImg from "@/assets/activities/gadisar-lake.jpg";
-import culturalDanceImg from "@/assets/activities/cultural-dance.jpg";
-import holiFestivalImg from "@/assets/activities/holi-festival.jpg";
-import newYearDesertImg from "@/assets/activities/new-year-desert.jpg";
-import newYearSamImg from "@/assets/activities/new-year-sam.jpg";
-import diwaliDesertImg from "@/assets/activities/diwali-desert.jpg";
-import preWeddingImg from "@/assets/activities/pre-wedding-shoot.jpg";
-import newYearJaisalmerImg from "@/assets/activities/new-year-jaisalmer.jpg";
-import honeymoonDunesImg from "@/assets/activities/honeymoon-dunes.jpg";
-import honeymoonJaisalmerImg from "@/assets/activities/honeymoon-jaisalmer.jpg";
-import luxuryNightImg from "@/assets/activities/luxury-night-dunes.jpg";
-import christmasDunesImg from "@/assets/activities/christmas-dunes.jpg";
+import specialEventsImg from "@/assets/activities/special-events.webp";
+import dinnerDunesImg from "@/assets/activities/dinner-dunes.webp";
+import camelSunsetImg from "@/assets/activities/camel-sunset.webp";
+import gadisarLakeImg from "@/assets/activities/gadisar-lake.webp";
+import culturalDanceImg from "@/assets/activities/cultural-dance.webp";
+import holiFestivalImg from "@/assets/activities/holi-festival.webp";
+import newYearDesertImg from "@/assets/activities/new-year-desert.webp";
+import newYearSamImg from "@/assets/activities/new-year-sam.webp";
+import diwaliDesertImg from "@/assets/activities/diwali-desert.webp";
+import preWeddingImg from "@/assets/activities/pre-wedding-shoot.webp";
+import newYearJaisalmerImg from "@/assets/activities/new-year-jaisalmer.webp";
+import honeymoonDunesImg from "@/assets/activities/honeymoon-dunes.webp";
+import honeymoonJaisalmerImg from "@/assets/activities/honeymoon-jaisalmer.webp";
+import luxuryNightImg from "@/assets/activities/luxury-night-dunes.webp";
+import christmasDunesImg from "@/assets/activities/christmas-dunes.webp";
 
 const activities: ServiceActivity[] = [
   {

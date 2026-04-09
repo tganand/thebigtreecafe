@@ -1,9 +1,9 @@
 import { Tent } from "lucide-react";
 import ServicePageLayout, { ServiceActivity } from "@/components/ServicePageLayout";
-import desertCampImg from "@/assets/activities/desert-camp.jpg";
-import luxuryCampImg from "@/assets/activities/luxury-camp.jpg";
-import desertNightCampImg from "@/assets/activities/desert-night-camp.jpg";
-import specialEventsImg from "@/assets/activities/special-events.jpg";
+import desertCampImg from "@/assets/activities/desert-camp.webp";
+import luxuryCampImg from "@/assets/activities/luxury-camp.webp";
+import desertNightCampImg from "@/assets/activities/desert-night-camp.webp";
+import specialEventsImg from "@/assets/activities/special-events.webp";
 
 const activities: ServiceActivity[] = [
   {

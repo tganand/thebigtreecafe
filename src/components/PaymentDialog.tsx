@@ -3,9 +3,9 @@ import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import QRCode from "qrcode";
 import { getUpiLink, getGPayLink, getPhonePeLink, getPaytmLink } from "@/lib/payment";
-import gpayLogo from "@/assets/gpay-logo.png";
-import phonepeLogo from "@/assets/phonepe-logo.png";
-import paytmLogo from "@/assets/paytm-logo.png";
+import gpayLogo from "@/assets/gpay-logo.webp";
+import phonepeLogo from "@/assets/phonepe-logo.webp";
+import paytmLogo from "@/assets/paytm-logo.webp";
 
 interface PaymentDialogProps {
   open: boolean;

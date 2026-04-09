@@ -1,13 +1,13 @@
 import { useNavigate } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
-import desertSafariImg from "@/assets/services/desert-safari.jpg";
+import desertSafariImg from "@/assets/services/desert-safari.webp";
 
-import desertCampImg from "@/assets/activities/desert-camp.jpg";
-import adventureImg from "@/assets/activities/adventure.jpg";
-import sightseeingImg from "@/assets/activities/sightseeing.jpg";
-import exoticToursImg from "@/assets/activities/exotic-tours.jpg";
-import specialEventsImg from "@/assets/activities/special-events.jpg";
+import desertCampImg from "@/assets/activities/desert-camp.webp";
+import adventureImg from "@/assets/activities/adventure.webp";
+import sightseeingImg from "@/assets/activities/sightseeing.webp";
+import exoticToursImg from "@/assets/activities/exotic-tours.webp";
+import specialEventsImg from "@/assets/activities/special-events.webp";
 
 const services = [
   {

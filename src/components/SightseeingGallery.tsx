@@ -1,12 +1,12 @@
 import { useEffect, useRef, useState } from "react";
 import { Camera } from "lucide-react";
 
-import img1 from "@/assets/gallery/sightseeing-1.jpg";
-import img2 from "@/assets/gallery/sightseeing-2.jpg";
-import img3 from "@/assets/gallery/sightseeing-3.jpg";
-import img4 from "@/assets/gallery/sightseeing-4.jpg";
-import img5 from "@/assets/gallery/sightseeing-5.jpg";
-import img6 from "@/assets/gallery/sightseeing-6.jpg";
+import img1 from "@/assets/gallery/sightseeing-1.webp";
+import img2 from "@/assets/gallery/sightseeing-2.webp";
+import img3 from "@/assets/gallery/sightseeing-3.webp";
+import img4 from "@/assets/gallery/sightseeing-4.webp";
+import img5 from "@/assets/gallery/sightseeing-5.webp";
+import img6 from "@/assets/gallery/sightseeing-6.webp";
 
 const galleryImages = [
   { src: img1, alt: "Tourists reading Kuldhara heritage sign", caption: "Kuldhara Heritage" },

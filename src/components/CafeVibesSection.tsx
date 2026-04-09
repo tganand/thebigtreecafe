@@ -1,13 +1,13 @@
 import { useEffect, useRef, useState } from "react";
-import cafe1 from "@/assets/cafe-1.jpg";
-import cafe2 from "@/assets/cafe-2.png";
-import cafe3 from "@/assets/cafe-3.png";
-import cafe4 from "@/assets/cafe-4.png";
-import cafe5 from "@/assets/cafe-5.png";
-import cafe6 from "@/assets/cafe-6.png";
-import cafe7 from "@/assets/cafe-7.jpg";
-import cafe8 from "@/assets/cafe-8.jpg";
-import cafe9 from "@/assets/cafe-9.jpg";
+import cafe1 from "@/assets/cafe-1.webp";
+import cafe2 from "@/assets/cafe-2.webp";
+import cafe3 from "@/assets/cafe-3.webp";
+import cafe4 from "@/assets/cafe-4.webp";
+import cafe5 from "@/assets/cafe-5.webp";
+import cafe6 from "@/assets/cafe-6.webp";
+import cafe7 from "@/assets/cafe-7.webp";
+import cafe8 from "@/assets/cafe-8.webp";
+import cafe9 from "@/assets/cafe-9.webp";
 
 const cafeImages = [
   { src: cafe1, alt: "Guest enjoying thali with a view", caption: "Rooftop Dining" },

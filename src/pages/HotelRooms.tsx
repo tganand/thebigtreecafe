@@ -8,10 +8,10 @@ import { toast } from "@/hooks/use-toast";
 import { sendTelegramMessage } from "@/lib/telegram";
 import PaymentDialog from "@/components/PaymentDialog";
 
-import heritageImg from "@/assets/rooms/heritage-room.jpg";
-import desertViewImg from "@/assets/rooms/desert-view.jpg";
-import royalSuiteImg from "@/assets/rooms/royal-suite.jpg";
-import familyRoomImg from "@/assets/rooms/family-room.jpg";
+import heritageImg from "@/assets/rooms/heritage-room.webp";
+import desertViewImg from "@/assets/rooms/desert-view.webp";
+import royalSuiteImg from "@/assets/rooms/royal-suite.webp";
+import familyRoomImg from "@/assets/rooms/family-room.webp";
 
 const featureIcons: Record<string, React.ElementType> = {
   "WiFi": Wifi, "AC": Wind, "Breakfast": Coffee, "Desert View": Eye, "Fort View": Eye,

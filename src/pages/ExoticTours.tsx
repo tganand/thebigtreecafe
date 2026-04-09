@@ -1,19 +1,19 @@
 import { Compass } from "lucide-react";
 import ServicePageLayout, { ServiceActivity } from "@/components/ServicePageLayout";
-import exoticToursImg from "@/assets/activities/exotic-tours.jpg";
-import breakfastPeacocksImg from "@/assets/activities/breakfast-peacocks.jpg";
-import culinaryTourImg from "@/assets/activities/culinary-tour.jpg";
-import jaisalmerFortImg from "@/assets/activities/jaisalmer-fort.jpg";
-import desertNightCampImg from "@/assets/activities/desert-night-camp.jpg";
-import templeTrailImg from "@/assets/activities/temple-trail.jpg";
-import villageTourImg from "@/assets/activities/village-tour.jpg";
-import desertNationalParkImg from "@/assets/activities/desert-national-park.jpg";
-import akalFossilParkImg from "@/assets/activities/akal-fossil-park.jpg";
-import ecoFarmStayImg from "@/assets/activities/eco-farm-stay.jpg";
-import dekhoJaisalmerImg from "@/assets/activities/dekho-jaisalmer.jpg";
-import ghumoJaisalmerImg from "@/assets/activities/ghumo-jaisalmer.jpg";
-import jaisalmerWalkImg from "@/assets/activities/jaisalmer-walk.jpg";
-import jewelsImg from "@/assets/activities/jewels-jaisalmer.jpg";
+import exoticToursImg from "@/assets/activities/exotic-tours.webp";
+import breakfastPeacocksImg from "@/assets/activities/breakfast-peacocks.webp";
+import culinaryTourImg from "@/assets/activities/culinary-tour.webp";
+import jaisalmerFortImg from "@/assets/activities/jaisalmer-fort.webp";
+import desertNightCampImg from "@/assets/activities/desert-night-camp.webp";
+import templeTrailImg from "@/assets/activities/temple-trail.webp";
+import villageTourImg from "@/assets/activities/village-tour.webp";
+import desertNationalParkImg from "@/assets/activities/desert-national-park.webp";
+import akalFossilParkImg from "@/assets/activities/akal-fossil-park.webp";
+import ecoFarmStayImg from "@/assets/activities/eco-farm-stay.webp";
+import dekhoJaisalmerImg from "@/assets/activities/dekho-jaisalmer.webp";
+import ghumoJaisalmerImg from "@/assets/activities/ghumo-jaisalmer.webp";
+import jaisalmerWalkImg from "@/assets/activities/jaisalmer-walk.webp";
+import jewelsImg from "@/assets/activities/jewels-jaisalmer.webp";
 
 const activities: ServiceActivity[] = [
   {
