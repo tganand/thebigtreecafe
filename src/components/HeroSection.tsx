@@ -1,5 +1,5 @@
 import { useState } from "react";
-const heroBg = "/hero-bg.jpg";
+const heroBg = "/hero-bg.webp";
 import { TreePine, Menu, X } from "lucide-react";
 import BookingDialog from "@/components/BookingDialog";
 import { useScrollReveal } from "@/hooks/useScrollReveal";

@@ -1,23 +1,23 @@
 import { MapPin } from "lucide-react";
 import ServicePageLayout, { ServiceActivity } from "@/components/ServicePageLayout";
 import SightseeingGallery from "@/components/SightseeingGallery";
-import sightseeingImg from "@/assets/activities/sightseeing.jpg";
-import jaisalmerWalkImg from "@/assets/activities/jaisalmer-walk.jpg";
-import shoppingImg from "@/assets/activities/shopping-jaisalmer.jpg";
-import eveningLakeImg from "@/assets/activities/evening-lake.jpg";
-import jewelsImg from "@/assets/activities/jewels-jaisalmer.jpg";
-import padharoImg from "@/assets/activities/padharo-cultural.jpg";
-import indoPakImg from "@/assets/activities/indo-pak-border.jpg";
-import tukTukSunsetImg from "@/assets/activities/tuk-tuk-sunset.jpg";
-import cyclingImg from "@/assets/activities/cycling-jaisalmer.jpg";
-import scootyImg from "@/assets/activities/scooty-jaisalmer.jpg";
-import bikeTripImg from "@/assets/activities/bike-trip-jaisalmer.jpg";
-import jaisalmerFortImg from "@/assets/activities/jaisalmer-fort.jpg";
-import tukTukImg from "@/assets/activities/tuk-tuk.jpg";
-import bulletRideImg from "@/assets/activities/bullet-ride.jpg";
-import culturalDanceImg from "@/assets/activities/cultural-dance.jpg";
-import dekhoJaisalmerImg from "@/assets/activities/dekho-jaisalmer.jpg";
-import ghumoJaisalmerImg from "@/assets/activities/ghumo-jaisalmer.jpg";
+import sightseeingImg from "@/assets/activities/sightseeing.webp";
+import jaisalmerWalkImg from "@/assets/activities/jaisalmer-walk.webp";
+import shoppingImg from "@/assets/activities/shopping-jaisalmer.webp";
+import eveningLakeImg from "@/assets/activities/evening-lake.webp";
+import jewelsImg from "@/assets/activities/jewels-jaisalmer.webp";
+import padharoImg from "@/assets/activities/padharo-cultural.webp";
+import indoPakImg from "@/assets/activities/indo-pak-border.webp";
+import tukTukSunsetImg from "@/assets/activities/tuk-tuk-sunset.webp";
+import cyclingImg from "@/assets/activities/cycling-jaisalmer.webp";
+import scootyImg from "@/assets/activities/scooty-jaisalmer.webp";
+import bikeTripImg from "@/assets/activities/bike-trip-jaisalmer.webp";
+import jaisalmerFortImg from "@/assets/activities/jaisalmer-fort.webp";
+import tukTukImg from "@/assets/activities/tuk-tuk.webp";
+import bulletRideImg from "@/assets/activities/bullet-ride.webp";
+import culturalDanceImg from "@/assets/activities/cultural-dance.webp";
+import dekhoJaisalmerImg from "@/assets/activities/dekho-jaisalmer.webp";
+import ghumoJaisalmerImg from "@/assets/activities/ghumo-jaisalmer.webp";
 
 const activities: ServiceActivity[] = [
   {

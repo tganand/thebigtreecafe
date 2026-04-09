@@ -1,6 +1,6 @@
 import { useScrollReveal } from "@/hooks/useScrollReveal";
-import routardCover from "@/assets/routard-cover.png";
-import routardReview from "@/assets/routard-review.jpeg";
+import routardCover from "@/assets/routard-cover.webp";
+import routardReview from "@/assets/routard-review.webp";
 import { BookOpen, ArrowRight } from "lucide-react";
 
 const FeaturedInSection = () => {
