@@ -1,3 +1,4 @@
+import { MapPin, Phone, Clock, UtensilsCrossed } from "lucide-react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const AboutSection = () => {
@@ -6,6 +7,7 @@ const AboutSection = () => {
   const para1 = useScrollReveal("fade-up", 0.25);
   const para2 = useScrollReveal("fade-up", 0.4);
   const para3 = useScrollReveal("fade-up", 0.55);
+  const info = useScrollReveal("fade-up", 0.65);
 
   return (
     <section id="about" className="py-24 bg-sand-gradient">
@@ -72,6 +74,60 @@ const AboutSection = () => {
           a royal dinner under the stars, The Big Tree promises an unforgettable taste of Rajasthan's
           Golden City.
         </p>
+
+        {/* SEO-rich visible info block */}
+        <div
+          ref={info.ref}
+          style={info.style}
+          className="mt-16 grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-3xl mx-auto text-left"
+        >
+          <div className="rounded-2xl bg-card border border-border p-6">
+            <div className="flex items-center gap-2 mb-3">
+              <MapPin className="h-5 w-5 text-primary" />
+              <h3 className="font-display text-lg font-semibold text-foreground">Location &amp; Address</h3>
+            </div>
+            <p className="font-body text-sm text-muted-foreground leading-relaxed">
+              The Big Tree Cafe and Restaurant is located near Jain Temples, Khejer Para,
+              Manak Chowk, Dhoondha Para, Jaisalmer, Rajasthan 345001, India.
+              We are situated inside the famous Jaisalmer Fort with stunning rooftop desert views.
+            </p>
+          </div>
+
+          <div className="rounded-2xl bg-card border border-border p-6">
+            <div className="flex items-center gap-2 mb-3">
+              <Clock className="h-5 w-5 text-primary" />
+              <h3 className="font-display text-lg font-semibold text-foreground">Opening Hours</h3>
+            </div>
+            <p className="font-body text-sm text-muted-foreground leading-relaxed">
+              Open every day, Monday to Sunday, from 6:00 AM to 11:00 PM.
+              Whether you want an early morning chai or a late dinner under the stars, we are here for you.
+            </p>
+          </div>
+
+          <div className="rounded-2xl bg-card border border-border p-6">
+            <div className="flex items-center gap-2 mb-3">
+              <Phone className="h-5 w-5 text-primary" />
+              <h3 className="font-display text-lg font-semibold text-foreground">Contact Us</h3>
+            </div>
+            <p className="font-body text-sm text-muted-foreground leading-relaxed">
+              Call or WhatsApp us at{" "}
+              <a href="tel:+919251171605" className="text-primary hover:underline">+91 92511 71605</a>.
+              Book a table, ask about our menu, or plan your visit to the best cafe in Jaisalmer.
+            </p>
+          </div>
+
+          <div className="rounded-2xl bg-card border border-border p-6">
+            <div className="flex items-center gap-2 mb-3">
+              <UtensilsCrossed className="h-5 w-5 text-primary" />
+              <h3 className="font-display text-lg font-semibold text-foreground">Menu Highlights</h3>
+            </div>
+            <p className="font-body text-sm text-muted-foreground leading-relaxed">
+              Our menu features authentic Rajasthani thali, dal baati churma, laal maas, ker sangri,
+              gatte ki sabzi, masala chai, fresh juices, wood-fired pizzas, pasta, pancakes, sandwiches,
+              and a variety of Indian &amp; continental dishes — all freshly prepared with local ingredients.
+            </p>
+          </div>
+        </div>
       </div>
     </section>
   );
