@@ -99,7 +99,7 @@ const AboutSection = () => {
               <h3 className="font-display text-lg font-semibold text-foreground">Opening Hours</h3>
             </div>
             <p className="font-body text-sm text-muted-foreground leading-relaxed">
-              Open every day, Monday to Sunday, from 6:00 AM to 11:00 PM.
+              Our The big tree cafe and resturant Open every day, Monday to Sunday, from 6:00 AM to 11:00 PM.
               Whether you want an early morning chai or a late dinner under the stars, we are here for you.
             </p>
           </div>
