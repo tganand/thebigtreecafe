@@ -27,7 +27,7 @@ export const menuData: MenuCategory[] = [
       { name: "Masala Tea", price: "₹100", desc: "(Indian spiced tea with milk, ginger, cardamom & spices)" },
       { name: "Cup Milk Coffee", price: "₹100", desc: "(Hot coffee made with milk and sugar)" },
       { name: "Pot Black Tea", price: "₹200", desc: "(Large pot of plain black tea — serves 2-3 cups)" },
-      { name: "Cup Black Coffee", price: "₹50", desc: "(Plain black coffee without milk)" },
+      { name: "Cup Black Coffee", price: "₹100", desc: "(Plain black coffee without milk)" },
       { name: "Pot Black Coffee", price: "₹250", desc: "(Large pot of black coffee — serves 2-3 cups)" },
       { name: "Pot Milk Tea", price: "₹300", desc: "(Large pot of Indian milk tea — serves 2-3 cups)" },
       { name: "Hot Milk (Glass)", price: "₹150", desc: "(Warm milk served in a glass)" },
